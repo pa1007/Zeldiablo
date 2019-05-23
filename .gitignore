@@ -1,0 +1,16 @@
+.idea
+*.class
+*.iml
+out/
+
+*.bat
+*.tcp
+*.tps
+
+.metadata
+.classpath
+.settings
+.project
+bin/
+
+.DS_Store
