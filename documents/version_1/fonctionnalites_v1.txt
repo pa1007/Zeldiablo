@@ -1,0 +1,21 @@
+﻿* Fonctionnalités version 1
+
+- fonctionnalité 1 : seDeplacer
+- descriptif texte : Pouvoir déplacer le personnage dans les 4 directions 
+- critères de validation :
+	- critère 1 pas dans un mur
+	- critère 2 dans toutes les direction 
+    	- critère 3 1/1 case (pas de diagonal) 
+
+- fonctionnalité 2 : Creation du labyrinth 
+- descriptif texte : Crée le labyrinth
+- critères de validation :
+	- critère 1 Conforme
+	- critère 2 Entrée / sortie ?
+	- critère 3 Au moins un chemin (Si sortie) 	
+	
+- fonctionnalité 3 : Affichage du labyrinth ?
+- descriptif texte : Affichage du labyrinth et dif cases
+- critères de validation :
+	- critère 1 Rapide
+	- critère 2 Fidel au labyrinth
