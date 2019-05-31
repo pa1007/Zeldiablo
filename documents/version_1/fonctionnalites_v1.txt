@@ -31,8 +31,7 @@
 - fonctionnalité 5 : Déplacer un personnage
 - descriptif texte : Pouvoir déplacer le personnage dans les 4 directions du labyrinthe
 - critères de validation :
-	- critère 1 Dans la limite de la taille du labyrinthe
-	- critère 2 Dans toutes les direction 
-    	- critère 3 1 case par 1 case
-	- critère 4 Pas de diagonale
+	- critère 1 Dans toutes les direction
+    - critère 2 1 case par 1 case
+	- critère 3 Pas de diagonale
 -Responsable : louppe7u
