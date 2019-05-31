@@ -1,3 +1,5 @@
+package jeu;
+
 import utils.Place;
 
 public class Personnage {
