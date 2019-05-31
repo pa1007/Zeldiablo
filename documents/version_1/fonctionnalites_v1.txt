@@ -3,23 +3,28 @@
 - fonctionnalité 1 : Creation d'une case
 - descriptif texte : Création d'une classe case
 - critères de validation :
-	- critère 1 La case a deux entiers x et y
+	- critère 1 La Case a une Place
 
-- fonctionnalité 2 : Création du labyrinthe
+- fonctionnalité 2 : Création de Place
+- descriptif texte : Création de la classe Place
+- critères de validation :
+	- critère 1 Deux entiers x et y compris entre 0 et 19
+
+- fonctionnalité 3 : Création du labyrinthe
 - descriptif texte : Création de la classe labyrinthe
 - critères de validation :
 	- critère 1 Liste de case (100)
-	- critère 2 Taille fixe (10,10)
+	- critère 2 Taille fixe (20,20)
 	- critère 3 Contient un personnage (premiere case (0,0))
 
-- fonctionnalité 3 : Création du personnage
+- fonctionnalité 4 : Création du personnage
 - descriptif texte : Création d'une classe personnage
 - critères de validation :
 	- critère 1 Nom
-	- critère 2 Deux entiers x et y de position
+	- critère 2 Le Personnage a une Place
 	- critère 3 Un personnage est situé dans un labyrinthe
 
-- fonctionnalité 4 : Déplacer un personnage
+- fonctionnalité 5 : Déplacer un personnage
 - descriptif texte : Pouvoir déplacer le personnage dans les 4 directions du labyrinthe
 - critères de validation :
 	- critère 1 Dans la limite de la taille du labyrinthe
