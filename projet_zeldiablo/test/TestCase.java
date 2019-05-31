@@ -78,4 +78,19 @@ public class TestCase {
 
         // Verification
     }
+
+    @Test(expected = CaseException.class)
+    /**
+     * Test création de Case Constructeur avec
+     * une Place null
+     */
+    public void testConstructeurCaseAvecPlaceNull() {
+        // Preparation des donnees
+        Place pl = null;
+
+        // Methode testee
+        Case c = new Case(pl);
+
+        // Verification
+    }
 }

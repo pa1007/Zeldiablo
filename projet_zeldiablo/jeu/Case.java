@@ -14,7 +14,7 @@ public class Case {
      * @param pl Place
      */
     public Case(Place pl) {
-        if(pl.getX() >= 0 && pl.getY() >= 0 && pl.getX() < 20 && pl.getY() < 20) {
+        if(pl != null && pl.getX() >= 0 && pl.getY() >= 0 && pl.getX() < 20 && pl.getY() < 20) {
             this.pl = pl;
         } else {
             throw new CaseException("0 <= (X,Y) < 20");
