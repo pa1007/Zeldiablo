@@ -13,6 +13,8 @@ public class Place {
     private int y;
 
     /**
+     * Permet de crée une place, <strong>ne verifie pas si la place est valide </strong>
+     *
      * @param x La coordonnée en X
      * @param y La coordonnée en Y
      */
