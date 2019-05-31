@@ -1,21 +1,28 @@
-﻿* Fonctionnalités version 1
+* Fonctionnalités version 1
 
-- fonctionnalité 1 : seDeplacer
-- descriptif texte : Pouvoir déplacer le personnage dans les 4 directions 
+- fonctionnalité 1 : Creation d'une case
+- descriptif texte : Création d'une classe case
 - critères de validation :
-	- critère 1 pas dans un mur
-	- critère 2 dans toutes les direction 
-    	- critère 3 1/1 case (pas de diagonal) 
+	- critère 1 La case a deux entiers x et y
 
-- fonctionnalité 2 : Creation du labyrinthe
-- descriptif texte : Crée le labyrinthe
+- fonctionnalité 2 : Création du labyrinthe
+- descriptif texte : Création de la classe labyrinthe
 - critères de validation :
-	- critère 1 Conforme
-	- critère 2 Entrée / sortie ?
-	- critère 3 Au moins un chemin (Si sortie) 	
-	
-- fonctionnalité 3 : Affichage du labyrinthe ?
-- descriptif texte : Affichage du labyrinthe et dif cases
+	- critère 1 Liste de case (100)
+	- critère 2 Taille fixe (10,10)
+	- critère 3 Contient un personnage (premiere case (0,0))
+
+- fonctionnalité 3 : Création du personnage
+- descriptif texte : Création d'une classe personnage
 - critères de validation :
-	- critère 1 Rapide
-	- critère 2 Fidel au labyrinthe
+	- critère 1 Nom
+	- critère 2 Deux entiers x et y de position
+	- critère 3 Un personnage est situé dans un labyrinthe
+
+- fonctionnalité 4 : Déplacer un personnage
+- descriptif texte : Pouvoir déplacer le personnage dans les 4 directions du labyrinthe
+- critères de validation :
+	- critère 1 Dans la limite de la taille du labyrinthe
+	- critère 2 Dans toutes les direction 
+    	- critère 3 1 case par 1 case
+	- critère 4 Pas de diagonale
