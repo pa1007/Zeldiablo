@@ -54,5 +54,11 @@ public class Personnage {
         }
     }
 
+    public String getNom() {
+        return nom;
+    }
 
+    public Place getPosition() {
+        return position;
+    }
 }
