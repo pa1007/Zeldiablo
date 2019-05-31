@@ -9,6 +9,8 @@
 - descriptif texte : Création de la classe Place
 - critères de validation :
 	- critère 1 Deux entiers x et y compris entre 0 et 19
+-Responsable : fourrie15u
+
 
 - fonctionnalité 3 : Création du labyrinthe
 - descriptif texte : Création de la classe labyrinthe
