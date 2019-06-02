@@ -7,15 +7,15 @@ public class Case {
     /**
      * Place associée à la case
      */
-    private Place pl;
+    private Place place;
 
     /**
      * Constructeur de Case à partir d'une Place
-     * @param pl Place
+     * @param place Place
      */
-    public Case(Place pl) {
-        if(pl != null && pl.getX() >= 0 && pl.getY() >= 0 && pl.getX() < 20 && pl.getY() < 20) {
-            this.pl = pl;
+    public Case(Place place) {
+        if(place != null && place.getX() >= 0 && place.getY() >= 0 && place.getX() < 20 && place.getY() < 20) {
+            this.place = place;
         } else {
             throw new CaseException("0 <= (X,Y) < 20");
         }
@@ -28,7 +28,7 @@ public class Case {
      */
     public Case(int x, int y) {
         if(x >= 0 && y >= 0 && x < 20 && y < 20) {
-            this.pl = new Place(x, y);
+            this.place = new Place(x, y);
         } else {
             throw new CaseException("0 <= (X,Y) < 20");
         }
@@ -38,7 +38,7 @@ public class Case {
      * Getter de la place
      * @return place
      */
-    public Place getPl() {
-        return pl;
+    public Place getPlace() {
+        return place;
     }
 }

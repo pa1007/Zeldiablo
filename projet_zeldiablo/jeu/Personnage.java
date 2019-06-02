@@ -7,20 +7,21 @@ public class Personnage {
     /**
      * Attribut prive qui correspond au nom du personnage
      */
-    private String nom;
+    private final String nom;
 
     /**
      * Attribut de type Place qui permet de connaitre la position du personnage
      */
-    private Place position;
+    private final Place position;
 
 
     /**
      * Constructeur qui cree un personnage avec un nom est une position
-     * @param n nom du personnage
+     *
+     * @param n        nom du personnage
      * @param position Place occupee par le personnage
      */
-    public Personnage(String n, Place position){
+    public Personnage(String n, Place position) {
         this.nom = n;
         this.position = position;
     }
@@ -32,10 +33,11 @@ public class Personnage {
      * Est :   'E'
      * Ouest : 'O'
      * Si la direction n'est pas valide le personage ne bouge pas
+     *
      * @param direction direction dans laquelle va aller le personnage
      */
-    public void seDeplacer(char direction){
-        switch (direction){
+    public void seDeplacer(char direction) {
+        switch (direction) {
             case 'N':
                 this.position.incrementerY(1);
                 break;
@@ -48,9 +50,9 @@ public class Personnage {
             case 'O':
                 this.position.incrementerX(-1);
                 break;
-                default:
-                    System.out.println("Caractere non valide");
-                    break;
+            default:
+                System.out.println("Caractere non valide");
+                break;
         }
     }
 

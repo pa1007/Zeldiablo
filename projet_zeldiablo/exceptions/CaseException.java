@@ -1,6 +1,7 @@
 package exceptions;
 
 public class CaseException extends IllegalArgumentException {
+
     public CaseException() {
         super();
     }
