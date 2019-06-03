@@ -30,7 +30,7 @@ public class TestLabyrinthe {
         // Preparation des donnees
         Place p = new Place(1, 1);
         Labyrinthe l = new Labyrinthe();
-        Personnage perso = new Personnage("Julien", p, l);
+        Personnage perso = new Personnage("Julien", 10 , p, l);
 
         // Methode testee
         l.addPerso(perso);
@@ -266,7 +266,7 @@ public class TestLabyrinthe {
     public void testCaseOccupeParPers() {
         // Preparation des donnees
         Labyrinthe l = new Labyrinthe();
-        Personnage p = new Personnage("AyyLmao", new Place(0, 1), l);
+        Personnage p = new Personnage("AyyLmao",10, new Place(0, 1), l);
 
         // Methode testee
         l.addPerso(p);
@@ -281,7 +281,7 @@ public class TestLabyrinthe {
     public void testEtreOccupe() {
         // Preparation des donnees
         Labyrinthe l = new Labyrinthe();
-        Personnage p = new Personnage("AyyLmao", new Place(0, 1), l);
+        Personnage p = new Personnage("AyyLmao",10, new Place(0, 1), l);
         l.getCases().get(0).setOccupe(true);
         l.addPerso(p);
 
@@ -318,7 +318,7 @@ public class TestLabyrinthe {
         // Preparation des donnees
         Labyrinthe l = new Labyrinthe();
         Gnome g = new Gnome(new Place(0, 1), l);
-        Personnage p = new Personnage("AyyLmao", new Place(0, 0), l);
+        Personnage p = new Personnage("AyyLmao",10, new Place(0, 0), l);
         l.addPerso(p);
 
         // Methode testee
@@ -337,7 +337,7 @@ public class TestLabyrinthe {
         // Preparation des donnees
         Labyrinthe l = new Labyrinthe();
         Gnome g = new Gnome(new Place(0, 1), l);
-        Personnage p = new Personnage("AyyLmao", new Place(0, 0), l);
+        Personnage p = new Personnage("AyyLmao",10, new Place(0, 0), l);
         l.addMur(new Place(0, 1));
 
         // Methode testee
@@ -357,7 +357,7 @@ public class TestLabyrinthe {
         // Preparation des donnees
         Labyrinthe l = new Labyrinthe();
         Gnome g = new Gnome(new Place(50, 50), l);
-        Personnage p = new Personnage("AyyLmao", new Place(0, 0), l);
+        Personnage p = new Personnage("AyyLmao",10, new Place(0, 0), l);
         l.addMur(new Place(0, 1));
 
         // Methode testee

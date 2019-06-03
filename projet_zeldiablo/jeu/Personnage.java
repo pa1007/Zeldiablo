@@ -7,7 +7,6 @@ import java.awt.Graphics;
 public class Personnage extends Entite {
 
     private static final int    TAILLE_PERSO       = 25;
-    private final static int    POINT_DE_VIE_PERSO = 10;
     /**
      * Attribut prive qui correspond au nom du personnage
      */
@@ -23,20 +22,10 @@ public class Personnage extends Entite {
      * @param n        nom du personnage
      * @param position Place occupee par le personnage
      */
-    public Personnage(String n, Place position, Labyrinthe l) {
-        super(POINT_DE_VIE_PERSO, position, l, Type.PERSONNAGE);
+    public Personnage(String n, int pdv, Place position, Labyrinthe l) {
+        super(pdv,position, l, Type.PERSONNAGE);
         this.nom = n;
         this.position = position;
-    }
-
-    @Override
-    public void attaquer(Entite t) {
-
-    }
-
-    @Override
-    public void subirDegats(int degats) {
-
     }
 
     public String getNom() {
@@ -59,5 +48,14 @@ public class Personnage extends Entite {
 
     public void setLabyrinthe(Labyrinthe l) {
         this.labyrinthe = l;
+    }
+
+    public int getPv(){
+        return this.pv;
+    }
+
+    @Override
+    public void attaquer(Entite t) {
+
     }
 }

@@ -11,7 +11,7 @@ public class MainPerso {
 
     public static void main(String[] args) throws InterruptedException, IOException {
         Labyrinthe l = new Labyrinthe();
-        Personnage p = new Personnage("dzqd", new Place(15, 15), l);
+        Personnage p = new Personnage("dzqd",10, new Place(15, 15), l);
         l.addPerso(p);
         JeuPerso    j = new JeuPerso(p, l);
         DessinPerso d = new DessinPerso(j);

@@ -15,7 +15,7 @@ public class TestPersonnage {
     public void testSeDeplacerNord() {
         Place      place1 = new Place(1, 1);
         Labyrinthe l      = new Labyrinthe();
-        Personnage perso  = new Personnage("bob", place1, l);
+        Personnage perso  = new Personnage("bob",10, place1, l);
         perso.setLabyrinthe(l);
 
         perso.seDeplacer('N');
@@ -30,7 +30,7 @@ public class TestPersonnage {
     public void testSeDeplacerSud() {
         Place      place1 = new Place(1, 1);
         Labyrinthe l      = new Labyrinthe();
-        Personnage perso  = new Personnage("bob", place1, l);
+        Personnage perso  = new Personnage("bob",10, place1, l);
         perso.setLabyrinthe(l);
 
         perso.seDeplacer('S');
@@ -45,7 +45,7 @@ public class TestPersonnage {
     public void testSeDeplacerEst() {
         Place      place1 = new Place(1, 1);
         Labyrinthe l      = new Labyrinthe();
-        Personnage perso  = new Personnage("bob", place1, l);
+        Personnage perso  = new Personnage("bob",10, place1, l);
         perso.setLabyrinthe(l);
 
         perso.seDeplacer('E');
@@ -60,7 +60,7 @@ public class TestPersonnage {
     public void testSeDeplacerOuest() {
         Place      place1 = new Place(1, 1);
         Labyrinthe l      = new Labyrinthe();
-        Personnage perso  = new Personnage("bob", place1, l);
+        Personnage perso  = new Personnage("bob",10, place1, l);
         perso.setLabyrinthe(l);
 
         perso.seDeplacer('O');
@@ -75,7 +75,7 @@ public class TestPersonnage {
     public void testSeDeplacerMauvaisChar() {
         Place      place1 = new Place(1, 1);
         Labyrinthe l      = new Labyrinthe();
-        Personnage perso  = new Personnage("bob", place1, l);
+        Personnage perso  = new Personnage("bob",10, place1, l);
         perso.setLabyrinthe(l);
 
         perso.seDeplacer('R');
