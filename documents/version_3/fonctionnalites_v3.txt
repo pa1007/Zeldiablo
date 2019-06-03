@@ -1,10 +1,9 @@
-- fonctionnalité 0 : Refactor avec une class Entité
+﻿- fonctionnalité 0 : Refactor avec une class Entité
 - descriptif texte : Refactor avec une class Entité
 - critères de validation :
 	- critère 1  Gestion des PV
 	- critère 2  Methode attaquer
-    - critère 3  Methode Mourrir
-    - critère 4  Methode Subirdegats
+        - critère 3  Methode Subirdegats
 - reponsable : louppe7u ; fourrie15u
 
 
