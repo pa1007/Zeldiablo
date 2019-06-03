@@ -2,7 +2,7 @@ package jeu;
 
 import utils.Place;
 
-public class Entite {
+public abstract class Entite {
 
     private int pv;
 
@@ -11,13 +11,13 @@ public class Entite {
     private Labyrinthe labyrinthe;
 
 
-    public Entite(int pointdevie, Place place, Labyrinthe l){
+    public Entite(int pointdevie, Place place, Labyrinthe l) {
         this.pv = pointdevie;
         this.position = place;
         this.labyrinthe = l;
     }
 
-    public void attaquer(Entite t){
-        //TODO
-    }
+    public abstract void attaquer(Entite t);
+
+    public abstract void subirDegats(int degats);
 }
