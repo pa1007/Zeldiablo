@@ -1,5 +1,8 @@
 package jeu;
 
+import utils.Place;
+
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,5 +40,16 @@ public class Labyrinthe {
 
     public Personnage getAventurier() {
         return aventurier;
+    }
+
+    public Case rechercherCase(Place p) {
+        Case res = null;
+        for (Case c : this.cases) {
+            if (c.getPlace().equals(p)){
+                res = c;
+                break;
+            }
+        }
+        return res;
     }
 }

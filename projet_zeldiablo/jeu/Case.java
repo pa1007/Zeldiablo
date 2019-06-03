@@ -10,6 +10,16 @@ public class Case {
     private Place place;
 
     /**
+     * Booleen pour savoir si une case est un mur ou non
+     */
+    private boolean mur;
+
+    /**
+     * Booleen pour savoir si une case est occupee par un personnage ou non
+     */
+    private boolean occupe;
+
+    /**
      * Constructeur de Case à partir d'une Place
      *
      * @param place Place
@@ -43,5 +53,37 @@ public class Case {
      */
     public Place getPlace() {
         return place;
+    }
+
+    /**
+     * Getter pour savoir si la case est un mur
+     * @return booleen
+     */
+    public boolean isMur() {
+        return mur;
+    }
+
+    /**
+     * Getter pour savoir si la case est occupee
+     * @return booleen
+     */
+    public boolean isOccupe() {
+        return occupe;
+    }
+
+    /**
+     * Setter pour indiquer si une case est un mur ou non
+     * @param mur booleen
+     */
+    public void setMur(boolean mur) {
+        this.mur = mur;
+    }
+
+    /**
+     * Setter pour indiquer si une case est occupee par un personnage ou non
+     * @param occupe booleen
+     */
+    public void setOccupe(boolean occupe) {
+        this.occupe = occupe;
     }
 }

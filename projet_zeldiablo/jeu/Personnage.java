@@ -14,6 +14,11 @@ public class Personnage {
      */
     private final Place position;
 
+    /**
+     * Attribut de type Labyrinthee qui permet de connaitre le labyrinthe dans lequel
+     * se situe le personnage
+     */
+    private Labyrinthe labyrinthe;
 
     /**
      * Constructeur qui cree un personnage avec un nom est une position
@@ -37,18 +42,36 @@ public class Personnage {
      * @param direction direction dans laquelle va aller le personnage
      */
     public void seDeplacer(char direction) {
+        Place tempPlace;
+        Case caseRecherchee;
         switch (direction) {
             case 'N':
-                this.position.incrementerY(1);
+                tempPlace = new Place(this.getPosition().getX(),this.getPosition().getY()+1);
+                caseRecherchee = this.labyrinthe.rechercherCase(tempPlace);
+                if (! caseRecherchee.isMur() || ! caseRecherchee.isOccupe()){
+                    this.position.incrementerY(1);
+                }
                 break;
             case 'S':
-                this.position.incrementerY(-1);
+                tempPlace = new Place(this.getPosition().getX(),this.getPosition().getY()-1);
+                caseRecherchee = this.labyrinthe.rechercherCase(tempPlace);
+                if (! caseRecherchee.isMur() || ! caseRecherchee.isOccupe()){
+                    this.position.incrementerY(-1);
+                }
                 break;
             case 'E':
-                this.position.incrementerX(1);
+                tempPlace = new Place(this.getPosition().getX()+1,this.getPosition().getY());
+                caseRecherchee = this.labyrinthe.rechercherCase(tempPlace);
+                if (! caseRecherchee.isMur() || ! caseRecherchee.isOccupe()){
+                    this.position.incrementerX(1);
+                }
                 break;
             case 'O':
-                this.position.incrementerX(-1);
+                tempPlace = new Place(this.getPosition().getX()-1,this.getPosition().getY());
+                caseRecherchee = this.labyrinthe.rechercherCase(tempPlace);
+                if (! caseRecherchee.isMur() || ! caseRecherchee.isOccupe()){
+                    this.position.incrementerX(-1);
+                }
                 break;
             default:
                 System.out.println("Caractere non valide");
