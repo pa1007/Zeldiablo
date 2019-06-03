@@ -286,4 +286,37 @@ public class TestLabyrinthe {
         // Verification
         assertTrue("La case devrait etre occupée", l.getCases().get(1).isOccupe());
     }
+
+    /**
+     * Test si la case est occupe
+     */
+    @Test
+    public void testEtreOccupe() {
+        // Preparation des donnees
+        Personnage p = new Personnage("AyyLmao", new Place(0, 1));
+        Labyrinthe l = new Labyrinthe(p);
+        l.getCases().get(0).setOccupe(true);
+
+        // Methode testee
+        boolean res1 = l.etreOccupe(new Place(0, 0));
+        boolean res2 = l.etreOccupe(new Place(2, 0));
+        // Verification
+        assertTrue("La case devrait etre occupée", res1);
+        assertFalse("La case ne devrait pas etre occupée", res2);
+    }
+
+    /**
+     * Test si la case est occupe case nulle
+     */
+    @Test
+    public void testEtreOccupeCaseNull() {
+        // Preparation des donnees
+        Personnage p = new Personnage("AyyLmao", new Place(0, 1));
+        Labyrinthe l = new Labyrinthe(p);
+
+        // Methode testee
+        boolean res = l.etreOccupe(new Place(545, 54));
+        // Verification
+        assertFalse("La case ne devrait pas etre occupe", res);
+    }
 }
