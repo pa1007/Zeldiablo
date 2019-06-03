@@ -24,7 +24,7 @@
 - descriptif texte : Création d'une classe personnage
 - critères de validation :
 	- critère 1 Nom
-	- critère 2 Le Personnage a une Place
+	- critère 2 Le jeu.Personnage a une Place
 	- critère 3 Un personnage est situé dans un labyrinthe
 -Responsable : louppe7u
 

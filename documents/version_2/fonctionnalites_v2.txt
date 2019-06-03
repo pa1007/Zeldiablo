@@ -18,3 +18,10 @@
 	- critère 1 Pas dans un mur
     - critère 2 A sa réelle position
 	- critère 3 Se deplacer
+
+- fonctionnalité 4 : Monstres immobiles
+- descriptif texte : créer et afficher des monstres
+- critères de validation :
+    - les monstres sont crées sur des cases vides
+    - il n'est pas possible de générer des monstres sur des cases non vides (player, monstres ou murs
+    - les monstres ne se déplacent pas
