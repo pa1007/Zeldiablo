@@ -2,7 +2,6 @@ package jeu;
 
 import jeu.monstre.Monstre;
 import utils.Place;
-
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
@@ -112,12 +111,19 @@ public class Labyrinthe {
         }
     }
 
-    public void addMosntre(Monstre m) {
-        Place p = m.getPosition();
-        Case c = rechercherCase(p);
-        if (c != null && c.isVide()) {
-            monstres.add(m);
-            c.setOccupe(true);
+    /**
+     * Permet de sup le monstre en param <br> et set la case a occupee
+     *
+     * @param m le monstre
+     */
+    public void addMonstre(Monstre m) {
+        if (m != null) {
+            Place p = m.getPosition();
+            Case  c = rechercherCase(p);
+            if (c != null && c.isVide()) {
+                monstres.add(m);
+                c.setOccupe(true);
+            }
         }
     }
 
