@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.assertNull;
 
 /**
  * Classe de test permettant de tester
@@ -102,5 +103,39 @@ public class TestLabyrinthe {
 
         // Verification
         assertEquals("Le labyrinthe devrait avoir 400 cases", 400, l.getCases().size());
+    }
+
+    /**
+     * Test recherche de case
+     */
+    @Test
+    public void testRechercheDeCaseDansLabyrinthe() {
+        // Preparation des donnees
+        Personnage p = new Personnage("AyyLmao", new Place(1,1));
+        Labyrinthe l = new Labyrinthe(p);
+
+        // Methode testée
+        Case c = l.rechercherCase(new Place(0,2));
+        Case res = l.getCases().get(2);
+
+        // Verification
+        assertEquals("Les cases devraient etre les memes", c, res);
+    }
+
+    /**
+     * Test recherche de case alors que
+     * la case n'existe pas vraiment
+     */
+    @Test
+    public void testRechercheDeCaseDansLabyrintheAlorsQueLaCaseNexistePasVraiment() {
+        // Preparation des donnees
+        Personnage p = new Personnage("AyyLmao", new Place(1,1));
+        Labyrinthe l = new Labyrinthe(p);
+
+        // Methode testée
+        Case c = l.rechercherCase(new Place(555,555));
+
+        // Verification
+        assertNull("Devrait retourner null", c);
     }
 }
