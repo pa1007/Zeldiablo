@@ -5,7 +5,7 @@ import utils.Place;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class Personnage extends Entite{
+public class Personnage extends Entite {
 
     private static final int TAILLE_PERSO = 25;
     /**
@@ -25,6 +25,7 @@ public class Personnage extends Entite{
     private Labyrinthe labyrinthe;
 
     private final static int POINT_DE_VIE_PERSO = 10;
+
     /**
      * Constructeur qui cree un personnage avec un nom est une position
      *
@@ -32,7 +33,7 @@ public class Personnage extends Entite{
      * @param position Place occupee par le personnage
      */
     public Personnage(String n, Place position, Labyrinthe l) {
-        super(POINT_DE_VIE_PERSO ,position, l);
+        super(POINT_DE_VIE_PERSO, position, l);
         this.nom = n;
         this.position = position;
     }

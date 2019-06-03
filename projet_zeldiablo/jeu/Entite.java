@@ -4,11 +4,11 @@ import utils.Place;
 
 public abstract class Entite {
 
-    private int pv;
+    protected int pv;
 
-    private Place position;
+    protected Place position;
 
-    private Labyrinthe labyrinthe;
+    protected Labyrinthe labyrinthe;
 
 
     public Entite(int pointdevie, Place place, Labyrinthe l) {
