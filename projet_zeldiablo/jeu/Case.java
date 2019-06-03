@@ -2,6 +2,7 @@ package jeu;
 
 import exceptions.CaseException;
 import utils.Place;
+
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -32,8 +33,7 @@ public class Case {
     public Case(Place place) {
         if (place != null && place.getX() >= 0 && place.getY() >= 0 && place.getX() < 20 && place.getY() < 20) {
             this.place = place;
-        }
-        else {
+        } else {
             throw new CaseException("0 <= (X,Y) < 20");
         }
     }
@@ -47,8 +47,7 @@ public class Case {
     public Case(int x, int y) {
         if (x >= 0 && y >= 0 && x < 20 && y < 20) {
             this.place = new Place(x, y);
-        }
-        else {
+        } else {
             throw new CaseException("0 <= (X,Y) < 20");
         }
     }

@@ -1,16 +1,17 @@
 package jeu;
 
 import utils.Place;
+
 import java.awt.Color;
 import java.awt.Graphics;
 
 public class Personnage {
 
-    private static final int    TAILLE_PERSO = 25;
+    private static final int TAILLE_PERSO = 25;
     /**
      * Attribut prive qui correspond au nom du personnage
      */
-    private final        String nom;
+    private final String nom;
 
     /**
      * Attribut de type Place qui permet de connaitre la position du personnage
@@ -87,8 +88,8 @@ public class Personnage {
     }
 
     private void move(int dx, int dy) {
-        Place tempPlace      = new Place(this.getPosition().getX() + dx, this.getPosition().getY() + dy);
-        Case  caseRecherchee = this.labyrinthe.rechercherCase(tempPlace);
+        Place tempPlace = new Place(this.getPosition().getX() + dx, this.getPosition().getY() + dy);
+        Case caseRecherchee = this.labyrinthe.rechercherCase(tempPlace);
         if (caseRecherchee != null && caseRecherchee.isVide()) {
             this.position.incrementerX(dx);
             this.position.incrementerY(dy);

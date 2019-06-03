@@ -328,7 +328,7 @@ public class TestLabyrinthe {
     @Test
     public void testCaseOccupeParMosntre() {
         // Preparation des donnees
-        Gnome      g = new Gnome(new Place(0, 1));
+        Gnome g = new Gnome(new Place(0, 1));
         Personnage p = new Personnage("AyyLmao", new Place(0, 0));
         Labyrinthe l = new Labyrinthe(p);
 
@@ -345,7 +345,7 @@ public class TestLabyrinthe {
     @Test
     public void testCaseMurPasOccupeParMosntre() {
         // Preparation des donnees
-        Gnome      g = new Gnome(new Place(0, 1));
+        Gnome g = new Gnome(new Place(0, 1));
         Personnage p = new Personnage("AyyLmao", new Place(0, 0));
         Labyrinthe l = new Labyrinthe(p);
         l.addMur(new Place(0, 1));
@@ -364,7 +364,7 @@ public class TestLabyrinthe {
     @Test
     public void testCaseMonstreEnDehors() {
         // Preparation des donnees
-        Gnome      g = new Gnome(new Place(50, 50));
+        Gnome g = new Gnome(new Place(50, 50));
         Personnage p = new Personnage("AyyLmao", new Place(0, 0));
         Labyrinthe l = new Labyrinthe(p);
         l.addMur(new Place(0, 1));

@@ -44,10 +44,10 @@ public class PanelDessin extends JPanel {
 
         // cree l'image buffer et son graphics
         this.imageSuivante = new BufferedImage(width, height,
-                                               BufferedImage.TYPE_INT_RGB
+                BufferedImage.TYPE_INT_RGB
         );
         this.imageEnCours = new BufferedImage(width, height,
-                                              BufferedImage.TYPE_INT_RGB
+                BufferedImage.TYPE_INT_RGB
         );
     }
 
@@ -59,7 +59,7 @@ public class PanelDessin extends JPanel {
     public void paint(Graphics g) {
         super.paint(g);
         g.drawImage(this.imageEnCours, 0, 0, getWidth(), getHeight(), 0, 0,
-                    getWidth(), getHeight(), null
+                getWidth(), getHeight(), null
         );
     }
 
