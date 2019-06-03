@@ -62,6 +62,9 @@ public abstract class Entite {
             if (caseRecherchee.getType() == Case.CaseType.PIEGE && this.entiteType == Type.PERSONNAGE) {
                 ((Piege)caseRecherchee).infligerDegats((Personnage)this);
             }
+            if (entiteType == Type.MONSTRE) {
+                attaquer(labyrinthe.getAventurier());
+            }
         }
     }
 
