@@ -50,4 +50,8 @@ public abstract class Monstre extends Entite {
             t.subirDegats(degats);
         }
     }
+
+    public int getPv(){
+        return this.pv;
+    }
 }
