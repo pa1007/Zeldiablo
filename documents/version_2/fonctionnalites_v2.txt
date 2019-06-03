@@ -1,0 +1,20 @@
+- fonctionnalité 1 : Gestions des murs
+- descriptif texte : Permet de savoir si la case est un mur
+- critères de validation :
+	- critère 1 Qu'il ne soit pas franchisable
+    - critère 2 Peut ne pas etre relié a un mur
+	- critère 3 Ne peux pas etre déplacé
+
+- fonctionnalité 2 : Affichage du labyrinthe
+- descriptif texte : Afficher le labyrinthe dans la fenêtre
+- critères de validation :
+	- critère 1  Taille de la fenêtre
+    - critère 2  Afficher les murs
+	- critère 3  Distinguer les murs des cases vides
+
+- fonctionnalité 3 : Affichage du personnage
+- descriptif texte : Affiche le personnage
+- critères de validation :
+	- critère 1 Pas dans un mur
+    - critère 2 A sa réelle position
+	- critère 3 Se deplacer
