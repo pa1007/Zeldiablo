@@ -40,14 +40,27 @@ public class Labyrinthe {
         }
     }
 
+    /**
+     * Getter permettant de retourner la liste de cases du labyrinthe
+     * @return Liste de cases
+     */
     public List<Case> getCases() {
         return cases;
     }
 
+    /**
+     * Getter permettant de retourner le personnage se situant dans la labyrinthe
+     * @return Personnage
+     */
     public Personnage getAventurier() {
         return aventurier;
     }
 
+    /**
+     * Methode permettant de retourner l'objet Case se situant a une certaine Place
+     * @param p Place a tester
+     * @return Case recherchee
+     */
     public Case rechercherCase(Place p) {
         Case res = null;
         for (Case c : this.cases) {
@@ -71,10 +84,54 @@ public class Labyrinthe {
 
     }
 
+    /**
+     * Methode permettant d'ajouter un mur a une certaine place
+     * @param p Place ou l'on veut ajouter un mur
+     */
     public void addMur(Place p) {
         Case res = rechercherCase(p);
         if (res != null && res.isVide()) {
             res.setMur(true);
         }
+    }
+
+    /**
+     * Methode permettant de supprimer un mur a une certaine place
+     * @param p Place
+     */
+    public void removeMur(Place p) {
+        Case res = rechercherCase(p);
+        if (res != null && res.isMur()) {
+            res.setMur(false);
+        }
+    }
+
+    /**
+     * Methode permettant de changer l'attribut occupe d'une case a une place donne
+     * @param p Place
+     */
+    public void occuperCase(Place p, boolean occupee) {
+        Case res = rechercherCase(p);
+        if (res != null && res.isVide()) {
+            res.setOccupe(occupee);
+        }
+    }
+
+    /**
+     * Methode permettant de savoir si la case situee a une place donnee est un mur ou non
+     * @param p Place
+     * @return Booleen
+     */
+    public boolean etreMur(Place p) {
+        return rechercherCase(p).isMur();
+    }
+
+    /**
+     * Methode permeettant de savoir si la case situee a une placee donne est un mur ou non
+     * @param p Place
+     * @return Booleen
+     */
+    public boolean etreOccupe(Place p) {
+        return rechercherCase(p).isOccupe();
     }
 }
