@@ -10,11 +10,14 @@ public abstract class Entite {
 
     protected Labyrinthe labyrinthe;
 
+    protected Type entiteType;
 
-    public Entite(int pointdevie, Place place, Labyrinthe l) {
+
+    public Entite(int pointdevie, Place place, Labyrinthe l, Type type) {
         this.pv = pointdevie;
         this.position = place;
         this.labyrinthe = l;
+        this.entiteType = type;
     }
 
     /**
@@ -61,8 +64,14 @@ public abstract class Entite {
     public void subirDegats(int degats) {
         if (this.pv >= degats) {
             this.pv -= degats;
-        }else {
+        }
+        else {
             this.pv = 0;
         }
+    }
+
+    public enum Type {
+        MONSTRE,
+        PERSONNAGE
     }
 }

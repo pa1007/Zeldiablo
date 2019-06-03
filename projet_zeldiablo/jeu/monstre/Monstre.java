@@ -3,7 +3,6 @@ package jeu.monstre;
 import jeu.Entite;
 import jeu.Labyrinthe;
 import utils.Place;
-
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -15,7 +14,7 @@ public abstract class Monstre extends Entite {
 
 
     public Monstre(Place p, Labyrinthe laby) {
-        super(POINT_DE_VIE_MONSTRE, p, laby);
+        super(POINT_DE_VIE_MONSTRE, p, laby, Type.MONSTRE);
     }
 
     public Place getPosition() {

@@ -24,7 +24,7 @@ public class Personnage extends Entite {
      * @param position Place occupee par le personnage
      */
     public Personnage(String n, Place position, Labyrinthe l) {
-        super(POINT_DE_VIE_PERSO, position, l);
+        super(POINT_DE_VIE_PERSO, position, l, Type.PERSONNAGE);
         this.nom = n;
         this.position = position;
     }
