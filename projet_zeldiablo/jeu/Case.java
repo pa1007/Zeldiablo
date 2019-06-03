@@ -118,6 +118,10 @@ public class Case {
 
     }
 
+    public CaseType getType() {
+        return type;
+    }
+
     public enum CaseType {
         NORMAL,
         PIEGE

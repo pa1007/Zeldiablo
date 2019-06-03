@@ -58,6 +58,9 @@ public abstract class Entite {
         if (caseRecherchee != null && caseRecherchee.isVide()) {
             this.position.incrementerX(dx);
             this.position.incrementerY(dy);
+            if (caseRecherchee.getType() == Case.CaseType.PIEGE && this.entiteType == Type.PERSONNAGE) {
+                ((Piege)caseRecherchee).infligerDegats((Personnage)this);
+            }
         }
     }
 
