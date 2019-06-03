@@ -1,13 +1,16 @@
 package jeu;
 
 import utils.Place;
+import java.awt.Color;
+import java.awt.Graphics;
 
 public class Personnage {
 
+    private static final int TAILLE_PERSO = 25;
     /**
      * Attribut prive qui correspond au nom du personnage
      */
-    private final String nom;
+    private final        String nom;
 
     /**
      * Attribut de type Place qui permet de connaitre la position du personnage
@@ -43,33 +46,33 @@ public class Personnage {
      */
     public void seDeplacer(char direction) {
         Place tempPlace;
-        Case caseRecherchee;
+        Case  caseRecherchee;
         switch (direction) {
             case 'N':
-                tempPlace = new Place(this.getPosition().getX(),this.getPosition().getY()+1);
+                tempPlace = new Place(this.getPosition().getX(), this.getPosition().getY() + 1);
                 caseRecherchee = this.labyrinthe.rechercherCase(tempPlace);
-                if (! caseRecherchee.isMur() || ! caseRecherchee.isOccupe()){
+                if (!caseRecherchee.isMur() || !caseRecherchee.isOccupe()) {
                     this.position.incrementerY(1);
                 }
                 break;
             case 'S':
-                tempPlace = new Place(this.getPosition().getX(),this.getPosition().getY()-1);
+                tempPlace = new Place(this.getPosition().getX(), this.getPosition().getY() - 1);
                 caseRecherchee = this.labyrinthe.rechercherCase(tempPlace);
-                if (! caseRecherchee.isMur() || ! caseRecherchee.isOccupe()){
+                if (!caseRecherchee.isMur() || !caseRecherchee.isOccupe()) {
                     this.position.incrementerY(-1);
                 }
                 break;
             case 'E':
-                tempPlace = new Place(this.getPosition().getX()+1,this.getPosition().getY());
+                tempPlace = new Place(this.getPosition().getX() + 1, this.getPosition().getY());
                 caseRecherchee = this.labyrinthe.rechercherCase(tempPlace);
-                if (! caseRecherchee.isMur() || ! caseRecherchee.isOccupe()){
+                if (!caseRecherchee.isMur() || !caseRecherchee.isOccupe()) {
                     this.position.incrementerX(1);
                 }
                 break;
             case 'O':
-                tempPlace = new Place(this.getPosition().getX()-1,this.getPosition().getY());
+                tempPlace = new Place(this.getPosition().getX() - 1, this.getPosition().getY());
                 caseRecherchee = this.labyrinthe.rechercherCase(tempPlace);
-                if (! caseRecherchee.isMur() || ! caseRecherchee.isOccupe()){
+                if (!caseRecherchee.isMur() || !caseRecherchee.isOccupe()) {
                     this.position.incrementerX(-1);
                 }
                 break;
@@ -85,5 +88,15 @@ public class Personnage {
 
     public Place getPosition() {
         return position;
+    }
+
+    public void afficher(Graphics g) {
+        g.setColor(Color.BLUE);
+        g.fillOval(
+                TAILLE_PERSO * position.getX(),
+                TAILLE_PERSO * position.getY(),
+                TAILLE_PERSO,
+                TAILLE_PERSO
+        );
     }
 }

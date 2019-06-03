@@ -1,16 +1,15 @@
 package dessin;
 
+import jeu.JeuPerso;
 import moteur_jeu.DessinJeu;
-import moteur_jeu.Jeu;
-
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
 public class DessinPerso implements DessinJeu {
 
-    private Jeu jeu;
+    private JeuPerso jeu;
 
-    public DessinPerso(Jeu jeu) {
+    public DessinPerso(JeuPerso jeu) {
         this.jeu = jeu;
     }
 
@@ -26,7 +25,9 @@ public class DessinPerso implements DessinJeu {
         Graphics g = image.getGraphics();
         //ajouter ce qu'on veut dessiner
 
+        jeu.getLabyrinthe().afficher(g);
 
+        
         //finir avec
         g.dispose();
     }

@@ -6,8 +6,16 @@ public class JeuPerso implements moteur_jeu.Jeu {
 
     private Personnage personnage;
 
-    public JeuPerso(Personnage personnage) {
+    private Labyrinthe labyrinthe;
+
+    public JeuPerso(Personnage personnage, Labyrinthe labyrinthe) {
         this.personnage = personnage;
+        this.labyrinthe = labyrinthe;
+    }
+
+
+    public Labyrinthe getLabyrinthe() {
+        return labyrinthe;
     }
 
     /**
