@@ -1,9 +1,10 @@
-- fonctionnalité 1 : Gestions des murs
+- fonctionnalité 1 : Gestions des collisions
 - descriptif texte : Permet de savoir si la case est un mur
 - critères de validation :
 	- critère 1 Qu'il ne soit pas franchisable
     - critère 2 Peut ne pas etre relié a un mur
 	- critère 3 Ne peux pas etre déplacé
+responsable : sayer6u, noel225u
 
 - fonctionnalité 2 : Affichage du labyrinthe
 - descriptif texte : Afficher le labyrinthe dans la fenêtre
@@ -19,12 +20,12 @@ responsable: pa
 	- critère 1 Pas dans un mur
     - critère 2 A sa réelle position
 	- critère 3 Se deplacer
-
+responsable :
 
 - fonctionnalité 4 : Monstres immobiles
 - descriptif texte : créer et afficher des monstres
 - critères de validation :
     - les monstres sont crées sur des cases vides
-    - il n'est pas possible de générer des monstres sur des cases non vides (player, monstres ou murs
+    - il n'est pas possible de générer des monstres sur des cases non vides (player, monstres ou murs)
     - les monstres ne se déplacent pas
 responsable: louppe7u

@@ -1,5 +1,6 @@
 package test;
 
+import jeu.Labyrinthe;
 import jeu.Personnage;
 import org.junit.Test;
 import utils.Place;
@@ -15,10 +16,12 @@ public class TestPersonnage {
     public void testSeDeplacerNord() {
         Place place1 = new Place(1, 1);
         Personnage perso = new Personnage("bob", place1);
+        Labyrinthe l = new Labyrinthe(perso);
+        perso.setLabyrinthe(l);
 
         perso.seDeplacer('N');
 
-        assertEquals("mauvaise place", new Place(1, 2), place1);
+        assertEquals("mauvaise place", new Place(1, 0), place1);
     }
 
     /**
@@ -28,10 +31,12 @@ public class TestPersonnage {
     public void testSeDeplacerSud() {
         Place place1 = new Place(1, 1);
         Personnage perso = new Personnage("bob", place1);
+        Labyrinthe l = new Labyrinthe(perso);
+        perso.setLabyrinthe(l);
 
         perso.seDeplacer('S');
 
-        assertEquals("mauvaise place", new Place(1, 0), place1);
+        assertEquals("mauvaise place", new Place(1, 2), place1);
     }
 
     /**
@@ -41,6 +46,8 @@ public class TestPersonnage {
     public void testSeDeplacerEst() {
         Place place1 = new Place(1, 1);
         Personnage perso = new Personnage("bob", place1);
+        Labyrinthe l = new Labyrinthe(perso);
+        perso.setLabyrinthe(l);
 
         perso.seDeplacer('E');
 
@@ -54,6 +61,8 @@ public class TestPersonnage {
     public void testSeDeplacerOuest() {
         Place place1 = new Place(1, 1);
         Personnage perso = new Personnage("bob", place1);
+        Labyrinthe l = new Labyrinthe(perso);
+        perso.setLabyrinthe(l);
 
         perso.seDeplacer('O');
 
@@ -67,6 +76,8 @@ public class TestPersonnage {
     public void testSeDeplacerMauvaisChar() {
         Place place1 = new Place(1, 1);
         Personnage perso = new Personnage("bob", place1);
+        Labyrinthe l = new Labyrinthe(perso);
+        perso.setLabyrinthe(l);
 
         perso.seDeplacer('R');
 
