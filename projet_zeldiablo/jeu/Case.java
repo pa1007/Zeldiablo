@@ -71,6 +71,10 @@ public class Case {
         return occupe;
     }
 
+
+    public boolean isVide() {
+        return !this.isOccupe() && !this.isMur();
+    }
     /**
      * Setter pour indiquer si une case est un mur ou non
      * @param mur booleen

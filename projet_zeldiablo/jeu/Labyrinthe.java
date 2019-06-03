@@ -52,4 +52,11 @@ public class Labyrinthe {
         }
         return res;
     }
+
+    public void addMur(Place p) {
+        Case res = rechercherCase(p);
+        if (res != null && res.isVide()) {
+            res.setMur(true);
+        }
+    }
 }
