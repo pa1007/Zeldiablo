@@ -8,13 +8,12 @@ import java.util.List;
 
 public class Labyrinthe {
 
-    private List<Case> cases;
-    private Personnage aventurier;
+    private List<Case>    cases;
+    private Personnage    aventurier;
     private List<Monstre> monstres;
 
 
-    public Labyrinthe(Personnage aventurier) {
-        this.aventurier = aventurier;
+    public Labyrinthe() {
         monstres = new ArrayList<>();
         this.cases = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
@@ -22,31 +21,19 @@ public class Labyrinthe {
                 this.cases.add(new Case(i, j));
             }
         }
-        if (aventurier != null) {
-            Case c = rechercherCase(aventurier.getPosition());
-            if (c != null) {
-                c.setOccupe(true);
-            }
-        }
     }
 
-    public Labyrinthe(List<Case> cases, Personnage aventurier) {
+    public Labyrinthe(List<Case> cases) {
         this.monstres = new ArrayList<>();
-        this.aventurier = aventurier;
-        if (cases != null) {
+        if (cases != null && !cases.isEmpty()) {
             this.cases = cases;
-        } else {
+        }
+        else {
             this.cases = new ArrayList<>();
             for (int i = 0; i < 20; i++) {
                 for (int j = 0; j < 20; j++) {
                     this.cases.add(new Case(i, j));
                 }
-            }
-        }
-        if (aventurier != null) {
-            Case c = rechercherCase(aventurier.getPosition());
-            if (c != null) {
-                c.setOccupe(true);
             }
         }
 
@@ -91,7 +78,9 @@ public class Labyrinthe {
         for (Case c : cases) {
             c.afficher(g);
         }
-        aventurier.afficher(g);
+        if (aventurier != null) {
+            aventurier.afficher(g);
+        }
 
         for (Monstre m : monstres) {
             m.afficher(g);
@@ -121,6 +110,7 @@ public class Labyrinthe {
             Place p = m.getPosition();
             Case  c = rechercherCase(p);
             if (c != null && c.isVide()) {
+
                 monstres.add(m);
                 c.setOccupe(true);
             }
@@ -194,5 +184,16 @@ public class Labyrinthe {
             return res.isOccupe();
         }
         return false;
+    }
+
+    public void addPerso(Personnage perso) {
+        if (this.aventurier == null) {
+            Case c = rechercherCase(perso.getPosition());
+            if (c != null) {
+                c.setOccupe(true);
+                aventurier = perso;
+            }
+
+        }
     }
 }

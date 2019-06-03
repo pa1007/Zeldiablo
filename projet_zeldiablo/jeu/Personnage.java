@@ -1,30 +1,21 @@
 package jeu;
 
 import utils.Place;
-
 import java.awt.Color;
 import java.awt.Graphics;
 
 public class Personnage extends Entite {
 
-    private static final int TAILLE_PERSO = 25;
+    private static final int    TAILLE_PERSO       = 25;
+    private final static int    POINT_DE_VIE_PERSO = 10;
     /**
      * Attribut prive qui correspond au nom du personnage
      */
-    private final String nom;
-
+    private final        String nom;
     /**
      * Attribut de type Place qui permet de connaitre la position du personnage
      */
-    private final Place position;
-
-    /**
-     * Attribut de type Labyrinthee qui permet de connaitre le labyrinthe dans lequel
-     * se situe le personnage
-     */
-    private Labyrinthe labyrinthe;
-
-    private final static int POINT_DE_VIE_PERSO = 10;
+    private final        Place  position;
 
     /**
      * Constructeur qui cree un personnage avec un nom est une position
@@ -36,6 +27,16 @@ public class Personnage extends Entite {
         super(POINT_DE_VIE_PERSO, position, l);
         this.nom = n;
         this.position = position;
+    }
+
+    @Override
+    public void attaquer(Entite t) {
+
+    }
+
+    @Override
+    public void subirDegats(int degats) {
+
     }
 
     /**
@@ -91,21 +92,11 @@ public class Personnage extends Entite {
     }
 
     private void move(int dx, int dy) {
-        Place tempPlace = new Place(this.getPosition().getX() + dx, this.getPosition().getY() + dy);
-        Case caseRecherchee = this.labyrinthe.rechercherCase(tempPlace);
+        Place tempPlace      = new Place(this.getPosition().getX() + dx, this.getPosition().getY() + dy);
+        Case  caseRecherchee = this.labyrinthe.rechercherCase(tempPlace);
         if (caseRecherchee != null && caseRecherchee.isVide()) {
             this.position.incrementerX(dx);
             this.position.incrementerY(dy);
         }
-    }
-
-    @Override
-    public void attaquer(Entite t) {
-
-    }
-
-    @Override
-    public void subirDegats(int degats) {
-
     }
 }
