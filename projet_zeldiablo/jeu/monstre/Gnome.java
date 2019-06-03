@@ -11,14 +11,4 @@ public class Gnome extends Monstre {
     public Gnome(Place p, Labyrinthe l) {
         super(POINT_DE_VIE_MONSTRE, p, l);
     }
-
-    @Override
-    public void attaquer(Entite t) {
-
-    }
-
-    @Override
-    public void subirDegats(int degats) {
-
-    }
 }

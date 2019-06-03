@@ -20,6 +20,7 @@ public abstract class Entite {
         this.position = place;
         this.labyrinthe = l;
         this.entiteType = type;
+        this.degats = 3;
     }
 
     /**
@@ -66,9 +67,9 @@ public abstract class Entite {
 
     public abstract void attaquer(Entite t);
 
-    public void subirDegats(int degats) {
-        if (this.pv >= degats) {
-            this.pv -= degats;
+    public void subirDegats(int d) {
+        if (this.pv >= d) {
+            this.pv -= d;
         } else {
             this.pv = 0;
         }
