@@ -39,36 +39,6 @@ public class Personnage extends Entite {
 
     }
 
-    /**
-     * Methode publique qui permet de faire se deplacer le personnage selon les points cardinaux
-     * Nord :  'N'
-     * Sud :   'S'
-     * Est :   'E'
-     * Ouest : 'O'
-     * Si la direction n'est pas valide le personage ne bouge pas
-     *
-     * @param direction direction dans laquelle va aller le personnage
-     */
-    public void seDeplacer(char direction) {
-        switch (direction) {
-            case 'N':
-                move(0, -1);
-                break;
-            case 'S':
-                move(0, 1);
-                break;
-            case 'E':
-                move(1, 0);
-                break;
-            case 'O':
-                move(-1, 0);
-                break;
-            default:
-                System.out.println("Caractere non valide");
-                break;
-        }
-    }
-
     public String getNom() {
         return nom;
     }
@@ -89,14 +59,5 @@ public class Personnage extends Entite {
 
     public void setLabyrinthe(Labyrinthe l) {
         this.labyrinthe = l;
-    }
-
-    private void move(int dx, int dy) {
-        Place tempPlace      = new Place(this.getPosition().getX() + dx, this.getPosition().getY() + dy);
-        Case  caseRecherchee = this.labyrinthe.rechercherCase(tempPlace);
-        if (caseRecherchee != null && caseRecherchee.isVide()) {
-            this.position.incrementerX(dx);
-            this.position.incrementerY(dy);
-        }
     }
 }
