@@ -16,6 +16,6 @@ public abstract class Monstre {
 
     public void afficher(Graphics g){
         g.setColor(Color.red);
-        g.fillRect(TAILLE_MONSTRE * position.getX(), TAILLE_MONSTRE * position.getY(), TAILLE_MONSTRE, TAILLE_MONSTRE);
+        g.fillOval(TAILLE_MONSTRE/2 * position.getX(), TAILLE_MONSTRE/2 * position.getY(), TAILLE_MONSTRE/2, TAILLE_MONSTRE/2);
     }
 }
