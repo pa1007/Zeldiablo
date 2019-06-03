@@ -29,9 +29,19 @@ public abstract class Monstre extends Entite {
         );
     }
 
-    public boolean peutAttaquer() {
-        // @TODO : Doit check si un Personnage est au NORD,SUD,EST,OUEST, si oui alors return true
-        return true;
+    private boolean peutAttaquer() {
+        boolean res = false;
+        Place pPerso = labyrinthe.getAventurier().getPosition();
+        if (position.getX() + 1 == pPerso.getX() && position.getY() == pPerso.getY()) {
+            res = true;
+        } else if (position.getX() == pPerso.getX() && position.getY() + 1 == pPerso.getY()) {
+            res = true;
+        } else if (position.getX() - 1 == pPerso.getX() && position.getY() == pPerso.getY()) {
+            res = true;
+        } else if (position.getX() == pPerso.getX() && position.getY() - 1 == pPerso.getY()) {
+            res = true;
+        }
+        return res;
     }
 
     @Override
