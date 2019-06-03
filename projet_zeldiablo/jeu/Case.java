@@ -76,7 +76,9 @@ public class Case {
      * @param mur booleen
      */
     public void setMur(boolean mur) {
-        this.mur = mur;
+        if(!this.isOccupe()) {
+            this.mur = mur;
+        }
     }
 
     /**
@@ -84,6 +86,8 @@ public class Case {
      * @param occupe booleen
      */
     public void setOccupe(boolean occupe) {
-        this.occupe = occupe;
+        if(!this.isMur()) {
+            this.occupe = occupe;
+        }
     }
 }

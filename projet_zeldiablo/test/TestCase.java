@@ -5,7 +5,7 @@ import jeu.Case;
 import org.junit.Test;
 import utils.Place;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 /**
  * Classe de test permettant de tester
@@ -97,5 +97,103 @@ public class TestCase {
         Case c = new Case(pl);
 
         // Verification
+    }
+
+    /**
+     * Test de mettre la case occupée
+     */
+    @Test
+    public void testSetOuccpeCase() {
+        // Preparation des donnees
+        Case c = new Case(1, 1);
+
+        // Methode testee
+        c.setOccupe(true);
+
+        // Verification
+        assertTrue("La case devrait etre occupee", c.isOccupe());
+    }
+
+    /**
+     * Test de mettre la case occupée alors
+     * qu'il y a un mur
+     */
+    @Test
+    public void testSetOuccpeCaseMur() {
+        // Preparation des donnees
+        Case c = new Case(1, 1);
+
+        // Methode testee
+        c.setMur(true);
+        c.setOccupe(true);
+
+        // Verification
+        assertTrue("La case devrait etre un mur", c.isMur());
+        assertFalse("La case devrait ne pas etre occupee", c.isOccupe());
+    }
+
+    /**
+     * Test de mettre la case non occupee
+     */
+    @Test
+    public void testSetPasOccupeCase() {
+        // Preparation des donnees
+        Case c = new Case(1, 1);
+
+        // Methode testee
+        c.setOccupe(true);
+        c.setOccupe(false);
+
+        // Verification
+        assertFalse("La case devrait ne pas etre occupee", c.isOccupe());
+    }
+
+    /**
+     * Test de mettre sur la case un mur
+     */
+    @Test
+    public void testSetMurCase() {
+        // Preparation des donnees
+        Case c = new Case(1, 1);
+
+        // Methode testee
+        c.setMur(true);
+
+        // Verification
+        assertTrue("La case devrait etre un mur", c.isMur());
+    }
+
+    /**
+     * Test de mettre sur la case un mur
+     * alors qu'elle est occupee
+     */
+    @Test
+    public void testSetMurCaseOccupe() {
+        // Preparation des donnees
+        Case c = new Case(1, 1);
+
+        // Methode testee
+        c.setOccupe(true);
+        c.setMur(true);
+
+        // Verification
+        assertFalse("La case devrait ne pas etre un mur", c.isMur());
+        assertTrue("La case devrait rester occupee", c.isOccupe());
+    }
+
+    /**
+     * Test d'enlever un mur
+     */
+    @Test
+    public void testSetMurFalseCase() {
+        // Preparation des donnees
+        Case c = new Case(1, 1);
+
+        // Methode testee
+        c.setMur(true);
+        c.setMur(false);
+
+        // Verification
+        assertFalse("La case ne devrait etre un mur", c.isMur());
     }
 }
