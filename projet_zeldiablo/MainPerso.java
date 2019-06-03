@@ -1,5 +1,6 @@
 import dessin.DessinPerso;
 import jeu.JeuPerso;
+import jeu.Labyrinthe;
 import jeu.Personnage;
 import moteur_jeu.MoteurGraphique;
 import utils.Place;
@@ -9,8 +10,8 @@ public class MainPerso {
 
     public static void main(String[] args) throws InterruptedException, IOException {
         Personnage p = new Personnage("dzqd", new Place(50, 50));
-
-        JeuPerso j = new JeuPerso(p);
+        Labyrinthe l = new Labyrinthe(p);
+        JeuPerso j = new JeuPerso(p, l);
 
         DessinPerso d = new DessinPerso(j);
 

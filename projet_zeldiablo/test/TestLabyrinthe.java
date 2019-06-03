@@ -9,6 +9,8 @@ import utils.Place;
 import java.util.ArrayList;
 import java.util.List;
 
+import static junit.framework.Assert.assertFalse;
+import static junit.framework.Assert.assertTrue;
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNull;
 
@@ -111,11 +113,11 @@ public class TestLabyrinthe {
     @Test
     public void testRechercheDeCaseDansLabyrinthe() {
         // Preparation des donnees
-        Personnage p = new Personnage("AyyLmao", new Place(1,1));
+        Personnage p = new Personnage("AyyLmao", new Place(1, 1));
         Labyrinthe l = new Labyrinthe(p);
 
         // Methode testée
-        Case c = l.rechercherCase(new Place(0,2));
+        Case c = l.rechercherCase(new Place(0, 2));
         Case res = l.getCases().get(2);
 
         // Verification
@@ -129,13 +131,159 @@ public class TestLabyrinthe {
     @Test
     public void testRechercheDeCaseDansLabyrintheAlorsQueLaCaseNexistePasVraiment() {
         // Preparation des donnees
-        Personnage p = new Personnage("AyyLmao", new Place(1,1));
+        Personnage p = new Personnage("AyyLmao", new Place(1, 1));
         Labyrinthe l = new Labyrinthe(p);
 
         // Methode testée
-        Case c = l.rechercherCase(new Place(555,555));
+        Case c = l.rechercherCase(new Place(555, 555));
 
         // Verification
         assertNull("Devrait retourner null", c);
+    }
+
+    /**
+     * Test d'ajout d'un mur
+     */
+    @Test
+    public void testAjoutMur() {
+        // Preparation des donnees
+        Personnage p = new Personnage("AyyLmao", new Place(1, 1));
+        Labyrinthe l = new Labyrinthe(p);
+
+        // Methode testee
+        l.addMur(new Place(0, 2));
+
+        // Verification
+        assertTrue("La case devrait etre un mur", l.getCases().get(2).isMur());
+    }
+
+    /**
+     * Test d'ajout d'un mur
+     */
+    @Test
+    public void testAjoutMurSurCaseNull() {
+        // Preparation des donnees
+        Personnage p = new Personnage("AyyLmao", new Place(1, 1));
+        Labyrinthe l = new Labyrinthe(p);
+
+        // Methode testee
+        l.addMur(new Place(555, 555));
+
+        // Verification
+        // (La méthode ne renvoie rien, mais ne devrait aussi pas renvoyer d'Exceptions)
+    }
+
+    /**
+     * Test de suppression d'un mur
+     */
+    @Test
+    public void testSuppresionMur() {
+        // Preparation des donnees
+        Personnage p = new Personnage("AyyLmao", new Place(1, 1));
+        Labyrinthe l = new Labyrinthe(p);
+        l.getCases().get(2).setMur(true);
+
+        // Methode testee
+        l.removeMur(new Place(0, 2));
+
+        // Verification
+        assertFalse("La case ne devrait pas etre un mur", l.getCases().get(2).isMur());
+    }
+
+    /**
+     * Test de suppression d'un mur sur
+     * une case null
+     */
+    @Test
+    public void testSuppressionMurSurCaseNull() {
+        // Preparation des donnees
+        Personnage p = new Personnage("AyyLmao", new Place(1, 1));
+        Labyrinthe l = new Labyrinthe(p);
+
+        // Methode testee
+        l.removeMur(new Place(555, 555));
+
+        // Verification
+        // (La méthode ne renvoie rien, mais ne devrait aussi pas renvoyer d'Exceptions)
+    }
+
+    /**
+     * Test occuper case
+     */
+    @Test
+    public void testOccuperCase() {
+        // Preparation des donnees
+        Personnage p = new Personnage("AyyLmao", new Place(1, 1));
+        Labyrinthe l = new Labyrinthe(p);
+
+        // Methode testee
+        l.occuperCase(new Place(0, 2), true);
+
+        // Verification
+        assertTrue("La case devrait etre occupée", l.getCases().get(2).isOccupe());
+    }
+
+    /**
+     * Test occuper case null
+     */
+    @Test
+    public void testOccuperCaseNull() {
+        // Preparation des donnees
+        Personnage p = new Personnage("AyyLmao", new Place(1, 1));
+        Labyrinthe l = new Labyrinthe(p);
+
+        // Methode testee
+        l.occuperCase(new Place(0, 2), true);
+
+        // Verification
+        // Ne devrait pas renvoyer d'exceptions
+    }
+
+    /**
+     * Test de désoccuper case
+     */
+    @Test
+    public void testDesoccuperSurCase() {
+        // Preparation des donnees
+        Personnage p = new Personnage("AyyLmao", new Place(1, 1));
+        Labyrinthe l = new Labyrinthe(p);
+
+        // Methode testee
+        l.occuperCase(new Place(0, 2), false);
+
+        // Verification
+        assertFalse("La case ne devrait pas etre occupée", l.getCases().get(2).isOccupe());
+    }
+
+    /**
+     * Test de désoccuper case null
+     */
+    @Test
+    public void testDesoccuperSurCaseNull() {
+        // Preparation des donnees
+        Personnage p = new Personnage("AyyLmao", new Place(1, 1));
+        Labyrinthe l = new Labyrinthe(p);
+
+        // Methode testee
+        l.occuperCase(new Place(5555, 555), false);
+
+        // Verification
+        // Ne renvoie pas d'exceptions
+    }
+
+    /**
+     * Test création labyrinthe, avec un personnage
+     * si la case ou se situe le personnage devient occupee
+     */
+    @Test
+    public void testCaseOccupeParPers() {
+        // Preparation des donnees
+        Personnage p = new Personnage("AyyLmao", new Place(0, 1));
+        Labyrinthe l = new Labyrinthe(p);
+
+        // Methode testee
+
+        // Verification
+        assertTrue("La case devrait etre occupée", l.getCases().get(1).isOccupe());
     }
 }
