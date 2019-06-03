@@ -133,7 +133,7 @@ public class Labyrinthe {
      *
      * @param m le monstre
      */
-    public void supMosntre(Monstre m) {
+    public void supMonstre(Monstre m) {
         if (m != null) {
             Place p = m.getPosition();
             Case  c = rechercherCase(p);

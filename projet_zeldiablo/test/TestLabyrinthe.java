@@ -414,7 +414,7 @@ public class TestLabyrinthe {
         l.addMonstre(g);
 
 
-        l.supMosntre(g);
+        l.supMonstre(g);
 
         assertFalse("La case ne devrait pas etre occupée", l.getCases().get(1).isOccupe());
     }
@@ -425,7 +425,7 @@ public class TestLabyrinthe {
         Personnage p = new Personnage("AyyLmao", new Place(5, 5));
         Labyrinthe l = new Labyrinthe(p);
 
-        l.supMosntre(g);
+        l.supMonstre(g);
 
         assertFalse("La case ne devrait pas etre occupée", l.getCases().get(1).isOccupe());
     }
@@ -435,7 +435,7 @@ public class TestLabyrinthe {
         Personnage p = new Personnage("AyyLmao", new Place(5, 5));
         Labyrinthe l = new Labyrinthe(p);
 
-        l.supMosntre(null);
+        l.supMonstre(null);
 
         //aucune erreur
     }
