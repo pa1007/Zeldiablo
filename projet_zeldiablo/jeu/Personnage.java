@@ -97,4 +97,14 @@ public class Personnage extends Entite{
             this.position.incrementerY(dy);
         }
     }
+
+    @Override
+    public void attaquer(Entite t) {
+
+    }
+
+    @Override
+    public void subirDegats(int degats) {
+
+    }
 }

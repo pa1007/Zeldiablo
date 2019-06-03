@@ -13,17 +13,17 @@ public class Case {
     /**
      * Place associée à la case
      */
-    private Place place;
+    protected Place place;
 
     /**
      * Booleen pour savoir si une case est un mur ou non
      */
-    private boolean mur;
+    protected boolean mur;
 
     /**
      * Booleen pour savoir si une case est occupee par un personnage ou non
      */
-    private boolean occupe;
+    protected boolean occupe;
 
     /**
      * Constructeur de Case à partir d'une Place

@@ -19,5 +19,11 @@ public abstract class Entite {
 
     public abstract void attaquer(Entite t);
 
-    public abstract void subirDegats(int degats);
+    public void subirDegats(int degats) {
+        if (this.pv >= degats) {
+            this.pv -= degats;
+        }else {
+            this.pv = 0;
+        }
+    }
 }
