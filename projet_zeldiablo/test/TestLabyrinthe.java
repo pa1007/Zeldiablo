@@ -6,10 +6,12 @@ import jeu.Personnage;
 import jeu.monstre.Gnome;
 import org.junit.Test;
 import utils.Place;
+
 import java.util.ArrayList;
 import java.util.List;
-import static junit.framework.Assert.assertFalse;
-import static junit.framework.Assert.assertTrue;
+
+import static junit.framework.TestCase.assertFalse;
+import static junit.framework.TestCase.assertTrue;
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNull;
 
@@ -26,8 +28,8 @@ public class TestLabyrinthe {
     @Test
     public void testConstructeurLabyrintheAvecPersonnage() {
         // Preparation des donnees
-        Place      p     = new Place(1, 1);
-        Labyrinthe l     = new Labyrinthe();
+        Place p = new Place(1, 1);
+        Labyrinthe l = new Labyrinthe();
         Personnage perso = new Personnage("Julien", p, l);
 
         // Methode testee
@@ -84,7 +86,7 @@ public class TestLabyrinthe {
         Labyrinthe l = new Labyrinthe(null);
 
         // Verification
-        assertEquals("Le labyrinthe devrait avoir un personnage null", null, l.getAventurier());
+        assertNull("Le labyrinthe devrait avoir un personnage null", l.getAventurier());
     }
 
 
@@ -111,7 +113,7 @@ public class TestLabyrinthe {
         Labyrinthe l = new Labyrinthe();
 
         // Methode testée
-        Case c   = l.rechercherCase(new Place(0, 2));
+        Case c = l.rechercherCase(new Place(0, 2));
         Case res = l.getCases().get(2);
 
         // Verification
@@ -282,9 +284,11 @@ public class TestLabyrinthe {
         Personnage p = new Personnage("AyyLmao", new Place(0, 1), l);
         l.getCases().get(0).setOccupe(true);
         l.addPerso(p);
+
         // Methode testee
         boolean res1 = l.etreOccupe(new Place(0, 0));
         boolean res2 = l.etreOccupe(new Place(2, 0));
+
         // Verification
         assertTrue("La case devrait etre occupée", res1);
         assertFalse("La case ne devrait pas etre occupée", res2);
@@ -300,6 +304,7 @@ public class TestLabyrinthe {
 
         // Methode testee
         boolean res = l.etreOccupe(new Place(545, 54));
+
         // Verification
         assertFalse("La case ne devrait pas etre occupe", res);
     }
@@ -312,11 +317,13 @@ public class TestLabyrinthe {
     public void testCaseOccupeParMosntre() {
         // Preparation des donnees
         Labyrinthe l = new Labyrinthe();
-        Gnome      g = new Gnome(new Place(0, 1), l);
+        Gnome g = new Gnome(new Place(0, 1), l);
         Personnage p = new Personnage("AyyLmao", new Place(0, 0), l);
         l.addPerso(p);
+
         // Methode testee
         l.addMonstre(g);
+
         // Verification
         assertTrue("La case devrait etre occupée", l.getCases().get(1).isOccupe());
     }
@@ -329,12 +336,13 @@ public class TestLabyrinthe {
     public void testCaseMurPasOccupeParMosntre() {
         // Preparation des donnees
         Labyrinthe l = new Labyrinthe();
-        Gnome      g = new Gnome(new Place(0, 1), l);
+        Gnome g = new Gnome(new Place(0, 1), l);
         Personnage p = new Personnage("AyyLmao", new Place(0, 0), l);
         l.addMur(new Place(0, 1));
 
         // Methode testee
         l.addMonstre(g);
+
         // Verification
         assertFalse("La case ne devrait pas etre occupée", l.getCases().get(1).isOccupe());
         assertTrue("La case devrait etre un mur", l.getCases().get(1).isMur());
@@ -348,12 +356,13 @@ public class TestLabyrinthe {
     public void testCaseMonstreEnDehors() {
         // Preparation des donnees
         Labyrinthe l = new Labyrinthe();
-        Gnome      g = new Gnome(new Place(50, 50), l);
+        Gnome g = new Gnome(new Place(50, 50), l);
         Personnage p = new Personnage("AyyLmao", new Place(0, 0), l);
         l.addMur(new Place(0, 1));
 
         // Methode testee
         l.addMonstre(g);
+
         // Verification
         //rien ne se passe
     }
@@ -371,7 +380,7 @@ public class TestLabyrinthe {
         l.addMur(new Place(50, 50));
 
         // Verification
-        //il n'y a pas d"exception
+        //il n'y a pas d'exception
     }
 
 
@@ -385,6 +394,7 @@ public class TestLabyrinthe {
 
         // Methode testee
         l.addMur(new Place(0, 1));
+
         // Verification
         assertTrue("La case devrait etre occupée", l.getCases().get(1).isMur());
     }
@@ -392,7 +402,7 @@ public class TestLabyrinthe {
     @Test
     public void testSupMonstre() {
         Labyrinthe l = new Labyrinthe();
-        Gnome      g = new Gnome(new Place(0, 1), l);
+        Gnome g = new Gnome(new Place(0, 1), l);
         l.addMonstre(g);
 
 
@@ -404,7 +414,7 @@ public class TestLabyrinthe {
     @Test
     public void testSupMonstreNonPresent() {
         Labyrinthe l = new Labyrinthe();
-        Gnome      g = new Gnome(new Place(0, 1), l);
+        Gnome g = new Gnome(new Place(0, 1), l);
 
         l.supMonstre(g);
 

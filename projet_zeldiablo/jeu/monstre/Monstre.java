@@ -3,6 +3,7 @@ package jeu.monstre;
 import jeu.Entite;
 import jeu.Labyrinthe;
 import utils.Place;
+
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -10,11 +11,8 @@ public abstract class Monstre extends Entite {
 
     private static final int TAILLE_MONSTRE = 25;
 
-    private static final int POINT_DE_VIE_MONSTRE = 3;
-
-
-    public Monstre(Place p, Labyrinthe laby) {
-        super(POINT_DE_VIE_MONSTRE, p, laby, Type.MONSTRE);
+    public Monstre(int pdv, Place p, Labyrinthe laby) {
+        super(pdv, p, laby, Type.MONSTRE);
     }
 
     public Place getPosition() {
@@ -29,5 +27,17 @@ public abstract class Monstre extends Entite {
                 TAILLE_MONSTRE,
                 TAILLE_MONSTRE
         );
+    }
+
+    public boolean peutAttaquer() {
+        // @TODO : Doit check si un Personnage est au NORD,SUD,EST,OUEST, si oui alors return true
+        return true;
+    }
+
+    @Override
+    public void attaquer(Entite t) {
+        if (peutAttaquer()) {
+            t.subirDegats(degats);
+        }
     }
 }

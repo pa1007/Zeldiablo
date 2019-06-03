@@ -6,6 +6,8 @@ public abstract class Entite {
 
     protected int pv;
 
+    protected int degats;
+
     protected Place position;
 
     protected Labyrinthe labyrinthe;
@@ -51,8 +53,8 @@ public abstract class Entite {
     }
 
     private void move(int dx, int dy) {
-        Place tempPlace      = new Place(this.position.getX() + dx, this.position.getY() + dy);
-        Case  caseRecherchee = this.labyrinthe.rechercherCase(tempPlace);
+        Place tempPlace = new Place(this.position.getX() + dx, this.position.getY() + dy);
+        Case caseRecherchee = this.labyrinthe.rechercherCase(tempPlace);
         if (caseRecherchee != null && caseRecherchee.isVide()) {
             this.position.incrementerX(dx);
             this.position.incrementerY(dy);
@@ -64,8 +66,7 @@ public abstract class Entite {
     public void subirDegats(int degats) {
         if (this.pv >= degats) {
             this.pv -= degats;
-        }
-        else {
+        } else {
             this.pv = 0;
         }
     }
