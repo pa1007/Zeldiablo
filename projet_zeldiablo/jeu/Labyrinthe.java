@@ -132,7 +132,11 @@ public class Labyrinthe {
      * @return Booleen
      */
     public boolean etreMur(Place p) {
-        return rechercherCase(p).isMur();
+        Case res = rechercherCase(p);
+        if (res != null) {
+            return res.isMur();
+        }
+        return false;
     }
 
     /**
@@ -141,6 +145,10 @@ public class Labyrinthe {
      * @return Booleen
      */
     public boolean etreOccupe(Place p) {
-        return rechercherCase(p).isOccupe();
+        Case res = rechercherCase(p);
+        if (res != null) {
+            return res.isOccupe();
+        }
+        return false;
     }
 }
