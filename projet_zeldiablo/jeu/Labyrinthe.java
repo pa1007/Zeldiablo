@@ -128,6 +128,23 @@ public class Labyrinthe {
     }
 
     /**
+     * Permet de sup le monstre en param <br>
+     * et set la case a vide
+     *
+     * @param m le monstre
+     */
+    public void supMosntre(Monstre m) {
+        if (m != null) {
+            Place p = m.getPosition();
+            Case  c = rechercherCase(p);
+            if (c != null && c.isOccupe()) {
+                monstres.remove(m);
+                c.setOccupe(false);
+            }
+        }
+    }
+
+    /**
      * Methode permettant de supprimer un mur a une certaine place
      *
      * @param p Place
