@@ -1,0 +1,28 @@
+- fonctionnalité 0 : Refactor avec une class Entité
+- descriptif texte : Refactor avec une class Entité
+- critères de validation :
+	- critère 1  Gestion des PV
+	- critère 2  Methode attaquer
+    - critère 3  Methode Mourrir
+    - critère 4  Methode Subirdegats
+
+- fonctionnalité 1 : Case piege
+- descriptif texte : Des cades pieger
+- critères de validation :
+	- critère 1  Dégats lorsque la case est pieger
+	- critère 2  Activer / désactiver
+    - critère 3  Visble / invisible
+
+- fonctionnalité 2 : IA de Monstre
+- descriptif texte : Permet de bouger un monstre vers un personnage
+- critères de validation :
+	- critère 1  Algo de lee
+	- critère 2  Contourne les murs
+    - critère 3
+
+- fonctionnalité 3 : Attaque des Monstres
+- descriptif texte : Permet a un Monstre d'attaquer près de lui
+- critères de validation :
+	- critère 1  Gestion des PV pour  monstres
+	- critère 2  Attaque lorsque il y a un Personnage près de lui
+    - critère 3  Enlève des PV
