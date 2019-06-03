@@ -1,6 +1,5 @@
 package jeu;
 
-import jeu.monstre.Gnome;
 import jeu.monstre.Monstre;
 import utils.Place;
 import java.awt.Graphics;
@@ -23,6 +22,12 @@ public class Labyrinthe {
                 this.cases.add(new Case(i, j));
             }
         }
+        if (aventurier != null) {
+            Case c = rechercherCase(aventurier.getPosition());
+            if (c != null) {
+                c.setOccupe(true);
+            }
+        }
     }
 
     public Labyrinthe(List<Case> cases, Personnage aventurier) {
@@ -30,7 +35,8 @@ public class Labyrinthe {
         this.aventurier = aventurier;
         if (cases != null) {
             this.cases = cases;
-        } else {
+        }
+        else {
             this.cases = new ArrayList<>();
             for (int i = 0; i < 20; i++) {
                 for (int j = 0; j < 20; j++) {
@@ -38,10 +44,18 @@ public class Labyrinthe {
                 }
             }
         }
+        if (aventurier != null) {
+            Case c = rechercherCase(aventurier.getPosition());
+            if (c != null) {
+                c.setOccupe(true);
+            }
+        }
+
     }
 
     /**
      * Getter permettant de retourner la liste de cases du labyrinthe
+     *
      * @return Liste de cases
      */
     public List<Case> getCases() {
@@ -50,6 +64,7 @@ public class Labyrinthe {
 
     /**
      * Getter permettant de retourner le personnage se situant dans la labyrinthe
+     *
      * @return Personnage
      */
     public Personnage getAventurier() {
@@ -58,6 +73,7 @@ public class Labyrinthe {
 
     /**
      * Methode permettant de retourner l'objet Case se situant a une certaine Place
+     *
      * @param p Place a tester
      * @return Case recherchee
      */
@@ -86,6 +102,7 @@ public class Labyrinthe {
 
     /**
      * Methode permettant d'ajouter un mur a une certaine place
+     *
      * @param p Place ou l'on veut ajouter un mur
      */
     public void addMur(Place p) {
@@ -106,6 +123,7 @@ public class Labyrinthe {
 
     /**
      * Methode permettant de supprimer un mur a une certaine place
+     *
      * @param p Place
      */
     public void removeMur(Place p) {
@@ -117,6 +135,7 @@ public class Labyrinthe {
 
     /**
      * Methode permettant de changer l'attribut occupe d'une case a une place donne
+     *
      * @param p Place
      */
     public void occuperCase(Place p, boolean occupee) {
@@ -128,6 +147,7 @@ public class Labyrinthe {
 
     /**
      * Methode permettant de savoir si la case situee a une place donnee est un mur ou non
+     *
      * @param p Place
      * @return Booleen
      */
@@ -141,6 +161,7 @@ public class Labyrinthe {
 
     /**
      * Methode permeettant de savoir si la case situee a une placee donne est un mur ou non
+     *
      * @param p Place
      * @return Booleen
      */

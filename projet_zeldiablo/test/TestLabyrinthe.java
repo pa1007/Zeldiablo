@@ -3,6 +3,7 @@ package test;
 import jeu.Case;
 import jeu.Labyrinthe;
 import jeu.Personnage;
+import jeu.monstre.Gnome;
 import org.junit.Test;
 import utils.Place;
 
@@ -318,5 +319,92 @@ public class TestLabyrinthe {
         boolean res = l.etreOccupe(new Place(545, 54));
         // Verification
         assertFalse("La case ne devrait pas etre occupe", res);
+    }
+
+    /**
+     * Test création labyrinthe, avec un personnage et un monstre
+     * si la case ou se situe le monstre devient occupee
+     */
+    @Test
+    public void testCaseOccupeParMosntre() {
+        // Preparation des donnees
+        Gnome      g = new Gnome(new Place(0, 1));
+        Personnage p = new Personnage("AyyLmao", new Place(0, 0));
+        Labyrinthe l = new Labyrinthe(p);
+
+        // Methode testee
+        l.addMosntre(g);
+        // Verification
+        assertTrue("La case devrait etre occupée", l.getCases().get(1).isOccupe());
+    }
+
+    /**
+     * Test création labyrinthe, avec un personnage et un monstre
+     * si le mur ne change pas
+     */
+    @Test
+    public void testCaseMurPasOccupeParMosntre() {
+        // Preparation des donnees
+        Gnome      g = new Gnome(new Place(0, 1));
+        Personnage p = new Personnage("AyyLmao", new Place(0, 0));
+        Labyrinthe l = new Labyrinthe(p);
+        l.addMur(new Place(0, 1));
+
+        // Methode testee
+        l.addMosntre(g);
+        // Verification
+        assertFalse("La case ne devrait pas etre occupée", l.getCases().get(1).isOccupe());
+        assertTrue("La case devrait etre un mur", l.getCases().get(1).isMur());
+    }
+
+    /**
+     * Test création labyrinthe, avec un personnage et un monstre
+     * si le mur ne change pas
+     */
+    @Test
+    public void testCaseMonstreEnDehors() {
+        // Preparation des donnees
+        Gnome      g = new Gnome(new Place(50, 50));
+        Personnage p = new Personnage("AyyLmao", new Place(0, 0));
+        Labyrinthe l = new Labyrinthe(p);
+        l.addMur(new Place(0, 1));
+
+        // Methode testee
+        l.addMosntre(g);
+        // Verification
+        //rien ne se passe
+    }
+
+    /**
+     * Test création labyrinthe, avec un personnage et un monstre
+     * si le mur ne change pas
+     */
+    @Test
+    public void testCaseNonValideMur() {
+        // Preparation des donnees
+        Personnage p = new Personnage("AyyLmao", new Place(0, 0));
+        Labyrinthe l = new Labyrinthe(p);
+
+        // Methode testee
+        l.addMur(new Place(50, 50));
+
+        // Verification
+        //il n'y a pas d"exception
+    }
+
+
+    /**
+     * Test si la case est bien mis en mur
+     */
+    @Test
+    public void testCaseMur() {
+        // Preparation des donnees
+        Personnage p = new Personnage("AyyLmao", new Place(0, 0));
+        Labyrinthe l = new Labyrinthe(p);
+
+        // Methode testee
+        l.addMur(new Place(0, 1));
+        // Verification
+        assertTrue("La case devrait etre occupée", l.getCases().get(1).isMur());
     }
 }
