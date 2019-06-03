@@ -10,6 +10,7 @@ public class Piege extends Case{
 
     public Piege (Place place) {
         super(place);
+        this.type = CaseType.PIEGE;
     }
 
     public void infligerDegats (Personnage p) {

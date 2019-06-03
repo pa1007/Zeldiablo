@@ -2,7 +2,6 @@ package jeu;
 
 import exceptions.CaseException;
 import utils.Place;
-
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -25,6 +24,8 @@ public class Case {
      */
     protected boolean occupe;
 
+    protected CaseType type;
+
     /**
      * Constructeur de Case à partir d'une Place
      *
@@ -36,6 +37,7 @@ public class Case {
         } else {
             throw new CaseException("0 <= (X,Y) < 20");
         }
+        this.type = CaseType.NORMAL;
     }
 
     /**
@@ -114,5 +116,10 @@ public class Case {
         }
 
 
+    }
+
+    public enum CaseType {
+        NORMAL,
+        PIEGE
     }
 }
