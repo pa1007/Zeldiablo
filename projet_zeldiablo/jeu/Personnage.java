@@ -6,7 +6,7 @@ import java.awt.Graphics;
 
 public class Personnage {
 
-    private static final int TAILLE_PERSO = 25;
+    private static final int    TAILLE_PERSO = 25;
     /**
      * Attribut prive qui correspond au nom du personnage
      */
@@ -45,36 +45,18 @@ public class Personnage {
      * @param direction direction dans laquelle va aller le personnage
      */
     public void seDeplacer(char direction) {
-        Place tempPlace;
-        Case  caseRecherchee;
         switch (direction) {
             case 'N':
-                tempPlace = new Place(this.getPosition().getX(), this.getPosition().getY() + 1);
-                caseRecherchee = this.labyrinthe.rechercherCase(tempPlace);
-                if (!caseRecherchee.isMur() || !caseRecherchee.isOccupe()) {
-                    this.position.incrementerY(1);
-                }
+                move(0, -1);
                 break;
             case 'S':
-                tempPlace = new Place(this.getPosition().getX(), this.getPosition().getY() - 1);
-                caseRecherchee = this.labyrinthe.rechercherCase(tempPlace);
-                if (!caseRecherchee.isMur() || !caseRecherchee.isOccupe()) {
-                    this.position.incrementerY(-1);
-                }
+                move(0, 1);
                 break;
             case 'E':
-                tempPlace = new Place(this.getPosition().getX() + 1, this.getPosition().getY());
-                caseRecherchee = this.labyrinthe.rechercherCase(tempPlace);
-                if (!caseRecherchee.isMur() || !caseRecherchee.isOccupe()) {
-                    this.position.incrementerX(1);
-                }
+                move(1, 0);
                 break;
             case 'O':
-                tempPlace = new Place(this.getPosition().getX() - 1, this.getPosition().getY());
-                caseRecherchee = this.labyrinthe.rechercherCase(tempPlace);
-                if (!caseRecherchee.isMur() || !caseRecherchee.isOccupe()) {
-                    this.position.incrementerX(-1);
-                }
+                move(-1, 0);
                 break;
             default:
                 System.out.println("Caractere non valide");
@@ -98,5 +80,18 @@ public class Personnage {
                 TAILLE_PERSO,
                 TAILLE_PERSO
         );
+    }
+
+    public void setLabyrinthe(Labyrinthe l) {
+        this.labyrinthe = l;
+    }
+
+    private void move(int dx, int dy) {
+        Place tempPlace      = new Place(this.getPosition().getX() + dx, this.getPosition().getY() + dy);
+        Case  caseRecherchee = this.labyrinthe.rechercherCase(tempPlace);
+        if (caseRecherchee != null && caseRecherchee.isVide()) {
+            this.position.incrementerX(dx);
+            this.position.incrementerY(dy);
+        }
     }
 }

@@ -64,7 +64,7 @@ public class Labyrinthe {
     public Case rechercherCase(Place p) {
         Case res = null;
         for (Case c : this.cases) {
-            if (c.getPlace().equals(p)){
+            if (c.getPlace().equals(p)) {
                 res = c;
                 break;
             }
@@ -92,6 +92,15 @@ public class Labyrinthe {
         Case res = rechercherCase(p);
         if (res != null && res.isVide()) {
             res.setMur(true);
+        }
+    }
+
+    public void addMosntre(Monstre m) {
+        Place p = m.getPosition();
+        Case  c = rechercherCase(p);
+        if (c != null && c.isVide()) {
+            monstres.add(m);
+            c.setOccupe(true);
         }
     }
 

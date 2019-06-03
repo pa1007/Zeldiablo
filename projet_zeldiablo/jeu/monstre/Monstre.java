@@ -13,12 +13,16 @@ public abstract class Monstre {
         this.position = p;
     }
 
+    public Place getPosition() {
+        return position;
+    }
+
     public void afficher(Graphics g) {
         g.setColor(Color.red);
         g.fillOval(
                 TAILLE_MONSTRE * position.getX(),
                 TAILLE_MONSTRE * position.getY(),
-                TAILLE_MONSTRE ,
+                TAILLE_MONSTRE,
                 TAILLE_MONSTRE
         );
     }
