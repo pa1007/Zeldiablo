@@ -2,6 +2,7 @@ package test;
 
 import org.junit.Test;
 import utils.Place;
+
 import static org.junit.Assert.assertEquals;
 
 public class TestPlace {
@@ -12,8 +13,8 @@ public class TestPlace {
     @Test
     public void test_Constructeur_Place() {
         Place p = new Place(1, 2);
-        int   i = 1;
-        int   z = 2;
+        int i = 1;
+        int z = 2;
 
 
         assertEquals("Pas le bon x", i, p.getX());

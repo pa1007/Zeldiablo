@@ -4,6 +4,7 @@ import exceptions.CaseException;
 import jeu.Case;
 import org.junit.Test;
 import utils.Place;
+
 import static org.junit.Assert.assertEquals;
 
 /**

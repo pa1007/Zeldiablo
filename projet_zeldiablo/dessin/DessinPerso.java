@@ -2,6 +2,7 @@ package dessin;
 
 import moteur_jeu.DessinJeu;
 import moteur_jeu.Jeu;
+
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
@@ -24,7 +25,6 @@ public class DessinPerso implements DessinJeu {
 
         Graphics g = image.getGraphics();
         //ajouter ce qu'on veut dessiner
-
 
 
         //finir avec

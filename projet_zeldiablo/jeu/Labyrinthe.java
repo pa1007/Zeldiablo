@@ -10,9 +10,9 @@ public class Labyrinthe {
     public Labyrinthe(Personnage aventurier) {
         this.aventurier = aventurier;
         this.cases = new ArrayList<>();
-        for (int i = 0; i < 20; i++){
-            for (int j = 0; j < 20; j++){
-                this.cases.add(new Case(i,j));
+        for (int i = 0; i < 20; i++) {
+            for (int j = 0; j < 20; j++) {
+                this.cases.add(new Case(i, j));
             }
         }
     }
@@ -21,11 +21,11 @@ public class Labyrinthe {
         this.aventurier = aventurier;
         if (cases != null) {
             this.cases = cases;
-        }else {
+        } else {
             this.cases = new ArrayList<>();
-            for (int i = 0; i < 20; i++){
-                for (int j = 0; j < 20; j++){
-                    this.cases.add(new Case(i,j));
+            for (int i = 0; i < 20; i++) {
+                for (int j = 0; j < 20; j++) {
+                    this.cases.add(new Case(i, j));
                 }
             }
         }

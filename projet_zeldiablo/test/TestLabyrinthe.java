@@ -5,8 +5,10 @@ import jeu.Labyrinthe;
 import jeu.Personnage;
 import org.junit.Test;
 import utils.Place;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import static junit.framework.TestCase.assertEquals;
 
 /**
@@ -22,7 +24,7 @@ public class TestLabyrinthe {
     @Test
     public void testConstructeurLabyrintheAvecPersonnage() {
         // Preparation des donnees
-        Place      p     = new Place(1, 1);
+        Place p = new Place(1, 1);
         Personnage perso = new Personnage("Julien", p);
 
         // Methode testee
@@ -43,7 +45,7 @@ public class TestLabyrinthe {
     @Test
     public void testConstructeurLabyrintheNBCases() {
         // Preparation des donnees
-        Place      p     = new Place(1, 1);
+        Place p = new Place(1, 1);
         Personnage perso = new Personnage("Julien", p);
 
         // Methode testee
@@ -60,7 +62,7 @@ public class TestLabyrinthe {
     @Test
     public void testConstructeurLabyrintheConstructeurListeCases() {
         // Preparation des donnees
-        Place      p     = new Place(1, 1);
+        Place p = new Place(1, 1);
         Personnage perso = new Personnage("Julien", p);
         List<Case> cases = new ArrayList<>();
         cases.add(new Case(1, 1));
