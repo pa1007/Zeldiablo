@@ -128,8 +128,6 @@ public class Case {
      * @param g Graphics
      */
     public void afficher(Graphics g) {
-        g.setColor(Color.BLACK);
-        g.drawRect(TAILLE_CASE * place.getX(), TAILLE_CASE * place.getY(), TAILLE_CASE, TAILLE_CASE);
         if (isMur()) {
             g.setColor(Color.GRAY);
             g.fillRect(TAILLE_CASE * place.getX(), TAILLE_CASE * place.getY(), TAILLE_CASE, TAILLE_CASE);
