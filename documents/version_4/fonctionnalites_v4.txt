@@ -23,3 +23,9 @@ responsable : louppe7u, sayer6u
 	- critère 2  ne dépends pas de la taille du laby
     - critère 3  Dans un fichier
 responsable : fourrie15u
+
+- fonctionnalité 4 : mort des monstres
+- descriptif texte : Permet de faire disparaitre les monstre une fois que ceux ci sont morts
+- critères de validation :
+    - critère 1 disparition quand il n'as plus de point de vie
+    - critère 2 : monstre plus dans la liste
