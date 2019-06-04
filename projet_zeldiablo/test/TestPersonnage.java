@@ -2,6 +2,7 @@ package test;
 
 import jeu.Labyrinthe;
 import jeu.Personnage;
+import jeu.monstre.Gnome;
 import org.junit.Test;
 import utils.Place;
 
@@ -17,7 +18,6 @@ public class TestPersonnage {
         Place place1 = new Place(1, 1);
         Labyrinthe l = new Labyrinthe();
         Personnage perso = new Personnage("bob", 10, place1, l);
-        perso.setLabyrinthe(l);
 
         perso.seDeplacer('N');
 
@@ -84,4 +84,56 @@ public class TestPersonnage {
         assertEquals("mauvaise place", new Place(1, 1), place1);
     }
 
+    /**
+     * Test d'attaquer un monstre
+     */
+    @Test
+    public void testAttaquerMonstre() {
+        Labyrinthe l = new Labyrinthe();
+        Personnage paul = new Personnage("Paul", 10, new Place(1,1), l);
+        Gnome g = new Gnome(new Place(1,3), l);
+        l.addMonstre(g);
+        l.addPerso(paul);
+        paul.setLabyrinthe(l);
+        paul.seDeplacer('S');
+
+        paul.attaquer();
+
+        assertEquals("Le monstre devrait avoir 0 pdv", 0, g.getPv());
+    }
+
+    /**
+     * Test d'attaquer un monstre pas a côté
+     */
+    @Test
+    public void testAttaquerMonstrePasAcote() {
+        Labyrinthe l = new Labyrinthe();
+        Personnage paul = new Personnage("Paul", 10, new Place(1,1), l);
+        Gnome g = new Gnome(new Place(1,4), l);
+        l.addMonstre(g);
+        l.addPerso(paul);
+        paul.setLabyrinthe(l);
+        paul.seDeplacer('S');
+
+        paul.attaquer();
+
+        assertEquals("Le monstre devrait avoir 3 pdv", 3, g.getPv());
+    }
+
+    /**
+     * Test d'attaquer un monstre mais en fait il n'y
+     * en a pas
+     */
+    @Test
+    public void testAttaquerMonstreMaisEnFaitIlNYAPasDeMonstreSurLeLabyrinthe() {
+        Labyrinthe l = new Labyrinthe();
+        Personnage paul = new Personnage("Paul", 10, new Place(1,1), l);
+        l.addPerso(paul);
+        paul.setLabyrinthe(l);
+        paul.seDeplacer('S');
+
+        paul.attaquer();
+
+        // Ne devrait pas renvoyer d'erreur
+    }
 }

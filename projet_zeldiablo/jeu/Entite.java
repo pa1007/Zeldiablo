@@ -78,6 +78,10 @@ public abstract class Entite {
         return this.pv == 0;
     }
 
+    public void setLabyrinthe(Labyrinthe l) {
+        this.labyrinthe = l;
+    }
+
     public enum Type {
         MONSTRE,
         PERSONNAGE

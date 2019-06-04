@@ -51,16 +51,11 @@ public class Personnage extends Entite {
         );
     }
 
-    public void setLabyrinthe(Labyrinthe l) {
-        this.labyrinthe = l;
-    }
-
     public int getPv() {
         return this.pv;
     }
 
-    @Override
-    public void attaquer(Entite t) {
+    public void attaquer() {
         Place pPerso = getPosition();
         Monstre m1 = labyrinthe.rechercherMonstre(new Place(pPerso.getX() + 1, pPerso.getY()));
         Monstre m2 = labyrinthe.rechercherMonstre(new Place(pPerso.getX() - 1, pPerso.getY()));
@@ -79,4 +74,7 @@ public class Personnage extends Entite {
             m4.subirDegats(degats);
         }
     }
+
+    @Override
+    public void attaquer(Entite t) {}
 }
