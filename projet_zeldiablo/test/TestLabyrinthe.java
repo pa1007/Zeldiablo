@@ -4,6 +4,7 @@ import jeu.Case;
 import jeu.Labyrinthe;
 import jeu.Personnage;
 import jeu.monstre.Gnome;
+import jeu.monstre.Monstre;
 import org.junit.Test;
 import utils.Place;
 
@@ -134,6 +135,41 @@ public class TestLabyrinthe {
 
         // Verification
         assertNull("Devrait retourner null", c);
+    }
+
+
+    /**
+     * Test de recherche de monstre
+     */
+    @Test
+    public void testRechercheDeMonstreDansLabyrinthe(){
+        //Preparation des donnees
+        Labyrinthe l = new Labyrinthe();
+        Place p = new Place(1, 1);
+        Gnome gnome = new Gnome(p,l);
+        l.addMonstre(gnome);
+
+        //Methode testee
+        Monstre res = l.rechercherMonstre(p);
+
+        //Verification
+        assertEquals("le monstre n'a pas ete trouve", gnome, res);
+    }
+
+    /**
+     * Test de recherche dans la liste du labyrinthe quand il n'y a pas de monstre
+     */
+    @Test
+    public void testRechercheDEMonstreDansLabyrintheSansMonstre(){
+        //Preparation des donnees
+        Labyrinthe l = new Labyrinthe();
+        Place p = new Place(1, 1);
+
+        //Methode testee
+        Monstre res = l.rechercherMonstre(p);
+
+        //Verification
+        assertNull("Devrait retourner null", res);
     }
 
     /**
