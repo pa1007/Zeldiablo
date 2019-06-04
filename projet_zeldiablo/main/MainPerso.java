@@ -1,3 +1,5 @@
+package main;
+
 import dessin.DessinPerso;
 import jeu.JeuPerso;
 import jeu.Labyrinthe;

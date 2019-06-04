@@ -15,7 +15,7 @@ public class TestAI {
      * Test pour un algo avec aucun chemin
      */
     @Test
-    public void test_Algorith_AucunChemin() {
+    public void test_Algorithm_AucunChemin() {
         Labyrinthe l  = new Labyrinthe();
         Algorithm  al = new Algorithm(l);
 
@@ -28,7 +28,7 @@ public class TestAI {
      * Nous allons regarder pour une entrée toute simple
      */
     @Test
-    public void test_Algorith_RechercheSimple() {
+    public void test_Algorithm_RechercheSimple() {
         Labyrinthe l      = new Labyrinthe();
         Place      persoP = new Place(4, 4);
         l.addPerso(new Personnage("louppe", 1, persoP, l));
@@ -47,7 +47,7 @@ public class TestAI {
      * On ajout un mur pour voir ce qu'il se passe
      */
     @Test
-    public void test_Algorith_RechercheAvecMur() {
+    public void test_Algorithm_RechercheAvecMur() {
         Labyrinthe l      = new Labyrinthe();
         Place      persoP = new Place(5, 5);
         l.addPerso(new Personnage("louppe", 1, persoP, l));

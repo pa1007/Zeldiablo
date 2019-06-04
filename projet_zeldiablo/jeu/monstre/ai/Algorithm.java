@@ -24,9 +24,6 @@ public class Algorithm {
         temp = new HashMap<>();
         workingList = new ArrayList<>();
         l.getCases().forEach((a) -> workingList.add(a.getPlace()));
-
-        int i = 0;
-
     }
 
     public boolean leeAlgorithm(Place c) {
@@ -85,7 +82,6 @@ public class Algorithm {
         boolean     found          = false;
         int         max            = Integer.MAX_VALUE;
         while (!found) {
-            Case s;
             if (directNeibourg.isEmpty()) {
                 break;
             }

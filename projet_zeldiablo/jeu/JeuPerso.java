@@ -2,6 +2,7 @@ package jeu;
 
 import jeu.monstre.Monstre;
 import moteur_jeu.Commande;
+import java.util.Iterator;
 
 public class JeuPerso implements moteur_jeu.Jeu {
 
@@ -33,8 +34,14 @@ public class JeuPerso implements moteur_jeu.Jeu {
      */
     @Override
     public void evoluer(Commande commandeUser) {
-        for (Monstre m : labyrinthe.getMonstres()) {
-            m.seMouvoire(labyrinthe.getAventurier().getPosition());
+        for (Iterator<Monstre> iterator = labyrinthe.getMonstres().iterator(); iterator.hasNext(); ) {
+            Monstre m = iterator.next();
+            if (!m.etreMort()) {
+                m.seMouvoire(labyrinthe.getAventurier().getPosition());
+            }
+            else {
+                iterator.remove();
+            }
         }
         if (commandeUser.bas) {
             personnage.seDeplacer('S');

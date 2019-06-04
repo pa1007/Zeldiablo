@@ -77,8 +77,10 @@ public class Personnage extends Entite {
      */
     private void attaquerMonstre(Monstre m) {
         if (m != null) {
+            System.out.println("Tourvé");
             m.subirDegats(degats);
             if (m.etreMort()) {
+                System.out.println("MORT");
                 labyrinthe.supMonstre(m);
             }
         }

@@ -5,7 +5,6 @@ import jeu.cases.Case;
 import jeu.cases.Piege;
 import org.junit.Test;
 import utils.Place;
-
 import static org.junit.Assert.*;
 
 /**

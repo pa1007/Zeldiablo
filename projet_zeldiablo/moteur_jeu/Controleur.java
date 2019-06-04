@@ -56,7 +56,7 @@ public class Controleur implements KeyListener {
                 this.commandeARetourner.bas = true;
                 break;
             case ' ':
-                this.commandeEnCours.espace = false;
+                this.commandeEnCours.espace = true;
                 this.commandeARetourner.espace = true;
                 break;
         }
