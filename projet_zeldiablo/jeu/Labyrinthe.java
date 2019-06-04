@@ -74,6 +74,17 @@ public class Labyrinthe {
         return res;
     }
 
+    public Monstre rechercherMonstre(Place p){
+        Monstre res = null;
+        for(Monstre m : this.monstres){
+            if (m.getPosition().equals(p)){
+                res = m;
+                break;
+            }
+        }
+        return res;
+    }
+
     public void afficher(Graphics g) {
         for (Case c : cases) {
             c.afficher(g);
