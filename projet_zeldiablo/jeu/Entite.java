@@ -60,7 +60,7 @@ public abstract class Entite {
             this.position.incrementerX(dx);
             this.position.incrementerY(dy);
             if (caseRecherchee.getType() == Case.CaseType.PIEGE && this.entiteType == Type.PERSONNAGE) {
-                ((Piege)caseRecherchee).infligerDegats((Personnage)this);
+                ((Piege) caseRecherchee).infligerDegats((Personnage) this);
             }
             if (entiteType == Type.MONSTRE) {
                 attaquer(labyrinthe.getAventurier());

@@ -17,9 +17,9 @@ import static org.junit.Assert.*;
 public class TestCasePiege {
 
     @Test
-    public void testCaseFonctionnelle(){
-        Case c1 = new Case (new Place(0,0));
-        Piege c2 = new Piege (new Place(1,0));
+    public void testCaseFonctionnelle() {
+        Case c1 = new Case(new Place(0, 0));
+        Piege c2 = new Piege(new Place(1, 0));
         ArrayList<Case> lCases = new ArrayList<>();
         lCases.add(c1);
         lCases.add(c2);
@@ -35,8 +35,8 @@ public class TestCasePiege {
     }
 
     @Test
-    public void testCaseSpawnSurLePiege(){
-        Piege c2 = new Piege (new Place(0,0));
+    public void testCaseSpawnSurLePiege() {
+        Piege c2 = new Piege(new Place(0, 0));
         ArrayList<Case> lCases = new ArrayList<>();
         lCases.add(c2);
         Labyrinthe laby = new Labyrinthe(lCases);
@@ -51,9 +51,9 @@ public class TestCasePiege {
 
 
     @Test
-    public void testCaseMonstre(){
-        Case c1 = new Case (new Place(0,0));
-        Piege c2 = new Piege (new Place(1,0));
+    public void testCaseMonstre() {
+        Case c1 = new Case(new Place(0, 0));
+        Piege c2 = new Piege(new Place(1, 0));
         ArrayList<Case> lCases = new ArrayList<>();
         lCases.add(c1);
         lCases.add(c2);
@@ -67,9 +67,6 @@ public class TestCasePiege {
 
         assertEquals("Le monstre ne devrait pas perdre des pv", 3, res);
     }
-
-
-
 
 
 }

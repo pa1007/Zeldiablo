@@ -2,20 +2,20 @@ package jeu;
 
 import utils.Place;
 
-public class Piege extends Case{
+public class Piege extends Case {
 
     private boolean visible;
 
     private final static int DEGATS_PIEGE = 2;
 
-    public Piege (Place place) {
+    public Piege(Place place) {
         super(place);
         this.type = CaseType.PIEGE;
     }
 
-    public void infligerDegats (Personnage p) {
+    public void infligerDegats(Personnage p) {
         p.subirDegats(DEGATS_PIEGE);
-        if (!this.visible){
+        if (!this.visible) {
             this.visible = true;
         }
     }

@@ -51,7 +51,7 @@ public abstract class Monstre extends Entite {
         }
     }
 
-    public int getPv(){
+    public int getPv() {
         return this.pv;
     }
 }

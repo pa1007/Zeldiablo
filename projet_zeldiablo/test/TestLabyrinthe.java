@@ -31,7 +31,7 @@ public class TestLabyrinthe {
         // Preparation des donnees
         Place p = new Place(1, 1);
         Labyrinthe l = new Labyrinthe();
-        Personnage perso = new Personnage("Julien", 10 , p, l);
+        Personnage perso = new Personnage("Julien", 10, p, l);
 
         // Methode testee
         l.addPerso(perso);
@@ -142,11 +142,11 @@ public class TestLabyrinthe {
      * Test de recherche de monstre
      */
     @Test
-    public void testRechercheDeMonstreDansLabyrinthe(){
+    public void testRechercheDeMonstreDansLabyrinthe() {
         //Preparation des donnees
         Labyrinthe l = new Labyrinthe();
         Place p = new Place(1, 1);
-        Gnome gnome = new Gnome(p,l);
+        Gnome gnome = new Gnome(p, l);
         l.addMonstre(gnome);
 
         //Methode testee
@@ -160,7 +160,7 @@ public class TestLabyrinthe {
      * Test de recherche dans la liste du labyrinthe quand il n'y a pas de monstre
      */
     @Test
-    public void testRechercheDEMonstreDansLabyrintheSansMonstre(){
+    public void testRechercheDEMonstreDansLabyrintheSansMonstre() {
         //Preparation des donnees
         Labyrinthe l = new Labyrinthe();
         Place p = new Place(1, 1);
@@ -302,7 +302,7 @@ public class TestLabyrinthe {
     public void testCaseOccupeParPers() {
         // Preparation des donnees
         Labyrinthe l = new Labyrinthe();
-        Personnage p = new Personnage("AyyLmao",10, new Place(0, 1), l);
+        Personnage p = new Personnage("AyyLmao", 10, new Place(0, 1), l);
 
         // Methode testee
         l.addPerso(p);
@@ -317,7 +317,7 @@ public class TestLabyrinthe {
     public void testEtreOccupe() {
         // Preparation des donnees
         Labyrinthe l = new Labyrinthe();
-        Personnage p = new Personnage("AyyLmao",10, new Place(0, 1), l);
+        Personnage p = new Personnage("AyyLmao", 10, new Place(0, 1), l);
         l.getCases().get(0).setOccupe(true);
         l.addPerso(p);
 
@@ -354,7 +354,7 @@ public class TestLabyrinthe {
         // Preparation des donnees
         Labyrinthe l = new Labyrinthe();
         Gnome g = new Gnome(new Place(0, 1), l);
-        Personnage p = new Personnage("AyyLmao",10, new Place(0, 0), l);
+        Personnage p = new Personnage("AyyLmao", 10, new Place(0, 0), l);
         l.addPerso(p);
 
         // Methode testee
@@ -373,7 +373,7 @@ public class TestLabyrinthe {
         // Preparation des donnees
         Labyrinthe l = new Labyrinthe();
         Gnome g = new Gnome(new Place(0, 1), l);
-        Personnage p = new Personnage("AyyLmao",10, new Place(0, 0), l);
+        Personnage p = new Personnage("AyyLmao", 10, new Place(0, 0), l);
         l.addMur(new Place(0, 1));
 
         // Methode testee
@@ -393,7 +393,7 @@ public class TestLabyrinthe {
         // Preparation des donnees
         Labyrinthe l = new Labyrinthe();
         Gnome g = new Gnome(new Place(50, 50), l);
-        Personnage p = new Personnage("AyyLmao",10, new Place(0, 0), l);
+        Personnage p = new Personnage("AyyLmao", 10, new Place(0, 0), l);
         l.addMur(new Place(0, 1));
 
         // Methode testee
