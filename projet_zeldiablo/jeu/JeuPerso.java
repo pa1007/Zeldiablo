@@ -22,9 +22,7 @@ public class JeuPerso implements moteur_jeu.Jeu {
     @Override
     public void evoluer(Commande commandeUser) {
         for (Monstre m : labyrinthe.getMonstres()) {
-            if (m.getType() == Entite.Type.MONSTRE_AI) {
-                m.seDeplacer(((MonstreAI) m).getChoix(labyrinthe.getAventurier().getPosition()));
-            }
+            m.seMouvoire(labyrinthe.getAventurier().getPosition());
         }
         if (commandeUser.bas) {
             personnage.seDeplacer('S');

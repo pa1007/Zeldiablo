@@ -2,6 +2,8 @@ package jeu.monstre;
 
 import jeu.Entite;
 import jeu.Labyrinthe;
+import jeu.monstre.ai.AI;
+import jeu.monstre.ai.AIDebille;
 import utils.Place;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -10,12 +12,16 @@ public abstract class Monstre extends Entite {
 
     private static final int TAILLE_MONSTRE = 25;
 
+    private AI ai;
+
     public Monstre(int pdv, Place p, Labyrinthe laby) {
         super(pdv, p, laby, Type.MONSTRE);
+        ai = new AIDebille();
     }
 
-    public Monstre(int pointDeVieMonstre, Place place, Labyrinthe l, Type monstreAi) {
-        super(pointDeVieMonstre, place, l, monstreAi);
+    public Monstre(int pointDeVieMonstre, Place place, Labyrinthe l, AI ai) {
+        super(pointDeVieMonstre, place, l, Type.MONSTRE);
+        this.ai = ai;
     }
 
     @Override
@@ -23,6 +29,10 @@ public abstract class Monstre extends Entite {
         if (peutAttaquer()) {
             t.subirDegats(degats);
         }
+    }
+
+    public void setAi(AI ai) {
+        this.ai = ai;
     }
 
     public Place getPosition() {
@@ -41,6 +51,11 @@ public abstract class Monstre extends Entite {
 
     public int getPv() {
         return this.pv;
+    }
+
+    public void seMouvoire(Place destination) {
+        char res = ai.faireChoix(position, destination);
+        super.seDeplacer(res);
     }
 
     private boolean peutAttaquer() {

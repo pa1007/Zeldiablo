@@ -2,7 +2,9 @@ package utils;
 
 import jeu.Labyrinthe;
 import jeu.cases.Case;
+import jeu.cases.Entree;
 import jeu.cases.Piege;
+import jeu.cases.Sortie;
 import jeu.monstre.Monstre;
 import java.io.*;
 import java.util.ArrayList;
@@ -76,6 +78,12 @@ public class Sauvegarde {
                 }
                 else if (ca.equals("P")) {
                     c = new Piege(new Place(ref.y, x));
+                }
+                else if (ca.equals("E")) {
+                    c = new Entree(ref.y, x);
+                }
+                else if (ca.equals("S")) {
+                    c = new Sortie(new Place(ref.y, x));
                 }
                 cases.add(c);
                 x++;

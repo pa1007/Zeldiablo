@@ -1,7 +1,7 @@
 package jeu.monstre;
 
-import jeu.Entite;
 import jeu.Labyrinthe;
+import jeu.monstre.ai.AI;
 import utils.Place;
 
 public class Gnome extends Monstre {
@@ -12,7 +12,8 @@ public class Gnome extends Monstre {
         super(POINT_DE_VIE_MONSTRE, p, l);
     }
 
-    public Gnome(Place place, Labyrinthe l, Type monstreAi) {
-        super(POINT_DE_VIE_MONSTRE, place, l,monstreAi);
+    public Gnome(Place p, Labyrinthe l, AI ai) {
+        super(POINT_DE_VIE_MONSTRE, p, l, ai);
     }
+
 }
