@@ -1,0 +1,22 @@
+﻿- fonctionnalité 1 : Mort de l'aventurier
+- descriptif texte : la mort de l'aventuerier
+- critères de validation :
+	- critère 1  Arret partie
+	- critère 2  Affichage different du peronnage
+    - critère 3  Affichage de la fin de partie
+
+
+- fonctionnalité 2 : Attaque de l'aventurier
+- descriptif texte : Attaque le monstre le plus proche
+- critères de validation :
+	- critère 1  Tous les monstres Corps a corps
+	- critère 2  Fais perdre des PV aux monstres
+    - critère 3  Lieux lorsqu'on appuis sur une touche
+
+
+- fonctionnalité 3 : Attaque des Monstres
+- descriptif texte : Permet a un Monstre d'attaquer près de lui
+- critères de validation :
+	- critère 1  Gestion des PV pour  monstres
+	- critère 2  Attaque lorsque il y a un Personnage près de lui
+    - critère 3  Enlève des PV
