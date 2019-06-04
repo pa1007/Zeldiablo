@@ -47,4 +47,28 @@ public class TestMonstre {
         // Result
         assertEquals("La vie du perso devrait etre 10", 10, l.getAventurier().getPv());
     }
+
+    /**
+     * Test attaquer
+     */
+    @Test
+    public void testAttaquerPersonnagePasSurLeMemeLabyrinthe() {
+        // Prep données
+        Labyrinthe labyperso = new Labyrinthe();
+        Labyrinthe labygnome = new Labyrinthe();
+        Personnage p = new Personnage("Mohammed", 10, new Place(0,1), labyperso);
+        Personnage inutile = new Personnage("inutile", 10, new Place(10,10), labygnome);
+        Gnome g = new Gnome(new Place(0,2), labygnome);
+        labyperso.addPerso(p);
+        labygnome.addPerso(inutile);
+        labygnome.addMonstre(g);
+
+        // Méthode testee
+        g.attaquer(labyperso.getAventurier());
+
+        // Result
+        assertEquals("La vie du perso devrait etre 10", 10, labyperso.getAventurier().getPv());
+        assertEquals("La vie du perso devrait etre 10", 10 , labygnome.getAventurier().getPv());
+
+    }
 }
