@@ -2,6 +2,7 @@ package test;
 
 import exceptions.CaseException;
 import jeu.Case;
+import jeu.Piege;
 import org.junit.Test;
 import utils.Place;
 import static org.junit.Assert.*;
@@ -244,12 +245,12 @@ public class TestCase {
      */
     @Test
     public void test_getLetter_Piege() {
-        Case c = new Case(new Place(1, 1));
+        Case c = new Piege(new Place(1, 1));
 
         char l = c.getLetter();
 
 
         assertEquals("La lettre n'est pas bonne", Case.CaseType.PIEGE, c.getType());
-        assertEquals("La lettre n'est pas bonne", 'p', l);
+        assertEquals("La lettre n'est pas bonne", 'P', l);
     }
 }
