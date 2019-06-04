@@ -80,7 +80,7 @@ public class Sauvegarde {
                     c = new Piege(new Place(ref.y, x));
                 }
                 else if (ca.equals("E")) {
-                    c = new Entree(ref.y, x);
+                    c = new Entree(new Place(ref.y,x));
                 }
                 else if (ca.equals("S")) {
                     c = new Sortie(new Place(ref.y, x));

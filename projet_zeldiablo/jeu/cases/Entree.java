@@ -15,17 +15,6 @@ public class Entree extends Case {
         this.type = CaseType.ENTREE;
     }
 
-    /**
-     * Constructeur de Case à partir de coordonnées
-     *
-     * @param x Abscisse
-     * @param y Ordonnée
-     */
-    public Entree(int x, int y) {
-        super(x, y);
-        this.type = CaseType.ENTREE;
-    }
-
     @Override
     public char getLetter() {
         return 'E';
