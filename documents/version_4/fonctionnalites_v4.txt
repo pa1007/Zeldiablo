@@ -14,9 +14,9 @@
     - critère 3  Lieux lorsqu'on appuis sur une touche
 
 
-- fonctionnalité 3 : Attaque des Monstres
-- descriptif texte : Permet a un Monstre d'attaquer près de lui
+- fonctionnalité 3 : Sauvegarde des labyrinthe
+- descriptif texte : Permet de sauvarger le labyrinthe
 - critères de validation :
-	- critère 1  Gestion des PV pour  monstres
-	- critère 2  Attaque lorsque il y a un Personnage près de lui
-    - critère 3  Enlève des PV
+	- critère 1  Fidèle au labyrinthe
+	- critère 2  ne dépends pas de la taille du laby
+    - critère 3  Dans un fichier
