@@ -1,5 +1,6 @@
 package test;
 
+import jeu.JeuPerso;
 import jeu.Labyrinthe;
 import jeu.Personnage;
 import jeu.monstre.Gnome;
@@ -7,6 +8,7 @@ import org.junit.Test;
 import utils.Place;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 public class TestPersonnage {
 
@@ -135,5 +137,39 @@ public class TestPersonnage {
         paul.attaquer();
 
         // Ne devrait pas renvoyer d'erreur
+    }
+
+    /**
+     * Test d'attaque de monstre pour qu'il meurt
+     */
+    @Test
+    public void testAttaqueMeurtreMonstre() {
+        Labyrinthe l = new Labyrinthe();
+        Personnage paul = new Personnage("Paul", 10, new Place(1,1), l);
+        l.addPerso(paul);
+        JeuPerso jp = new JeuPerso(paul, l);
+        Gnome g = new Gnome(new Place(0,1), l);
+        l.addMonstre(g);
+        paul.attaquer();
+
+        assertEquals("Le gnome devrait etre mort", true, g.etreMort());
+    }
+
+    /**
+     * Test d'attaque de monstre mais ne meurt pas
+     */
+    @Test
+    public void testAttaqueMonstreMaisNeMeurtPas() {
+        Labyrinthe l = new Labyrinthe();
+        Personnage paul = new Personnage("Paul", 10, new Place(1,1), l);
+        paul.setDegats(1);
+        l.addPerso(paul);
+        JeuPerso jp = new JeuPerso(paul, l);
+        Gnome g = new Gnome(new Place(0,1), l);
+        l.addMonstre(g);
+        paul.attaquer();
+
+        assertEquals("Le gnome ne devrait pas etre mort", false, g.etreMort());
+        assertEquals("Le gnome devrait avoir 2 pv", 2, g.getPv());
     }
 }
