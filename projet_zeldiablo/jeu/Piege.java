@@ -4,13 +4,17 @@ import utils.Place;
 
 public class Piege extends Case {
 
-    private boolean visible;
-
-    private final static int DEGATS_PIEGE = 2;
+    private final static int     DEGATS_PIEGE = 2;
+    private              boolean visible;
 
     public Piege(Place place) {
         super(place);
         this.type = CaseType.PIEGE;
+    }
+
+    @Override
+    public char getLetter() {
+        return 'p';
     }
 
     public void infligerDegats(Personnage p) {
