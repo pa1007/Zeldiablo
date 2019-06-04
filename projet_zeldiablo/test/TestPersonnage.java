@@ -7,8 +7,7 @@ import jeu.monstre.Gnome;
 import org.junit.Test;
 import utils.Place;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.*;
 
 public class TestPersonnage {
 
@@ -152,7 +151,8 @@ public class TestPersonnage {
         l.addMonstre(g);
         paul.attaquer();
 
-        assertEquals("Le gnome devrait etre mort", true, g.etreMort());
+
+        assertTrue("Le gnome devrait etre mort", g.etreMort());
     }
 
     /**
@@ -169,7 +169,7 @@ public class TestPersonnage {
         l.addMonstre(g);
         paul.attaquer();
 
-        assertEquals("Le gnome ne devrait pas etre mort", false, g.etreMort());
+        assertFalse("Le gnome ne devrait pas etre mort", g.etreMort());
         assertEquals("Le gnome devrait avoir 2 pv", 2, g.getPv());
     }
 }
