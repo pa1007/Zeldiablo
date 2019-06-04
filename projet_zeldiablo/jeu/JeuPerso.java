@@ -50,6 +50,10 @@ public class JeuPerso implements moteur_jeu.Jeu {
      */
     @Override
     public boolean etreFini() {
-        return personnage.etreMort();
+        return personnage.etreMort() || personnage.avoirGagne();
+    }
+
+    public Personnage getPersonnage() {
+        return personnage;
     }
 }

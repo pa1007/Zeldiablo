@@ -83,9 +83,22 @@ public class PanelDessin extends JPanel {
     }
 
     public void dessinerGameOver() {
-        Graphics g = this.imageSuivante.getGraphics();
-        g.setColor(Color.red);
-        g.drawString("GAME OVER", 50, 100);
+        Graphics g = this.imageEnCours.getGraphics();
+        g.setColor(Color.BLACK);
+        g.fillRect(0,200, getWidth(), 80);
+        g.setColor(Color.RED);
+        g.setFont(new Font("Arial", Font.PLAIN, 80));
+        g.drawString("GAME OVER", 5, 275);
+        this.repaint();
+    }
+
+    public void dessinerGagner() {
+        Graphics g = this.imageEnCours.getGraphics();
+        g.setColor(Color.GREEN);
+        g.fillRect(0,200, getWidth(), 80);
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Arial", Font.PLAIN, 100));
+        g.drawString("YOU WON", 5, 275);
         this.repaint();
     }
 }

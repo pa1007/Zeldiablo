@@ -70,4 +70,8 @@ public class InterfaceGraphique {
     public void dessinerGameOver() {
         this.panel.dessinerGameOver();
     }
+
+    public void dessinerGagner() {
+        this.panel.dessinerGagner();
+    }
 }

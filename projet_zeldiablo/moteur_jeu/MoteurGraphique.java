@@ -1,6 +1,8 @@
 package moteur_jeu;
 
 
+import jeu.JeuPerso;
+
 /**
  * classe MoteurGraphique represente un moteur de jeu generique.
  * <p>
@@ -55,8 +57,11 @@ public class MoteurGraphique {
             // met en attente
             Thread.sleep(100);
         }
-
-        this.gui.dessinerGameOver();
+        if (((JeuPerso)this.jeu).getPersonnage().avoirGagne()) {
+            this.gui.dessinerGagner();
+        }else {
+            this.gui.dessinerGameOver();
+        }
     }
 
 }

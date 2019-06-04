@@ -1,5 +1,6 @@
 package jeu;
 
+import jeu.cases.Case;
 import jeu.monstre.Monstre;
 import utils.Place;
 
@@ -74,6 +75,10 @@ public class Personnage extends Entite {
                 labyrinthe.supMonstre(m);
             }
         }
+    }
+
+    public boolean avoirGagne() {
+        return this.labyrinthe.rechercherCase(position).getType() == Case.CaseType.SORTIE;
     }
 
     @Override

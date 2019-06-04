@@ -140,6 +140,8 @@ public class Case {
 
     public enum CaseType {
         NORMAL,
+        ENTREE,
+        SORTIE,
         PIEGE
     }
 }

@@ -1,0 +1,27 @@
+﻿- fonctionnalité 1 : IA de Monstre
+- descriptif texte : Permet de bouger un monstre vers un personnage
+- critères de validation :
+	- critère 1  Algo de lee
+	- critère 2  Contourne les murs
+
+
+- fonctionnalité 2 : Chargement des labyrinthes
+- descriptif texte : Permet de cherger un labyrinthe
+- critères de validation :
+	- critère 1  Fidèle au labyrinthe
+	- critère 2  ne dépends pas de la taille du laby
+    - critère 3  A partir d'un un fichier
+
+
+- fonctionnalité 3 : Entrées / sorties
+- descriptif texte : Permet d'avoir une entree et une sortiee
+- critères de validation :
+	- critère 1  Le joueur démarre sur l'entree
+	- critère 2  Le joueur finit sur la sortie
+
+
+- fonctionnalité 4 : Aventurier gagne la partie
+- descriptif texte : Permet de terminer une partie en allant sur la sortie
+- critères de validation :
+	- critère 1  Une fois sur la sortie partie terminée
+	- critère 2  Affichage "You WIN"
