@@ -1,6 +1,7 @@
 package jeu;
 
 import jeu.cases.Case;
+import jeu.cases.Piege;
 import jeu.cases.Sortie;
 import jeu.monstre.Monstre;
 import utils.Place;
@@ -21,10 +22,14 @@ public class Labyrinthe {
         this.cases = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
-                if (j == 19 && i == 19) {
-                    this.cases.add(new Sortie(new Place(19,19)));
+                if (j==18 && i==18){
+                    this.cases.add(new Piege(new Place(18,18)));
                 }else {
-                    this.cases.add(new Case(i, j));
+                    if (j == 19 && i == 19) {
+                        this.cases.add(new Sortie(new Place(19,19)));
+                    }else {
+                        this.cases.add(new Case(i, j));
+                    }
                 }
             }
         }

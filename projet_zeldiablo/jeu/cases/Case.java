@@ -7,7 +7,7 @@ import java.awt.Graphics;
 
 public class Case {
 
-    private static final int TAILLE_CASE = 25;
+    protected static final int TAILLE_CASE = 25;
 
     /**
      * Place associée à la case
