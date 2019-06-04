@@ -16,6 +16,11 @@ import static org.junit.Assert.assertTrue;
 public class TestSauvegarde {
 
 
+    /**
+     * permet de tester que le fichier sois bien la lors de la creation
+     *
+     * @throws IOException Si il y a une erreur
+     */
     @Test
     public void test_Creation_Sauvegarde_Fichier() throws IOException {
         Labyrinthe l = new Labyrinthe();
@@ -27,7 +32,11 @@ public class TestSauvegarde {
 
         assertTrue("La file devais exister", f.exists());
     }
-
+    /**
+     * permet de tester que le contenu du fichier sois bien fidel a la grie
+     *
+     * @throws IOException Si il y a une erreur
+     */
     @Test
     public void test_Creation_Sauvegarde_Contenu() throws IOException {
         Labyrinthe l = new Labyrinthe();

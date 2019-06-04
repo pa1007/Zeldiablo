@@ -4,7 +4,6 @@ import exceptions.CaseException;
 import jeu.Case;
 import org.junit.Test;
 import utils.Place;
-
 import static org.junit.Assert.*;
 
 /**
@@ -195,5 +194,62 @@ public class TestCase {
 
         // Verification
         assertFalse("La case ne devrait etre un mur", c.isMur());
+    }
+
+    /**
+     * Tester si la case rend bien une letre de mur
+     */
+    @Test
+    public void test_getLetter_Mur() {
+        Case c = new Case(1, 1);
+        c.setMur(true);
+
+
+        char l = c.getLetter();
+
+
+        assertEquals("La lettre n'est pas bonne", 'M', l);
+    }
+
+    /**
+     * Tester si la case rend bien une letre vide
+     */
+    @Test
+    public void test_getLetter_Vide() {
+        Case c = new Case(1, 1);
+
+        char l = c.getLetter();
+
+
+        assertEquals("La lettre n'est pas bonne", 'V', l);
+    }
+
+    /**
+     * Tester si la case rend bien une letre occupe
+     */
+    @Test
+    public void test_getLetter_Occupe() {
+        Case c = new Case(1, 1);
+        c.setMur(true);
+
+
+        char l = c.getLetter();
+
+
+        assertEquals("La lettre n'est pas bonne", 'M', l);
+    }
+
+    /**
+     * Tester si la case rend bien une letre de piege
+     */
+    @Test
+    public void test_getLetter_Piege() {
+        Case c = new Case(new Place(1, 1));
+
+        char l = c.getLetter();
+
+
+        assertEquals("La lettre n'est pas bonne", Case.CaseType.PIEGE, c.getType());
+        assertEquals("La lettre n'est pas bonne", 'p', l);
     }
 }
