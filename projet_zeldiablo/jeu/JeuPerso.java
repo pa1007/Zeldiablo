@@ -37,6 +37,9 @@ public class JeuPerso implements moteur_jeu.Jeu {
         if (commandeUser.haut) {
             personnage.seDeplacer('N');
         }
+        if (commandeUser.espace){
+            personnage.attaquer();
+        }
 
 
     }

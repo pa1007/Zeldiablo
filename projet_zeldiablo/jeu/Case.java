@@ -2,7 +2,6 @@ package jeu;
 
 import exceptions.CaseException;
 import utils.Place;
-
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -135,9 +134,6 @@ public class Case {
         }
         else if (isVide()) {
             res = 'V';
-        }
-        else if (type == CaseType.PIEGE) {
-            res = 'P';
         }
         return res;
     }
