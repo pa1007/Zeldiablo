@@ -4,6 +4,7 @@
 	- critère 1  Arret partie
 	- critère 2  Affichage different du peronnage
     - critère 3  Affichage de la fin de partie
+responsable : noel225u
 
 
 - fonctionnalité 2 : Attaque de l'aventurier
@@ -12,6 +13,7 @@
 	- critère 1  Tous les monstres Corps a corps
 	- critère 2  Fais perdre des PV aux monstres
     - critère 3  Lieux lorsqu'on appuis sur une touche
+responsable : louppe7u, sayer6u
 
 
 - fonctionnalité 3 : Sauvegarde des labyrinthe
@@ -20,3 +22,4 @@
 	- critère 1  Fidèle au labyrinthe
 	- critère 2  ne dépends pas de la taille du laby
     - critère 3  Dans un fichier
+responsable : fourrie15u
