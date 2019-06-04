@@ -61,17 +61,18 @@ public class Personnage extends Entite {
         Monstre m2 = labyrinthe.rechercherMonstre(new Place(pPerso.getX() - 1, pPerso.getY()));
         Monstre m3 = labyrinthe.rechercherMonstre(new Place(pPerso.getX(), pPerso.getY() + 1));
         Monstre m4 = labyrinthe.rechercherMonstre(new Place(pPerso.getX(), pPerso.getY() - 1));
-        if (m1 != null) {
-            m1.subirDegats(degats);
-        }
-        if (m2 != null) {
-            m2.subirDegats(degats);
-        }
-        if (m3 != null) {
-            m3.subirDegats(degats);
-        }
-        if (m4 != null) {
-            m4.subirDegats(degats);
+        attaquerMonstre(m1);
+        attaquerMonstre(m2);
+        attaquerMonstre(m3);
+        attaquerMonstre(m4);
+    }
+
+    public void attaquerMonstre(Monstre m) {
+        if (m != null) {
+            m.subirDegats(degats);
+            if (m.etreMort()){
+                labyrinthe.supMonstre(m);
+            }
         }
     }
 
