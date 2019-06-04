@@ -24,14 +24,13 @@ public class TestSauvegarde {
     @Test
     public void test_Creation_Sauvegarde_Fichier() throws IOException {
         Labyrinthe l = new Labyrinthe();
-        Sauvegarde s = new Sauvegarde(l);
 
-        s.save(l.getCases());
-
+        Sauvegarde.save(l);
         File f = new File("SaveLaby.txt");
 
         assertTrue("La file devais exister", f.exists());
     }
+
     /**
      * permet de tester que le contenu du fichier sois bien fidel a la grie
      *
@@ -40,9 +39,8 @@ public class TestSauvegarde {
     @Test
     public void test_Creation_Sauvegarde_Contenu() throws IOException {
         Labyrinthe l = new Labyrinthe();
-        Sauvegarde s = new Sauvegarde(l);
         l.addMur(new Place(4, 4));
-        s.save(l.getCases());
+        Sauvegarde.save(l);
 
         File           f     = new File("SaveLaby.txt");
         BufferedReader br    = new BufferedReader(new FileReader(f));

@@ -7,21 +7,15 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.List;
 
 public class Sauvegarde {
 
-    private static final String     PATH = "SaveLaby.txt";
-    public               Labyrinthe labyrinthe;
+    private static final String PATH = "SaveLaby.txt";
 
-    public Sauvegarde(Labyrinthe labyrinthe) {
-        this.labyrinthe = labyrinthe;
-    }
-
-    public void save(List<Case> cases) throws IOException {
+    public static void save(Labyrinthe l) throws IOException {
         StringBuilder sb    = new StringBuilder();
         int           lastY = 0;
-        for (Case c : cases) {
+        for (Case c : l.getCases()) {
             Place cP = c.getPlace();
 
             if (cP.getX() > lastY) {
@@ -32,7 +26,7 @@ public class Sauvegarde {
 
             char letter = c.getLetter();
             if (letter == 'O') {
-                Monstre m = labyrinthe.rechercherMonstre(cP);
+                Monstre m = l.rechercherMonstre(cP);
                 if (m == null) {
                     letter = 'V';
                     sb.append(letter);
