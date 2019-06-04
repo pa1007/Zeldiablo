@@ -1,6 +1,7 @@
 package test;
 
 import jeu.Labyrinthe;
+import jeu.cases.Case;
 import org.junit.Test;
 import utils.Place;
 import utils.Sauvegarde;
@@ -10,8 +11,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class TestSauvegarde {
 
@@ -51,7 +51,41 @@ public class TestSauvegarde {
         List<String>   lines2 = br2.lines().collect(Collectors.toList());
 
 
-        assertEquals("La file devais exister", lines2, lines);
+        assertEquals("Le contenu n'est pas bon", lines2, lines);
     }
 
+    /**
+     * permet de tester que le fichier sois bien la lors de la creation
+     */
+    @Test
+    public void test_Charge_Sauvegarde_Fichier_Inexistant() {
+        File f = new File("SaveLabyTEST.txt");
+        if (f.exists()) {
+            f.delete();
+        }
+        //on supprime les autres sauvegardes qui peuvent venir interfere
+
+        List<Case> cases = Sauvegarde.charger("SaveLabyTEST.txt");
+
+
+        assertTrue("La file n'existe plus, donc on doit avoir une liste vide", cases.isEmpty());
+    }
+
+    /**
+     * permet de tester que le fichier sois bien la lors de la creation
+     *
+     * @throws IOException Si il y a une erreur
+     */
+    @Test
+    public void test_Charge_Sauvegarde_Fichier() throws IOException {
+        Labyrinthe l = new Labyrinthe();
+        l.addMur(new Place(4, 4));
+        Sauvegarde.save(l);
+
+
+        List<Case> cases = Sauvegarde.charger();
+
+
+        assertArrayEquals("La file devais exister", l.getCases().toArray(), cases.toArray());
+    }
 }

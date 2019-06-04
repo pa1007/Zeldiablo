@@ -4,6 +4,7 @@ import exceptions.CaseException;
 import utils.Place;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.Objects;
 
 public class Case {
 
@@ -136,6 +137,40 @@ public class Case {
             res = 'V';
         }
         return res;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Case)) {
+            return false;
+        }
+
+        Case aCase = (Case) o;
+
+        if (mur != aCase.mur) {
+            return false;
+        }
+        return Objects.equals(place, aCase.place);
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = place != null ? place.hashCode() : 0;
+        result = 31 * result + (mur ? 1 : 0);
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Case{");
+        sb.append("place=").append(place);
+        sb.append(", type=").append(type);
+        sb.append('}');
+        return sb.toString();
     }
 
     public enum CaseType {

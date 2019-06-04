@@ -59,9 +59,27 @@ public abstract class Entite {
         }
     }
 
+    public abstract void attaquer(Entite t);
+
+    public void subirDegats(int d) {
+        pv = pv - d <= 0 ? 0 : pv - d;
+    }
+
+    public boolean etreMort() {
+        return this.pv == 0;
+    }
+
+    public void setLabyrinthe(Labyrinthe l) {
+        this.labyrinthe = l;
+    }
+
+    public  Type getType(){
+        return entiteType;
+    }
+
     private void move(int dx, int dy) {
-        Place tempPlace = new Place(this.position.getX() + dx, this.position.getY() + dy);
-        Case caseRecherchee = this.labyrinthe.rechercherCase(tempPlace);
+        Place tempPlace      = new Place(this.position.getX() + dx, this.position.getY() + dy);
+        Case  caseRecherchee = this.labyrinthe.rechercherCase(tempPlace);
         if (caseRecherchee != null && caseRecherchee.isVide()) {
             this.position.incrementerX(dx);
             this.position.incrementerY(dy);
@@ -74,22 +92,9 @@ public abstract class Entite {
         }
     }
 
-    public abstract void attaquer(Entite t);
-
-    public void subirDegats(int d) {
-      pv = pv- d <=0 ? 0 : pv-d;
-    }
-
-    public boolean etreMort() {
-        return this.pv == 0;
-    }
-
-    public void setLabyrinthe(Labyrinthe l) {
-        this.labyrinthe = l;
-    }
-
     public enum Type {
         MONSTRE,
-        PERSONNAGE
+        PERSONNAGE,
+        MONSTRE_AI
     }
 }

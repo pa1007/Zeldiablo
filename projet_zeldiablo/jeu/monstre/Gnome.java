@@ -11,4 +11,8 @@ public class Gnome extends Monstre {
     public Gnome(Place p, Labyrinthe l) {
         super(POINT_DE_VIE_MONSTRE, p, l);
     }
+
+    public Gnome(Place place, Labyrinthe l, Type monstreAi) {
+        super(POINT_DE_VIE_MONSTRE, place, l,monstreAi);
+    }
 }

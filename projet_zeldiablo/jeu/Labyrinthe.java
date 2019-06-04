@@ -6,15 +6,14 @@ import jeu.cases.Piege;
 import jeu.cases.Sortie;
 import jeu.monstre.Monstre;
 import utils.Place;
-
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Labyrinthe {
 
-    private List<Case> cases;
-    private Personnage aventurier;
+    private List<Case>    cases;
+    private Personnage    aventurier;
     private List<Monstre> monstres;
 
 
@@ -44,7 +43,8 @@ public class Labyrinthe {
         this.monstres = new ArrayList<>();
         if (cases != null && !cases.isEmpty()) {
             this.cases = cases;
-        } else {
+        }
+        else {
             this.cases = new ArrayList<>();
             for (int i = 0; i < 20; i++) {
                 for (int j = 0; j < 20; j++) {
@@ -135,7 +135,7 @@ public class Labyrinthe {
     public void addMonstre(Monstre m) {
         if (m != null) {
             Place p = m.getPosition();
-            Case c = rechercherCase(p);
+            Case  c = rechercherCase(p);
             if (c != null && c.isVide()) {
 
                 monstres.add(m);
@@ -153,7 +153,7 @@ public class Labyrinthe {
     public void supMonstre(Monstre m) {
         if (m != null) {
             Place p = m.getPosition();
-            Case c = rechercherCase(p);
+            Case  c = rechercherCase(p);
             if (c != null && c.isOccupe()) {
                 monstres.remove(m);
                 c.setOccupe(false);
@@ -222,5 +222,9 @@ public class Labyrinthe {
             }
 
         }
+    }
+
+    public List<Monstre> getMonstres() {
+        return this.monstres;
     }
 }

@@ -1,6 +1,9 @@
 package utils;
 
-public class Place {
+import java.util.ArrayList;
+import java.util.List;
+
+public class Place implements Comparable {
 
     /**
      * La coordonnée en X
@@ -31,6 +34,37 @@ public class Place {
     public Place(Place p) {
         this.x = p.x;
         this.y = p.y;
+    }
+
+    /**
+     * This methode compare this place to an object in parameters
+     *
+     * @param o un object, caster durant la methode est lance une ClassCastException si il n'est pas du bon type
+     * @return <ul>
+     * <li>0 : si egual </li>
+     * <li>1 : si le Y du parametre est superieur a celui la  </li>
+     * <li>2 : si le Y de this  est superieur a celui du parametre  </li>
+     * <li>-1 : si le X du parametre est superieur a celui la  </li>
+     * <li>-2 : si le X de this  est superieur a celui du parametre  </li>
+     * </ul>
+     * @throws NullPointerException if the specified object is null
+     * @throws ClassCastException   if the specified object's type prevents it
+     *                              from being compared to this object.
+     */
+    @Override
+    public int compareTo(Object o) {
+        Place p = (Place) o;
+        int   res;
+        if (p.equals(this)) {
+            res = 0;
+        }
+        else if (p.getY() != getY()) {
+            res = p.getY() > getY() ? 1 : 2;
+        }
+        else {
+            res = p.getX() > getX() ? -1 : -2;
+        }
+        return res;
     }
 
     /**
@@ -87,6 +121,15 @@ public class Place {
         this.y = y + dy < 0 ? 0 : y + dy;
     }
 
+    public List<Place> getNext() {
+        List<Place> pl = new ArrayList<>();
+        pl.add(new Place(x + 1, y));
+        pl.add(new Place(x - 1, y));
+        pl.add(new Place(x, y + 1));
+        pl.add(new Place(x, y - 1));
+        return pl;
+    }
+
     /**
      * equals
      *
@@ -110,6 +153,7 @@ public class Place {
         return y == place.y;
     }
 
+
     /**
      * To string
      *
@@ -117,6 +161,6 @@ public class Place {
      */
     @Override
     public String toString() {
-        return "[x=" + x + ",y=" + y + "]";
+        return "{x=" + x + ",y=" + y + "}";
     }
 }

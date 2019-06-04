@@ -3,7 +3,6 @@ package jeu.monstre;
 import jeu.Entite;
 import jeu.Labyrinthe;
 import utils.Place;
-
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -13,6 +12,17 @@ public abstract class Monstre extends Entite {
 
     public Monstre(int pdv, Place p, Labyrinthe laby) {
         super(pdv, p, laby, Type.MONSTRE);
+    }
+
+    public Monstre(int pointDeVieMonstre, Place place, Labyrinthe l, Type monstreAi) {
+        super(pointDeVieMonstre, place, l, monstreAi);
+    }
+
+    @Override
+    public void attaquer(Entite t) {
+        if (peutAttaquer()) {
+            t.subirDegats(degats);
+        }
     }
 
     public Place getPosition() {
@@ -29,17 +39,24 @@ public abstract class Monstre extends Entite {
         );
     }
 
+    public int getPv() {
+        return this.pv;
+    }
+
     private boolean peutAttaquer() {
         boolean res = false;
         if (labyrinthe.getAventurier() != null) {
             Place pPerso = labyrinthe.getAventurier().getPosition();
             if (position.getX() + 1 == pPerso.getX() && position.getY() == pPerso.getY()) {
                 res = true;
-            } else if (position.getX() == pPerso.getX() && position.getY() + 1 == pPerso.getY()) {
+            }
+            else if (position.getX() == pPerso.getX() && position.getY() + 1 == pPerso.getY()) {
                 res = true;
-            } else if (position.getX() - 1 == pPerso.getX() && position.getY() == pPerso.getY()) {
+            }
+            else if (position.getX() - 1 == pPerso.getX() && position.getY() == pPerso.getY()) {
                 res = true;
-            } else if (position.getX() == pPerso.getX() && position.getY() - 1 == pPerso.getY()) {
+            }
+            else if (position.getX() == pPerso.getX() && position.getY() - 1 == pPerso.getY()) {
                 res = true;
             }
         }
@@ -47,13 +64,13 @@ public abstract class Monstre extends Entite {
     }
 
     @Override
-    public void attaquer(Entite t) {
-        if (peutAttaquer()) {
-            t.subirDegats(degats);
-        }
-    }
-
-    public int getPv() {
-        return this.pv;
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Monstre{");
+        sb.append("pv=").append(pv);
+        sb.append(",degats=").append(degats);
+        sb.append(", position=").append(position);
+        sb.append(", entiteType=").append(entiteType);
+        sb.append('}');
+        return sb.toString();
     }
 }

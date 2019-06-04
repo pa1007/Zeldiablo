@@ -1,5 +1,6 @@
 package jeu;
 
+import jeu.monstre.Monstre;
 import moteur_jeu.Commande;
 
 public class JeuPerso implements moteur_jeu.Jeu {
@@ -13,11 +14,6 @@ public class JeuPerso implements moteur_jeu.Jeu {
         this.labyrinthe = labyrinthe;
     }
 
-
-    public Labyrinthe getLabyrinthe() {
-        return labyrinthe;
-    }
-
     /**
      * methode qui contient l'evolution du jeu en fonction de la commande
      *
@@ -25,6 +21,11 @@ public class JeuPerso implements moteur_jeu.Jeu {
      */
     @Override
     public void evoluer(Commande commandeUser) {
+        for (Monstre m : labyrinthe.getMonstres()) {
+            if (m.getType() == Entite.Type.MONSTRE_AI) {
+                m.seDeplacer(((MonstreAI) m).getChoix(labyrinthe.getAventurier().getPosition()));
+            }
+        }
         if (commandeUser.bas) {
             personnage.seDeplacer('S');
         }
@@ -37,13 +38,12 @@ public class JeuPerso implements moteur_jeu.Jeu {
         if (commandeUser.haut) {
             personnage.seDeplacer('N');
         }
-        if (commandeUser.espace){
+        if (commandeUser.espace) {
             personnage.attaquer();
         }
 
 
     }
-
 
     /**
      * @return true si et seulement si le jeu est fini
@@ -55,5 +55,9 @@ public class JeuPerso implements moteur_jeu.Jeu {
 
     public Personnage getPersonnage() {
         return personnage;
+    }
+
+    public Labyrinthe getLabyrinthe() {
+        return labyrinthe;
     }
 }
