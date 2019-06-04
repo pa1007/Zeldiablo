@@ -35,7 +35,8 @@ public class Case {
     public Case(Place place) {
         if (place != null && place.getX() >= 0 && place.getY() >= 0 && place.getX() < 20 && place.getY() < 20) {
             this.place = place;
-        } else {
+        }
+        else {
             throw new CaseException("0 <= (X,Y) < 20");
         }
         this.type = CaseType.NORMAL;
@@ -50,7 +51,8 @@ public class Case {
     public Case(int x, int y) {
         if (x >= 0 && y >= 0 && x < 20 && y < 20) {
             this.place = new Place(x, y);
-        } else {
+        }
+        else {
             throw new CaseException("0 <= (X,Y) < 20");
         }
     }
@@ -121,6 +123,23 @@ public class Case {
 
     public CaseType getType() {
         return type;
+    }
+
+    public char getLetter() {
+        char res = ' ';
+        if (isMur()) {
+            res = 'M';
+        }
+        else if (isOccupe()) {
+            res = 'O';
+        }
+        else if (isVide()) {
+            res = 'V';
+        }
+        else if (type == CaseType.PIEGE) {
+            res = 'P';
+        }
+        return res;
     }
 
     public enum CaseType {
