@@ -23,6 +23,10 @@ public abstract class Entite {
         this.degats = 3;
     }
 
+    public void setDegats(int degats) {
+        this.degats = degats;
+    }
+
     /**
      * Methode publique qui permet de faire se deplacer le personnage selon les points cardinaux
      * Nord :  'N'
