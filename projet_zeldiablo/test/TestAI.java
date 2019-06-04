@@ -19,7 +19,7 @@ public class TestAI {
         Labyrinthe l  = new Labyrinthe();
         Algorithm  al = new Algorithm(l);
 
-        boolean res = al.leeAlgorithm(new Place(-1, -1));
+        boolean res = al.leeAlgorithm(new Place(-1, -1), new Place(1, 1));
 
         assertFalse("L'ago ne devais pas pouvoir se faire", res);
     }
@@ -35,12 +35,12 @@ public class TestAI {
         Algorithm al = new Algorithm(l);
         al.getStartIndex(persoP);
 
-        boolean     res  = al.leeAlgorithm(new Place(3, 3));
+        boolean     res  = al.leeAlgorithm(new Place(3, 3), persoP);
         List<Place> back = al.backTracking();
 
         assertTrue("L'ago  devais  pouvoir se faire", res);
         assertEquals("Il devais avoir 1 places traiter, car on ne veux pas la dernière position", 1, back.size());
-        assertEquals("La place deteminer devrais etre 3,4", new Place(4, 3), back.get(0));
+        assertEquals("La place deteminer devrais etre 3,4", new Place(3, 4), back.get(0));
     }
 
     /**
@@ -52,15 +52,15 @@ public class TestAI {
         Place      persoP = new Place(5, 5);
         l.addPerso(new Personnage("louppe", 1, persoP, l));
         l.addMur(new Place(4, 3));
+        l.addMur(new Place(3, 4));
         Algorithm al = new Algorithm(l);
         al.getStartIndex(persoP);
 
-        boolean     res  = al.leeAlgorithm(new Place(3, 3));
+        boolean     res  = al.leeAlgorithm(new Place(3, 3), persoP);
         List<Place> back = al.backTracking();
-        System.out.println(back);
 
         assertTrue("L'ago  devais  pouvoir se faire", res);
-        assertEquals("Il devais avoir 1 places traiter, car on ne veux pas la dernière position", 1, back.size());
-        assertEquals("La place deteminer devrais etre 3,4", new Place(2, 3), back.get(0));
+        assertEquals("Il devais avoir 1 places traiter, car on ne veux pas la dernière position", 5, back.size());
+        assertEquals("La place deteminer devrais etre 3,4", new Place(2, 3), back.get(back.size() - 1));
     }
 }

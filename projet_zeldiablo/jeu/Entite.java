@@ -81,7 +81,6 @@ public abstract class Entite {
                 move(-1, 0);
                 break;
             default:
-                System.out.println("Caractere non valide");
                 break;
         }
     }

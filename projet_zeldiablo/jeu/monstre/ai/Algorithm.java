@@ -26,7 +26,7 @@ public class Algorithm {
         l.getCases().forEach((a) -> workingList.add(a.getPlace()));
     }
 
-    public boolean leeAlgorithm(Place c) {
+    public boolean leeAlgorithm(Place c, Place destination) {
         int         nb             = 1;
         List<Place> directNeibourg = c.getNext();
         List<Place> passedNeibourg = new ArrayList<>();
@@ -45,7 +45,7 @@ public class Algorithm {
                 }
                 if (x != -1) {
                     s = labyrinthe.rechercherCase(m);
-                    if (s.getPlace().equals(c)) {
+                    if (s.getPlace().equals(destination)) {
                         outIndex = x;
                         found = true;
                         break;
