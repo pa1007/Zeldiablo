@@ -37,6 +37,6 @@ public class Entree extends Case {
     public void afficher(Graphics g) {
         super.afficher(g);
         g.setColor(Color.BLUE);
-        g.fillRect(TAILLE_CASE * place.getX() + 1, TAILLE_CASE * place.getY() + 1, TAILLE_CASE, TAILLE_CASE);
+        g.fillRect(TAILLE_CASE * place.getX(), TAILLE_CASE * place.getY(), TAILLE_CASE, TAILLE_CASE);
     }
 }
