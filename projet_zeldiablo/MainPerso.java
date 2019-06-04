@@ -18,7 +18,12 @@ public class MainPerso {
         JeuPerso    j = new JeuPerso(p, l);
         DessinPerso d = new DessinPerso(j);
         l.addMur(new Place(4, 4));
-        l.addMonstre(new Gnome(new Place(5, 5), l,new AIExperte(new Algorithm(l))));
+        l.addMonstre(new Gnome(new Place(14, 0), l,new AIExperte(new Algorithm(l))));
+        l.addMonstre(new Gnome(new Place(4, 5), l,new AIExperte(new Algorithm(l))));
+        l.addMonstre(new Gnome(new Place(0, 6), l,new AIExperte(new Algorithm(l))));
+        l.addMonstre(new Gnome(new Place(14, 13), l,new AIExperte(new Algorithm(l))));
+        l.addMonstre(new Gnome(new Place(3, 19), l,new AIExperte(new Algorithm(l))));
+        l.addMonstre(new Gnome(new Place(17, 19), l,new AIExperte(new Algorithm(l))));
 
         MoteurGraphique mg = new MoteurGraphique(j, d);
         mg.lancerJeu(500, 500);
