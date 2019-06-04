@@ -14,7 +14,7 @@ public class Piege extends Case {
 
     @Override
     public char getLetter() {
-        return 'p';
+        return 'P';
     }
 
     public void infligerDegats(Personnage p) {
