@@ -1,4 +1,4 @@
-﻿- fonctionnalité 1 : IA de Monstre
+﻿- fonctionnalité 1 : IA Expert de Monstre
 - descriptif texte : Permet de bouger un monstre vers un personnage
 - critères de validation :
 	- critère 1  Algo de lee
@@ -25,3 +25,10 @@
 - critères de validation :
 	- critère 1  Une fois sur la sortie partie terminée
 	- critère 2  Affichage "You WIN"
+
+
+- fonctionnalité 5 : Ajout d'une IA debille
+- descriptif texte : Ajout d'une IA de bas niveau pour les monstres
+- critères de validation :
+	- critère 1  Ne bouge pas
+	- critère 2  attaque au corps a corps
