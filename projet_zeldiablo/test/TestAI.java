@@ -11,6 +11,9 @@ import static org.junit.Assert.*;
 public class TestAI {
 
 
+    /**
+     * Test pour un algo avec aucun chemin
+     */
     @Test
     public void test_Algorith_AucunChemin() {
         Labyrinthe l  = new Labyrinthe();

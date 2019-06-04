@@ -5,12 +5,14 @@ import jeu.cases.Case;
 import org.junit.Test;
 import utils.Place;
 import utils.Sauvegarde;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
+
 import static org.junit.Assert.*;
 
 public class TestSauvegarde {
@@ -42,13 +44,13 @@ public class TestSauvegarde {
         l.addMur(new Place(4, 4));
         Sauvegarde.save(l);
 
-        File           f     = new File("SaveLaby.txt");
-        BufferedReader br    = new BufferedReader(new FileReader(f));
-        List<String>   lines = br.lines().collect(Collectors.toList());
+        File f = new File("SaveLaby.txt");
+        BufferedReader br = new BufferedReader(new FileReader(f));
+        List<String> lines = br.lines().collect(Collectors.toList());
 
-        File           f2     = new File("./projet_zeldiablo/test/testTemoins.txt");
-        BufferedReader br2    = new BufferedReader(new FileReader(f2));
-        List<String>   lines2 = br2.lines().collect(Collectors.toList());
+        File f2 = new File("./projet_zeldiablo/test/testTemoins.txt");
+        BufferedReader br2 = new BufferedReader(new FileReader(f2));
+        List<String> lines2 = br2.lines().collect(Collectors.toList());
 
 
         assertEquals("Le contenu n'est pas bon", lines2, lines);

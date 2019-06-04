@@ -2,12 +2,16 @@ package jeu.cases;
 
 import exceptions.CaseException;
 import utils.Place;
+
 import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Objects;
 
 public class Case {
 
+    /**
+     * Taille de la case (utilisé pour graphics)
+     */
     protected static final int TAILLE_CASE = 25;
 
     /**
@@ -25,6 +29,9 @@ public class Case {
      */
     protected boolean occupe;
 
+    /**
+     * Type de la case (enum)
+     */
     protected CaseType type;
 
     /**
@@ -35,8 +42,7 @@ public class Case {
     public Case(Place place) {
         if (place != null && place.getX() >= 0 && place.getY() >= 0 && place.getX() < 20 && place.getY() < 20) {
             this.place = place;
-        }
-        else {
+        } else {
             throw new CaseException("0 <= (X,Y) < 20");
         }
         this.type = CaseType.NORMAL;
@@ -51,8 +57,7 @@ public class Case {
     public Case(int x, int y) {
         if (x >= 0 && y >= 0 && x < 20 && y < 20) {
             this.place = new Place(x, y);
-        }
-        else {
+        } else {
             throw new CaseException("0 <= (X,Y) < 20");
         }
     }
@@ -86,6 +91,12 @@ public class Case {
         }
     }
 
+    /**
+     * Permet de savoir si une case et vide ou
+     * n'est pas un mur
+     *
+     * @return booleen
+     */
     public boolean isVide() {
         return !this.isOccupe() && !this.isMur();
     }
@@ -110,6 +121,12 @@ public class Case {
         }
     }
 
+    /**
+     * Méthode permettant d'afficher graphiquement
+     * la case
+     *
+     * @param g Graphics
+     */
     public void afficher(Graphics g) {
         g.setColor(Color.BLACK);
         g.drawRect(TAILLE_CASE * place.getX(), TAILLE_CASE * place.getY(), TAILLE_CASE, TAILLE_CASE);
@@ -121,24 +138,38 @@ public class Case {
 
     }
 
+    /**
+     * Récupère le type de la case
+     *
+     * @return CaseType
+     */
     public CaseType getType() {
         return type;
     }
 
+    /**
+     * Convertit le type de la case en lettre
+     *
+     * @return lettre associé à la case
+     */
     public char getLetter() {
         char res = ' ';
         if (isMur()) {
             res = 'M';
-        }
-        else if (isOccupe()) {
+        } else if (isOccupe()) {
             res = 'O';
-        }
-        else if (isVide()) {
+        } else if (isVide()) {
             res = 'V';
         }
         return res;
     }
 
+    /**
+     * Méthode equals permettant de comparer les cases
+     *
+     * @param o objet
+     * @return booleen
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -157,6 +188,11 @@ public class Case {
 
     }
 
+    /**
+     * hashCode
+     *
+     * @return
+     */
     @Override
     public int hashCode() {
         int result = place != null ? place.hashCode() : 0;
@@ -164,6 +200,11 @@ public class Case {
         return result;
     }
 
+    /**
+     * To String de la classe Case
+     *
+     * @return
+     */
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Case{");
@@ -173,6 +214,9 @@ public class Case {
         return sb.toString();
     }
 
+    /**
+     * Enum de types
+     */
     public enum CaseType {
         NORMAL,
         ENTREE,

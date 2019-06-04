@@ -188,7 +188,8 @@ public class TestLabyrinthe {
     }
 
     /**
-     * Test d'ajout d'un mur
+     * Test d'ajout d'un mur sur une case hors
+     * du labyrinthe
      */
     @Test
     public void testAjoutMurSurCaseNull() {
@@ -220,7 +221,7 @@ public class TestLabyrinthe {
 
     /**
      * Test de suppression d'un mur sur
-     * une case null
+     * une case hors du labyrinthe
      */
     @Test
     public void testSuppressionMurSurCaseNull() {
@@ -435,6 +436,9 @@ public class TestLabyrinthe {
         assertTrue("La case devrait etre occupée", l.getCases().get(1).isMur());
     }
 
+    /**
+     * Test de suppression d'un monstre
+     */
     @Test
     public void testSupMonstre() {
         Labyrinthe l = new Labyrinthe();
@@ -447,6 +451,10 @@ public class TestLabyrinthe {
         assertFalse("La case ne devrait pas etre occupée", l.getCases().get(1).isOccupe());
     }
 
+    /**
+     * Test de suppression d'un monstre qui n'est pas
+     * présent dans le labyrinthe
+     */
     @Test
     public void testSupMonstreNonPresent() {
         Labyrinthe l = new Labyrinthe();
@@ -457,6 +465,9 @@ public class TestLabyrinthe {
         assertFalse("La case ne devrait pas etre occupée", l.getCases().get(1).isOccupe());
     }
 
+    /**
+     * Test de suppression d'un monstre null
+     */
     @Test
     public void testSupMonstreNull() {
         Labyrinthe l = new Labyrinthe();
@@ -466,6 +477,9 @@ public class TestLabyrinthe {
         //aucune erreur
     }
 
+    /**
+     * Test d'ajouter un monstre null
+     */
     @Test
     public void testAddMonstreNull() {
         Labyrinthe l = new Labyrinthe();

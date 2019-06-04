@@ -7,7 +7,7 @@ import jeu.monstre.Gnome;
 import org.junit.Test;
 import utils.Place;
 
-import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.*;
 
 public class TestJeuPerso {
     /**
@@ -18,9 +18,9 @@ public class TestJeuPerso {
         // Preparation des donnees
         Place p = new Place(1, 1);
         Labyrinthe l = new Labyrinthe();
-        Personnage perso = new Personnage("Julien", 4 , p, l);
+        Personnage perso = new Personnage("Julien", 4, p, l);
         JeuPerso jp = new JeuPerso(perso, l);
-        Gnome g = new Gnome(new Place(0,0), l);
+        Gnome g = new Gnome(new Place(0, 0), l);
         l.addPerso(perso);
         l.addMonstre(g);
         g.seDeplacer('S');
@@ -32,12 +32,8 @@ public class TestJeuPerso {
         boolean res = perso.etreMort();
         boolean res2 = jp.etreFini();
         // Verification
-        assertEquals(
-                "Le personnage devrait etre mort",
-                true,
-                res
-        );
-        assertEquals("La partie devrait etre fini", true, res2);
+        assertTrue("Le personnage devrait etre mort", res);
+        assertTrue("La partie devrait etre fini", res2);
     }
 
 
@@ -49,22 +45,59 @@ public class TestJeuPerso {
         // Preparation des donnees
         Place p = new Place(0, 0);
         Labyrinthe l = new Labyrinthe();
-        Personnage perso = new Personnage("Paul", 10 , p, l);
+        Personnage perso = new Personnage("Paul", 10, p, l);
         JeuPerso jp = new JeuPerso(perso, l);
-        Gnome g = new Gnome(new Place(1,1), l);
+        Gnome g = new Gnome(new Place(1, 1), l);
         l.addPerso(perso);
         l.addMonstre(g);
-        System.out.println(perso.getPv());
         g.seDeplacer('N');
-        System.out.println(perso.getPv());
         g.seDeplacer('S');
 
         // Methode testee
         boolean res = perso.etreMort();
         boolean res2 = jp.etreFini();
         // Verification
-        assertEquals(
-                "Le personnage ne devrait pas etre mort",false,res);
-        assertEquals("La partie ne evrait pas etre fini",false, res2);
+        assertFalse("Le personnage ne devrait pas etre mort", res);
+        assertFalse("La partie ne evrait pas etre fini", res2);
+    }
+
+    /**
+     * Test personnage qui se déplace sur la case de sortie,
+     * Devrait provoquer l'arret de la partie
+     */
+    @Test
+    public void testPersonnageGagneLaPartieAvecLaSortie() {
+        // Preparation des donnees
+        Place p = new Place(19, 18);
+        Labyrinthe l = new Labyrinthe();
+        Personnage perso = new Personnage("Paul", 10, p, l);
+        l.addPerso(perso);
+        perso.seDeplacer('S');
+
+
+        // Methode testee
+        boolean res = perso.avoirGagne();
+        // Verification
+        assertTrue("Le personnage devrait avoir gagne", res);
+    }
+
+    /**
+     * Test personnage qui se déplace sur le labyrinthe,
+     * ne devrait pas provoquer l'arret de la partie
+     */
+    @Test
+    public void testPersonnageGagnePas() {
+        // Preparation des donnees
+        Place p = new Place(12, 18);
+        Labyrinthe l = new Labyrinthe();
+        Personnage perso = new Personnage("Paul", 10, p, l);
+        l.addPerso(perso);
+        perso.seDeplacer('S');
+
+
+        // Methode testee
+        boolean res = perso.avoirGagne();
+        // Verification
+        assertFalse("Le personnage ne devrait pas avoir gagne", res);
     }
 }

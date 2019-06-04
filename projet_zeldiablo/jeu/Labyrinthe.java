@@ -6,31 +6,49 @@ import jeu.cases.Piege;
 import jeu.cases.Sortie;
 import jeu.monstre.Monstre;
 import utils.Place;
+
 import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Labyrinthe {
 
-    private List<Case>    cases;
-    private Personnage    aventurier;
+    /**
+     * Liste de cases du Labyrinthe
+     */
+    private List<Case> cases;
+
+    /**
+     * Personnage dans le Labyrinthe
+     */
+    private Personnage aventurier;
+
+    /**
+     * Liste de monstres dans le labyrinthe
+     */
     private List<Monstre> monstres;
 
 
+    /**
+     * Constructeur vide de labyrinthe,
+     * initialise la liste de cases (20x20)
+     * avec une case d'entrée en 0,0 et une sortie en 19,19
+     * ainsi qu'un piege en 18,18
+     */
     public Labyrinthe() {
         monstres = new ArrayList<>();
         this.cases = new ArrayList<>();
         for (int i = 0; i < 20; i++) {
             for (int j = 0; j < 20; j++) {
-                if (j==0 && i==0){
-                    this.cases.add(new Entree(new Place(0,0)));
-                }else {
-                    if (j==18 && i==18){
-                        this.cases.add(new Piege(new Place(18,18)));
-                    }else {
+                if (j == 0 && i == 0) {
+                    this.cases.add(new Entree(new Place(0, 0)));
+                } else {
+                    if (j == 18 && i == 18) {
+                        this.cases.add(new Piege(new Place(18, 18)));
+                    } else {
                         if (j == 19 && i == 19) {
-                            this.cases.add(new Sortie(new Place(19,19)));
-                        }else {
+                            this.cases.add(new Sortie(new Place(19, 19)));
+                        } else {
                             this.cases.add(new Case(i, j));
                         }
                     }
@@ -39,12 +57,17 @@ public class Labyrinthe {
         }
     }
 
+    /**
+     * Constructeur de Labyrinthe a partir d'une liste
+     * de cases
+     *
+     * @param cases liste de cases du labyrinthe
+     */
     public Labyrinthe(List<Case> cases) {
         this.monstres = new ArrayList<>();
         if (cases != null && !cases.isEmpty()) {
             this.cases = cases;
-        }
-        else {
+        } else {
             this.cases = new ArrayList<>();
             for (int i = 0; i < 20; i++) {
                 for (int j = 0; j < 20; j++) {
@@ -53,24 +76,6 @@ public class Labyrinthe {
             }
         }
 
-    }
-
-    /**
-     * Getter permettant de retourner la liste de cases du labyrinthe
-     *
-     * @return Liste de cases
-     */
-    public List<Case> getCases() {
-        return cases;
-    }
-
-    /**
-     * Getter permettant de retourner le personnage se situant dans la labyrinthe
-     *
-     * @return Personnage
-     */
-    public Personnage getAventurier() {
-        return aventurier;
     }
 
     /**
@@ -90,6 +95,13 @@ public class Labyrinthe {
         return res;
     }
 
+    /**
+     * Méthode permettant de retourner le monstre se situant
+     * sur une certaine place
+     *
+     * @param p place
+     * @return monstre sur la places'il existe sinon null
+     */
     public Monstre rechercherMonstre(Place p) {
         Monstre res = null;
         for (Monstre m : this.monstres) {
@@ -101,6 +113,11 @@ public class Labyrinthe {
         return res;
     }
 
+    /**
+     * Méthode permettant d'afficher le labyrinthe
+     *
+     * @param g Graphics
+     */
     public void afficher(Graphics g) {
         for (Case c : cases) {
             c.afficher(g);
@@ -135,7 +152,7 @@ public class Labyrinthe {
     public void addMonstre(Monstre m) {
         if (m != null) {
             Place p = m.getPosition();
-            Case  c = rechercherCase(p);
+            Case c = rechercherCase(p);
             if (c != null && c.isVide()) {
 
                 monstres.add(m);
@@ -153,7 +170,7 @@ public class Labyrinthe {
     public void supMonstre(Monstre m) {
         if (m != null) {
             Place p = m.getPosition();
-            Case  c = rechercherCase(p);
+            Case c = rechercherCase(p);
             if (c != null && c.isOccupe()) {
                 monstres.remove(m);
                 c.setOccupe(false);
@@ -213,6 +230,11 @@ public class Labyrinthe {
         return false;
     }
 
+    /**
+     * Méthode permettant d'ajouter un personnage au labyrinthe
+     *
+     * @param perso personnage
+     */
     public void addPerso(Personnage perso) {
         if (this.aventurier == null) {
             Case c = rechercherCase(perso.getPosition());
@@ -224,7 +246,30 @@ public class Labyrinthe {
         }
     }
 
+    /**
+     * Getter pour la liste de monstres
+     *
+     * @return Liste de monstres
+     */
     public List<Monstre> getMonstres() {
         return this.monstres;
+    }
+
+    /**
+     * Getter permettant de retourner la liste de cases du labyrinthe
+     *
+     * @return Liste de cases
+     */
+    public List<Case> getCases() {
+        return cases;
+    }
+
+    /**
+     * Getter permettant de retourner le personnage se situant dans la labyrinthe
+     *
+     * @return Personnage
+     */
+    public Personnage getAventurier() {
+        return aventurier;
     }
 }

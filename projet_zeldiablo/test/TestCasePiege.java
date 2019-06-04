@@ -15,6 +15,10 @@ import static org.junit.Assert.*;
 
 public class TestCasePiege {
 
+    /**
+     * Test d'ajouter une case de piège et le perso
+     * se déplace dedans et perd bien de la vie
+     */
     @Test
     public void testCaseFonctionnelle() {
         Case c1 = new Case(new Place(0, 0));
@@ -33,6 +37,9 @@ public class TestCasePiege {
         assertEquals("Le piege n'a pas fonctionné", 8, res);
     }
 
+    /**
+     * Test de faire spawn un personnage sur le piege
+     */
     @Test
     public void testCaseSpawnSurLePiege() {
         Piege c2 = new Piege(new Place(0, 0));
@@ -49,6 +56,11 @@ public class TestCasePiege {
     }
 
 
+    /**
+     * Test de faire passer un monstre sur un piege
+     * le monstre ne devrait pas perdre de vie
+     * car seulement le perso perd de la vie sur un piege
+     */
     @Test
     public void testCaseMonstre() {
         Case c1 = new Case(new Place(0, 0));

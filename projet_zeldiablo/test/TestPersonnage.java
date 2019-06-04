@@ -91,8 +91,8 @@ public class TestPersonnage {
     @Test
     public void testAttaquerMonstre() {
         Labyrinthe l = new Labyrinthe();
-        Personnage paul = new Personnage("Paul", 10, new Place(1,1), l);
-        Gnome g = new Gnome(new Place(1,3), l);
+        Personnage paul = new Personnage("Paul", 10, new Place(1, 1), l);
+        Gnome g = new Gnome(new Place(1, 3), l);
         l.addMonstre(g);
         l.addPerso(paul);
         paul.setLabyrinthe(l);
@@ -109,8 +109,8 @@ public class TestPersonnage {
     @Test
     public void testAttaquerMonstrePasAcote() {
         Labyrinthe l = new Labyrinthe();
-        Personnage paul = new Personnage("Paul", 10, new Place(1,1), l);
-        Gnome g = new Gnome(new Place(1,4), l);
+        Personnage paul = new Personnage("Paul", 10, new Place(1, 1), l);
+        Gnome g = new Gnome(new Place(1, 4), l);
         l.addMonstre(g);
         l.addPerso(paul);
         paul.setLabyrinthe(l);
@@ -128,7 +128,7 @@ public class TestPersonnage {
     @Test
     public void testAttaquerMonstreMaisEnFaitIlNYAPasDeMonstreSurLeLabyrinthe() {
         Labyrinthe l = new Labyrinthe();
-        Personnage paul = new Personnage("Paul", 10, new Place(1,1), l);
+        Personnage paul = new Personnage("Paul", 10, new Place(1, 1), l);
         l.addPerso(paul);
         paul.setLabyrinthe(l);
         paul.seDeplacer('S');
@@ -144,10 +144,10 @@ public class TestPersonnage {
     @Test
     public void testAttaqueMeurtreMonstre() {
         Labyrinthe l = new Labyrinthe();
-        Personnage paul = new Personnage("Paul", 10, new Place(1,1), l);
+        Personnage paul = new Personnage("Paul", 10, new Place(1, 1), l);
         l.addPerso(paul);
         JeuPerso jp = new JeuPerso(paul, l);
-        Gnome g = new Gnome(new Place(0,1), l);
+        Gnome g = new Gnome(new Place(0, 1), l);
         l.addMonstre(g);
         paul.attaquer();
 
@@ -161,11 +161,11 @@ public class TestPersonnage {
     @Test
     public void testAttaqueMonstreMaisNeMeurtPas() {
         Labyrinthe l = new Labyrinthe();
-        Personnage paul = new Personnage("Paul", 10, new Place(1,1), l);
+        Personnage paul = new Personnage("Paul", 10, new Place(1, 1), l);
         paul.setDegats(1);
         l.addPerso(paul);
         JeuPerso jp = new JeuPerso(paul, l);
-        Gnome g = new Gnome(new Place(0,1), l);
+        Gnome g = new Gnome(new Place(0, 1), l);
         l.addMonstre(g);
         paul.attaquer();
 

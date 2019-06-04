@@ -5,10 +5,22 @@ import moteur_jeu.Commande;
 
 public class JeuPerso implements moteur_jeu.Jeu {
 
+    /**
+     * Personnage associé au jeu
+     */
     private Personnage personnage;
 
+    /**
+     * Labyrinthe associé au jeu
+     */
     private Labyrinthe labyrinthe;
 
+    /**
+     * Constructeur du jeu
+     *
+     * @param personnage personnage
+     * @param labyrinthe labyrinthe
+     */
     public JeuPerso(Personnage personnage, Labyrinthe labyrinthe) {
         this.personnage = personnage;
         this.labyrinthe = labyrinthe;
@@ -44,6 +56,9 @@ public class JeuPerso implements moteur_jeu.Jeu {
     }
 
     /**
+     * Méthode permettant de savoir si le jeu est fini ou pas
+     * en testant sir le personange est mort ou a gagné
+     *
      * @return true si et seulement si le jeu est fini
      */
     @Override
@@ -51,10 +66,20 @@ public class JeuPerso implements moteur_jeu.Jeu {
         return personnage.etreMort() || personnage.avoirGagne();
     }
 
+    /**
+     * Getter pour personnage
+     *
+     * @return personnage
+     */
     public Personnage getPersonnage() {
         return personnage;
     }
 
+    /**
+     * Getter pour labyrinthe
+     *
+     * @return labyrinthe
+     */
     public Labyrinthe getLabyrinthe() {
         return labyrinthe;
     }

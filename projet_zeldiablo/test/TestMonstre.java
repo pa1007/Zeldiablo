@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 public class TestMonstre {
 
     /**
-     * Test attaquer
+     * Test attaquer avec un personnage a côté
      */
     @Test
     public void testAttaquerPersonnageAcote() {
@@ -30,7 +30,7 @@ public class TestMonstre {
     }
 
     /**
-     * Test attaquer
+     * Test attaquer un personnage pas a côté
      */
     @Test
     public void testAttaquerPersonnagePasAcote() {
@@ -49,7 +49,8 @@ public class TestMonstre {
     }
 
     /**
-     * Test attaquer
+     * Test attaquer un personnage pas sur le
+     * même labyrinthe
      */
     @Test
     public void testAttaquerPersonnagePasSurLeMemeLabyrinthe() {
