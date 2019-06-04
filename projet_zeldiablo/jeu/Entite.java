@@ -139,8 +139,8 @@ public abstract class Entite {
      * @param dy deplacement en y
      */
     private void move(int dx, int dy) {
-        Place tempPlace = new Place(this.position.getX() + dx, this.position.getY() + dy);
-        Case caseRecherchee = this.labyrinthe.rechercherCase(tempPlace);
+        Place tempPlace      = new Place(this.position.getX() + dx, this.position.getY() + dy);
+        Case  caseRecherchee = this.labyrinthe.rechercherCase(tempPlace);
         if (caseRecherchee != null && caseRecherchee.isVide()) {
             this.position.incrementerX(dx);
             this.position.incrementerY(dy);
@@ -158,7 +158,6 @@ public abstract class Entite {
      */
     public enum Type {
         MONSTRE,
-        PERSONNAGE,
-        MONSTRE_AI
+        PERSONNAGE
     }
 }

@@ -37,6 +37,7 @@ public class JeuPerso implements moteur_jeu.Jeu {
         for (Iterator<Monstre> iterator = labyrinthe.getMonstres().iterator(); iterator.hasNext(); ) {
             Monstre m = iterator.next();
             if (!m.etreMort()) {
+                labyrinthe.rechercherCase(m.getPosition()).setOccupe(false);
                 m.seMouvoire(labyrinthe.getAventurier().getPosition());
             }
             else {

@@ -73,17 +73,19 @@ public class Sauvegarde {
             String[] sp = line.replace("/", "").split("-");
             for (String ca : sp) {
                 Case c = new Case(ref.y, x);
-                if (ca.equals("M")) {
-                    c.setMur(true);
-                }
-                else if (ca.equals("P")) {
-                    c = new Piege(new Place(ref.y, x));
-                }
-                else if (ca.equals("E")) {
-                    c = new Entree(new Place(ref.y,x));
-                }
-                else if (ca.equals("S")) {
-                    c = new Sortie(new Place(ref.y, x));
+                switch (ca) {
+                    case "M":
+                        c.setMur(true);
+                        break;
+                    case "P":
+                        c = new Piege(new Place(ref.y, x));
+                        break;
+                    case "E":
+                        c = new Entree(new Place(ref.y, x));
+                        break;
+                    case "S":
+                        c = new Sortie(new Place(ref.y, x));
+                        break;
                 }
                 cases.add(c);
                 x++;

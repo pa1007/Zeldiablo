@@ -154,7 +154,6 @@ public class Labyrinthe {
             Place p = m.getPosition();
             Case c = rechercherCase(p);
             if (c != null && c.isVide()) {
-
                 monstres.add(m);
                 c.setOccupe(true);
             }
