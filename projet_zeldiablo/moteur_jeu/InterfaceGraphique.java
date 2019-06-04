@@ -67,4 +67,7 @@ public class InterfaceGraphique {
         this.panel.dessinerJeu();
     }
 
+    public void dessinerGameOver() {
+        this.panel.dessinerGameOver();
+    }
 }

@@ -71,11 +71,11 @@ public abstract class Entite {
     public abstract void attaquer(Entite t);
 
     public void subirDegats(int d) {
-        if (this.pv >= d) {
-            this.pv -= d;
-        } else {
-            this.pv = 0;
-        }
+      pv = pv- d <=0 ? 0 : pv-d;
+    }
+
+    public boolean etreMort() {
+        return this.pv == 0;
     }
 
     public enum Type {

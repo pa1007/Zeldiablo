@@ -55,6 +55,8 @@ public class MoteurGraphique {
             // met en attente
             Thread.sleep(100);
         }
+
+        this.gui.dessinerGameOver();
     }
 
 }

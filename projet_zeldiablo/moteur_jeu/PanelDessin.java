@@ -1,8 +1,7 @@
 package moteur_jeu;
 
 import javax.swing.JPanel;
-import java.awt.Dimension;
-import java.awt.Graphics;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class PanelDessin extends JPanel {
@@ -83,4 +82,10 @@ public class PanelDessin extends JPanel {
         this.repaint();
     }
 
+    public void dessinerGameOver() {
+        Graphics g = this.imageSuivante.getGraphics();
+        g.setColor(Color.red);
+        g.drawString("GAME OVER", 50, 100);
+        this.repaint();
+    }
 }

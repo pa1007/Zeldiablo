@@ -47,6 +47,6 @@ public class JeuPerso implements moteur_jeu.Jeu {
      */
     @Override
     public boolean etreFini() {
-        return false;
+        return personnage.etreMort();
     }
 }

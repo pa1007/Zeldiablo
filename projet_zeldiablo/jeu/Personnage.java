@@ -40,6 +40,9 @@ public class Personnage extends Entite {
 
     public void afficher(Graphics g) {
         g.setColor(Color.BLUE);
+        if (this.etreMort()) {
+            g.setColor(Color.GRAY);
+        }
         g.fillOval(
                 TAILLE_PERSO * position.getX(),
                 TAILLE_PERSO * position.getY(),
