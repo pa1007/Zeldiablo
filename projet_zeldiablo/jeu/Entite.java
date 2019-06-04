@@ -82,10 +82,6 @@ public abstract class Entite {
         this.labyrinthe = l;
     }
 
-    public void setDegats(int degats) {
-        this.degats = degats;
-    }
-
     public enum Type {
         MONSTRE,
         PERSONNAGE
