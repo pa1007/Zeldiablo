@@ -1,6 +1,6 @@
 package utils;
 
-import jeu.Case;
+import jeu.cases.Case;
 import jeu.Labyrinthe;
 import jeu.monstre.Monstre;
 import java.io.BufferedWriter;

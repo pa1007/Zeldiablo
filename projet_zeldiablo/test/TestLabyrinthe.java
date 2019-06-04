@@ -1,6 +1,6 @@
 package test;
 
-import jeu.Case;
+import jeu.cases.Case;
 import jeu.Labyrinthe;
 import jeu.Personnage;
 import jeu.monstre.Gnome;

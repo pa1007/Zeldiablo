@@ -1,5 +1,7 @@
 package jeu;
 
+import jeu.cases.Case;
+import jeu.cases.Piege;
 import utils.Place;
 
 public abstract class Entite {

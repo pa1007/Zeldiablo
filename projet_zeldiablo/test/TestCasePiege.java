@@ -1,11 +1,10 @@
 package test;
 
-import jeu.Case;
+import jeu.cases.Case;
 import jeu.Labyrinthe;
 import jeu.Personnage;
-import jeu.Piege;
+import jeu.cases.Piege;
 import jeu.monstre.Gnome;
-import jeu.monstre.Monstre;
 import org.junit.Test;
 import utils.Place;
 

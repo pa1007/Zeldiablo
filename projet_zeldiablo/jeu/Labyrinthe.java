@@ -1,5 +1,6 @@
 package jeu;
 
+import jeu.cases.Case;
 import jeu.monstre.Monstre;
 import utils.Place;
 

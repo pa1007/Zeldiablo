@@ -1,4 +1,4 @@
-package jeu;
+package jeu.cases;
 
 import exceptions.CaseException;
 import utils.Place;

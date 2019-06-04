@@ -1,5 +1,7 @@
-package jeu;
+package jeu.cases;
 
+import jeu.Personnage;
+import jeu.cases.Case;
 import utils.Place;
 
 public class Piege extends Case {
