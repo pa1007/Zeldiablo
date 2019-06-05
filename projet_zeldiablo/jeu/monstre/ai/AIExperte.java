@@ -1,6 +1,7 @@
 package jeu.monstre.ai;
 
 import utils.Place;
+import utils.RandomUtils;
 import java.util.List;
 
 public class AIExperte implements AI {
@@ -17,7 +18,7 @@ public class AIExperte implements AI {
         boolean     algoLee = algorithm.leeAlgorithm(start, destination);
         List<Place> test    = algorithm.backTracking();
         if (algoLee && test.size() != 0) {
-            return calcMov(start, test.get(test.size() - 1), 2);
+            return calcMov(start, test.get(test.size() - 1), RandomUtils.randBetween(1, 3));
         }
         return 'v';
     }
@@ -26,7 +27,7 @@ public class AIExperte implements AI {
         int  x = p.getX() - start.getX();
         int  y = p.getY() - start.getY();
         char c = 'a';
-        if (canMove == dif) {
+        if (canMove >= dif) {
             if (x != 0) {
                 c = x < 0 ? 'O' : 'E';
             }
@@ -36,7 +37,7 @@ public class AIExperte implements AI {
             canMove = 0;
         }
         else {
-            canMove++;
+            canMove+= 2;
         }
         return c;
 
