@@ -6,7 +6,7 @@
 
 
 - fonctionnalité 2 : Chargement des labyrinthes
-- descriptif texte : Permet de cherger un labyrinthe
+- descriptif texte : Permet de charger un labyrinthe
 - critères de validation :
 	- critère 1  Fidèle au labyrinthe
 	- critère 2  ne dépends pas de la taille du laby
