@@ -19,7 +19,7 @@ public class Entree extends Case {
     /**
      * Méthode permettant de retourner la lettre
      * associé au type de case
-     *
+     *²²²²²²²²
      * @return E
      */
     @Override

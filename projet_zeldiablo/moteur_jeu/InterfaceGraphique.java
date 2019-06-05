@@ -41,6 +41,7 @@ public class InterfaceGraphique {
         this.controleur = controlleurGraph;
         this.panel.addKeyListener(controlleurGraph);
 
+        f.setResizable(false);
         //recuperation du focus
         f.pack();
         f.getContentPane().setFocusable(true);
