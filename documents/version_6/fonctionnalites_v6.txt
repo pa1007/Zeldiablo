@@ -15,4 +15,4 @@
 - fonctionnalité 3 : Barre de vie
 - descriptif texte : Permet d'avoir une barre de vie pour le personnage
 - critères de validation :
-	- critère 1  La couleur change au fur et a mesur que ses pv diminuent
+	- critère 1  La couleur change au fur et a mesure que ses pv diminuent
