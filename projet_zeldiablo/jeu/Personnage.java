@@ -13,14 +13,14 @@ public class Personnage extends Entite {
      * Taille du personnage (utilisé pour swing)
      */
     private static final int TAILLE_PERSO = 25;
+
+
+    private final Niveau niveau;
+
     /**
      * Attribut prive qui correspond au nom du personnage
      */
     private final String nom;
-    /**
-     * Attribut de type Place qui permet de connaitre la position du personnage
-     */
-    private final Place position;
 
     protected int ancienPV;
 
@@ -30,11 +30,20 @@ public class Personnage extends Entite {
      * @param n        nom du personnage
      * @param position Place occupee par le personnage
      */
-    public Personnage(String n, int pdv, Place position, Labyrinthe l) {
+    public Personnage(String n, int pdv, Place position, Labyrinthe l, Niveau niv) {
         super(pdv, position, l, Type.PERSONNAGE);
         this.nom = n;
-        this.position = position;
         this.ancienPV=pdv;
+        niveau = niv;
+    }
+
+    /**
+     * Méthode override d'attaquer
+     *
+     * @param t
+     */
+    @Override
+    public void attaquer(Entite t) {
     }
 
     /**
@@ -82,37 +91,16 @@ public class Personnage extends Entite {
     }
 
     /**
-     * Methode permettant d'attaquer un monstre et
-     * vérifie s'il est mort
-     *
-     * @param m
-     */
-    private void attaquerMonstre(Monstre m) {
-        if (m != null) {
-            m.subirDegats(degats);
-            if (m.etreMort()) {
-                labyrinthe.supMonstre(m);
-            }
-        }
-    }
-
-    /**
      * Méthode permettant de savoir si l'utilisateur a gagné
      * en regardant si il se situe sur une case de type Sortie
      *
      * @return
      */
-    public boolean avoirGagne() {
-        return this.labyrinthe.rechercherCase(position).getType() == Case.CaseType.SORTIE;
-    }
+    public void avoirChanger() {
+        if (this.labyrinthe.rechercherCase(position).getType() == Case.CaseType.SORTIE) {
+            niveau.moveLaby(this, labyrinthe);
 
-    /**
-     * Méthode override d'attaquer
-     *
-     * @param t
-     */
-    @Override
-    public void attaquer(Entite t) {
+        }
     }
 
     /**
@@ -140,6 +128,21 @@ public class Personnage extends Entite {
      */
     public Place getPosition() {
         return position;
+    }
+
+    /**
+     * Methode permettant d'attaquer un monstre et
+     * vérifie s'il est mort
+     *
+     * @param m
+     */
+    private void attaquerMonstre(Monstre m) {
+        if (m != null) {
+            m.subirDegats(degats);
+            if (m.etreMort()) {
+                labyrinthe.supMonstre(m);
+            }
+        }
     }
 
     @Override

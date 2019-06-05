@@ -1,16 +1,15 @@
 package test;
 
-import jeu.cases.Case;
 import jeu.Labyrinthe;
+import jeu.Niveau;
 import jeu.Personnage;
+import jeu.cases.Case;
 import jeu.cases.Piege;
 import jeu.monstre.Gnome;
 import org.junit.Test;
 import utils.Place;
-
 import java.util.ArrayList;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 
 public class TestCasePiege {
@@ -21,14 +20,16 @@ public class TestCasePiege {
      */
     @Test
     public void testCaseFonctionnelle() {
-        Case c1 = new Case(new Place(0, 0));
-        Piege c2 = new Piege(new Place(1, 0));
+        Case            c1     = new Case(new Place(0, 0));
+        Piege           c2     = new Piege(new Place(1, 0));
         ArrayList<Case> lCases = new ArrayList<>();
         lCases.add(c1);
         lCases.add(c2);
-        Labyrinthe laby = new Labyrinthe(lCases);
-        Place positionperso = new Place(0, 0);
-        Personnage personnage = new Personnage("PaulAlexandre", 10, positionperso, laby);
+        Labyrinthe laby          = new Labyrinthe(lCases);
+        Place      positionperso = new Place(0, 0);
+        Niveau     n             = new Niveau();
+        n.addLaby(laby);
+        Personnage personnage = new Personnage("PaulAlexandre", 10, positionperso, laby, n);
         personnage.seDeplacer('E');
 
 
@@ -42,12 +43,14 @@ public class TestCasePiege {
      */
     @Test
     public void testCaseSpawnSurLePiege() {
-        Piege c2 = new Piege(new Place(0, 0));
+        Piege           c2     = new Piege(new Place(0, 0));
         ArrayList<Case> lCases = new ArrayList<>();
         lCases.add(c2);
         Labyrinthe laby = new Labyrinthe(lCases);
-        Place positionperso = new Place(0, 0);
-        Personnage personnage = new Personnage("PaulAlexandre", 10, positionperso, laby);
+        Niveau     n    = new Niveau();
+        n.addLaby(laby);
+        Place      positionperso = new Place(0, 0);
+        Personnage personnage    = new Personnage("PaulAlexandre", 10, positionperso, laby, n);
 
 
         int res = personnage.getPv();
@@ -63,14 +66,14 @@ public class TestCasePiege {
      */
     @Test
     public void testCaseMonstre() {
-        Case c1 = new Case(new Place(0, 0));
-        Piege c2 = new Piege(new Place(1, 0));
+        Case            c1     = new Case(new Place(0, 0));
+        Piege           c2     = new Piege(new Place(1, 0));
         ArrayList<Case> lCases = new ArrayList<>();
         lCases.add(c1);
         lCases.add(c2);
-        Labyrinthe laby = new Labyrinthe(lCases);
-        Place positionmonstre = new Place(0, 0);
-        Gnome gnome = new Gnome(positionmonstre, laby);
+        Labyrinthe laby            = new Labyrinthe(lCases);
+        Place      positionmonstre = new Place(0, 0);
+        Gnome      gnome           = new Gnome(positionmonstre, laby);
         gnome.seDeplacer('E');
 
 

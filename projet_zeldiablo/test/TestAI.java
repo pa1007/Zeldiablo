@@ -1,6 +1,7 @@
 package test;
 
 import jeu.Labyrinthe;
+import jeu.Niveau;
 import jeu.Personnage;
 import jeu.monstre.ai.Algorithm;
 import org.junit.Test;
@@ -31,7 +32,10 @@ public class TestAI {
     public void test_Algorithm_RechercheSimple() {
         Labyrinthe l      = new Labyrinthe();
         Place      persoP = new Place(4, 4);
-        l.addPerso(new Personnage("louppe", 1, persoP, l));
+        Niveau     n      = new Niveau();
+        n.addLaby(l);
+
+        l.addPerso(new Personnage("louppe", 1, persoP, l, n));
         Algorithm al = new Algorithm(l);
         al.getStartIndex(persoP);
 
@@ -50,7 +54,9 @@ public class TestAI {
     public void test_Algorithm_RechercheAvecMur() {
         Labyrinthe l      = new Labyrinthe();
         Place      persoP = new Place(5, 5);
-        l.addPerso(new Personnage("louppe", 1, persoP, l));
+        Niveau     n      = new Niveau();
+        n.addLaby(l);
+        l.addPerso(new Personnage("louppe", 1, persoP, l, n));
         l.addMur(new Place(4, 3));
         l.addMur(new Place(3, 4));
         Algorithm al = new Algorithm(l);

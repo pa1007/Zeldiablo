@@ -2,6 +2,7 @@ package test;
 
 import jeu.JeuPerso;
 import jeu.Labyrinthe;
+import jeu.Niveau;
 import jeu.Personnage;
 import jeu.monstre.Gnome;
 import org.junit.Test;
@@ -18,7 +19,9 @@ public class TestPersonnage {
     public void testSeDeplacerNord() {
         Place place1 = new Place(1, 1);
         Labyrinthe l = new Labyrinthe();
-        Personnage perso = new Personnage("bob", 10, place1, l);
+        Niveau     n = new Niveau();
+        n.addLaby(l);
+        Personnage perso = new Personnage("bob", 10, place1, l,n);
 
         perso.seDeplacer('N');
 
@@ -32,7 +35,9 @@ public class TestPersonnage {
     public void testSeDeplacerSud() {
         Place place1 = new Place(1, 1);
         Labyrinthe l = new Labyrinthe();
-        Personnage perso = new Personnage("bob", 10, place1, l);
+        Niveau     n = new Niveau();
+        n.addLaby(l);
+        Personnage perso = new Personnage("bob", 10, place1, l,n);
         perso.setLabyrinthe(l);
 
         perso.seDeplacer('S');
@@ -47,7 +52,9 @@ public class TestPersonnage {
     public void testSeDeplacerEst() {
         Place place1 = new Place(1, 1);
         Labyrinthe l = new Labyrinthe();
-        Personnage perso = new Personnage("bob", 10, place1, l);
+        Niveau     n = new Niveau();
+        n.addLaby(l);
+        Personnage perso = new Personnage("bob", 10, place1, l,n);
         perso.setLabyrinthe(l);
 
         perso.seDeplacer('E');
@@ -62,7 +69,9 @@ public class TestPersonnage {
     public void testSeDeplacerOuest() {
         Place place1 = new Place(1, 1);
         Labyrinthe l = new Labyrinthe();
-        Personnage perso = new Personnage("bob", 10, place1, l);
+        Niveau     n = new Niveau();
+        n.addLaby(l);
+        Personnage perso = new Personnage("bob", 10, place1, l,n);
         perso.setLabyrinthe(l);
 
         perso.seDeplacer('O');
@@ -77,7 +86,9 @@ public class TestPersonnage {
     public void testSeDeplacerMauvaisChar() {
         Place place1 = new Place(1, 1);
         Labyrinthe l = new Labyrinthe();
-        Personnage perso = new Personnage("bob", 10, place1, l);
+        Niveau     n = new Niveau();
+        n.addLaby(l);
+        Personnage perso = new Personnage("bob", 10, place1, l,n);
         perso.setLabyrinthe(l);
 
         perso.seDeplacer('R');
@@ -91,7 +102,9 @@ public class TestPersonnage {
     @Test
     public void testAttaquerMonstre() {
         Labyrinthe l = new Labyrinthe();
-        Personnage paul = new Personnage("Paul", 10, new Place(1, 1), l);
+        Niveau     n = new Niveau();
+        n.addLaby(l);
+        Personnage paul = new Personnage("Paul", 10, new Place(1, 1), l,n);
         Gnome g = new Gnome(new Place(1, 3), l);
         l.addMonstre(g);
         l.addPerso(paul);
@@ -109,7 +122,9 @@ public class TestPersonnage {
     @Test
     public void testAttaquerMonstrePasAcote() {
         Labyrinthe l = new Labyrinthe();
-        Personnage paul = new Personnage("Paul", 10, new Place(1, 1), l);
+        Niveau     n = new Niveau();
+        n.addLaby(l);
+        Personnage paul = new Personnage("Paul", 10, new Place(1, 1), l,n);
         Gnome g = new Gnome(new Place(1, 4), l);
         l.addMonstre(g);
         l.addPerso(paul);
@@ -128,7 +143,9 @@ public class TestPersonnage {
     @Test
     public void testAttaquerMonstreMaisEnFaitIlNYAPasDeMonstreSurLeLabyrinthe() {
         Labyrinthe l = new Labyrinthe();
-        Personnage paul = new Personnage("Paul", 10, new Place(1, 1), l);
+        Niveau     n = new Niveau();
+        n.addLaby(l);
+        Personnage paul = new Personnage("Paul", 10, new Place(1, 1), l,n);
         l.addPerso(paul);
         paul.setLabyrinthe(l);
         paul.seDeplacer('S');
@@ -144,9 +161,11 @@ public class TestPersonnage {
     @Test
     public void testAttaqueMeurtreMonstre() {
         Labyrinthe l = new Labyrinthe();
-        Personnage paul = new Personnage("Paul", 10, new Place(1, 1), l);
+        Niveau     n = new Niveau();
+        n.addLaby(l);
+        Personnage paul = new Personnage("Paul", 10, new Place(1, 1), l,n);
         l.addPerso(paul);
-        JeuPerso jp = new JeuPerso(paul, l);
+        JeuPerso jp = new JeuPerso(paul, n);
         Gnome g = new Gnome(new Place(0, 1), l);
         l.addMonstre(g);
         paul.attaquer();
@@ -161,10 +180,12 @@ public class TestPersonnage {
     @Test
     public void testAttaqueMonstreMaisNeMeurtPas() {
         Labyrinthe l = new Labyrinthe();
-        Personnage paul = new Personnage("Paul", 10, new Place(1, 1), l);
+        Niveau     n = new Niveau();
+        n.addLaby(l);
+        Personnage paul = new Personnage("Paul", 10, new Place(1, 1), l,n);
         paul.setDegats(1);
         l.addPerso(paul);
-        JeuPerso jp = new JeuPerso(paul, l);
+        JeuPerso jp = new JeuPerso(paul, n);
         Gnome g = new Gnome(new Place(0, 1), l);
         l.addMonstre(g);
         paul.attaquer();

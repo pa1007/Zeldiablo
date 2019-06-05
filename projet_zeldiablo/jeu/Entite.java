@@ -143,6 +143,10 @@ public abstract class Entite {
         return entiteType;
     }
 
+    public void setPosition(Place place) {
+        this.position = place;
+    }
+
     /**
      * Méthode permettant de déplacer le personnage
      * et test s'il peut attaquer et si c'est une case piege alors

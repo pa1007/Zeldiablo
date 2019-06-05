@@ -2,7 +2,6 @@ package dessin;
 
 import jeu.JeuPerso;
 import moteur_jeu.DessinJeu;
-
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 
@@ -34,7 +33,7 @@ public class DessinPerso implements DessinJeu {
         Graphics g = image.getGraphics();
         //ajouter ce qu'on veut dessiner
 
-        jeu.getLabyrinthe().afficher(g);
+        jeu.getCurentLaby().afficher(g);
 
 
         //finir avec

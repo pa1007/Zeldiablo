@@ -5,6 +5,7 @@ import jeu.Labyrinthe;
 import jeu.monstre.ai.AI;
 import jeu.monstre.ai.AIDebille;
 import utils.Place;
+import utils.RandomUtils;
 
 import java.awt.Color;
 import java.awt.Graphics;

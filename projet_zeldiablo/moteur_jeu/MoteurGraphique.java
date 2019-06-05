@@ -13,7 +13,7 @@ public class MoteurGraphique {
     /**
      * le jeu a executer
      */
-    private Jeu jeu;
+    private JeuPerso jeu;
 
     /**
      * l'interface graphique
@@ -31,7 +31,7 @@ public class MoteurGraphique {
      * @param pJeu     jeu a lancer
      * @param pAffiche afficheur a utiliser
      */
-    public MoteurGraphique(Jeu pJeu, DessinJeu pAffiche) {
+    public MoteurGraphique(JeuPerso pJeu, DessinJeu pAffiche) {
         // creation du jeu
         this.jeu = pJeu;
         this.dessin = pAffiche;
@@ -52,14 +52,16 @@ public class MoteurGraphique {
             Commande c = controle.getCommande();
             // fait evoluer le jeu
             this.jeu.evoluer(c);
+            this.jeu.getPersonnage().avoirChanger();
             // affiche le jeu
             this.gui.dessiner();
             // met en attente
             Thread.sleep(100);
         }
-        if (((JeuPerso)this.jeu).getPersonnage().avoirGagne()) {
+        if (this.jeu.getNiveau().isFinish()) {
             this.gui.dessinerGagner();
-        }else {
+        }
+        else {
             this.gui.dessinerGameOver();
         }
     }

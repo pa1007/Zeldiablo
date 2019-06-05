@@ -66,34 +66,34 @@ public class Sauvegarde {
             return cases;
         }
         var ref = new Object() {
-            int y = 0;
+            int x = 0;
         };
         br.lines().forEach((line) -> {
-            int      x  = 0;
+            int      y  = 0;
             String[] sp = line.replace("/", "").split("-");
             for (String ca : sp) {
-                Case c = new Case(ref.y, x);
+                Case c = new Case(ref.x, y);
                 switch (ca) {
                     case "M":
                         c.setMur(true);
                         break;
                     case "P":
-                        c = new Piege(new Place(ref.y, x));
+                        c = new Piege(new Place(ref.x, y));
                         break;
                     case "E":
-                        c = new Entree(new Place(ref.y, x));
+                        c = new Entree(new Place(ref.x, y));
                         break;
                     case "S":
-                        c = new Sortie(new Place(ref.y, x));
+                        c = new Sortie(new Place(ref.x, y));
                         break;
                 }
                 cases.add(c);
-                x++;
-                if (x > 20) {
-                    x = 0;
+                y++;
+                if (y > 20) {
+                    y = 0;
                 }
             }
-            ref.y = ref.y + 1;
+            ref.x = ref.x + 1;
         });
         return cases;
     }

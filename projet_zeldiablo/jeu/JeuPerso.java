@@ -14,17 +14,17 @@ public class JeuPerso implements moteur_jeu.Jeu {
     /**
      * Labyrinthe associé au jeu
      */
-    private Labyrinthe labyrinthe;
+    private Niveau niveau;
 
     /**
      * Constructeur du jeu
      *
      * @param personnage personnage
-     * @param labyrinthe labyrinthe
+     * @param niveau     niveau
      */
-    public JeuPerso(Personnage personnage, Labyrinthe labyrinthe) {
+    public JeuPerso(Personnage personnage, Niveau niveau) {
         this.personnage = personnage;
-        this.labyrinthe = labyrinthe;
+        this.niveau = niveau;
     }
 
     /**
@@ -34,32 +34,35 @@ public class JeuPerso implements moteur_jeu.Jeu {
      */
     @Override
     public void evoluer(Commande commandeUser) {
-        for (Iterator<Monstre> iterator = labyrinthe.getMonstres().iterator(); iterator.hasNext(); ) {
-            Monstre m = iterator.next();
-            if (!m.etreMort()) {
-                labyrinthe.rechercherCase(m.getPosition()).setOccupe(false);
-                m.seMouvoire(labyrinthe.getAventurier().getPosition());
+        Labyrinthe currentLaby = niveau.getCurentLaby();
+        if (currentLaby != null) {
+            for (Iterator<Monstre> iterator = currentLaby.getMonstres().iterator(); iterator.hasNext(); ) {
+                Monstre m = iterator.next();
+                if (!m.etreMort()) {
+                    currentLaby.rechercherCase(m.getPosition()).setOccupe(false);
+                    m.seMouvoire(currentLaby.getAventurier().getPosition());
+                }
+                else {
+                    iterator.remove();
+                }
             }
-            else {
-                iterator.remove();
+            if (commandeUser.bas) {
+                personnage.seDeplacer('S');
             }
-        }
-        if (commandeUser.bas) {
-            personnage.seDeplacer('S');
-        }
-        if (commandeUser.droite) {
-            personnage.seDeplacer('E');
-        }
-        if (commandeUser.gauche) {
-            personnage.seDeplacer('O');
-        }
-        if (commandeUser.haut) {
-            personnage.seDeplacer('N');
-        }
-        if (commandeUser.espace) {
-            personnage.attaquer();
-        }
+            if (commandeUser.droite) {
+                personnage.seDeplacer('E');
+            }
+            if (commandeUser.gauche) {
+                personnage.seDeplacer('O');
+            }
+            if (commandeUser.haut) {
+                personnage.seDeplacer('N');
+            }
+            if (commandeUser.espace) {
+                personnage.attaquer();
+            }
 
+        }
 
     }
 
@@ -71,7 +74,7 @@ public class JeuPerso implements moteur_jeu.Jeu {
      */
     @Override
     public boolean etreFini() {
-        return personnage.etreMort() || personnage.avoirGagne();
+        return personnage.etreMort() || niveau.isFinish();
     }
 
     /**
@@ -84,11 +87,15 @@ public class JeuPerso implements moteur_jeu.Jeu {
     }
 
     /**
-     * Getter pour labyrinthe
+     * Getter pour niveau
      *
-     * @return labyrinthe
+     * @return niveau
      */
-    public Labyrinthe getLabyrinthe() {
-        return labyrinthe;
+    public Niveau getNiveau() {
+        return niveau;
+    }
+
+    public Labyrinthe getCurentLaby() {
+        return niveau.getCurentLaby();
     }
 }

@@ -1,20 +1,16 @@
 package test;
 
-import jeu.cases.Case;
 import jeu.Labyrinthe;
+import jeu.Niveau;
 import jeu.Personnage;
+import jeu.cases.Case;
 import jeu.monstre.Gnome;
 import jeu.monstre.Monstre;
 import org.junit.Test;
 import utils.Place;
-
 import java.util.ArrayList;
 import java.util.List;
-
-import static junit.framework.TestCase.assertFalse;
-import static junit.framework.TestCase.assertTrue;
-import static junit.framework.TestCase.assertEquals;
-import static junit.framework.TestCase.assertNull;
+import static junit.framework.TestCase.*;
 
 /**
  * Classe de test permettant de tester
@@ -29,9 +25,11 @@ public class TestLabyrinthe {
     @Test
     public void testConstructeurLabyrintheAvecPersonnage() {
         // Preparation des donnees
-        Place p = new Place(1, 1);
+        Place      p = new Place(1, 1);
         Labyrinthe l = new Labyrinthe();
-        Personnage perso = new Personnage("Julien", 10, p, l);
+        Niveau     n = new Niveau();
+        n.addLaby(l);
+        Personnage perso = new Personnage("Julien", 10, p, l, n);
 
         // Methode testee
         l.addPerso(perso);
@@ -114,7 +112,7 @@ public class TestLabyrinthe {
         Labyrinthe l = new Labyrinthe();
 
         // Methode testée
-        Case c = l.rechercherCase(new Place(0, 2));
+        Case c   = l.rechercherCase(new Place(0, 2));
         Case res = l.getCases().get(2);
 
         // Verification
@@ -144,9 +142,9 @@ public class TestLabyrinthe {
     @Test
     public void testRechercheDeMonstreDansLabyrinthe() {
         //Preparation des donnees
-        Labyrinthe l = new Labyrinthe();
-        Place p = new Place(1, 1);
-        Gnome gnome = new Gnome(p, l);
+        Labyrinthe l     = new Labyrinthe();
+        Place      p     = new Place(1, 1);
+        Gnome      gnome = new Gnome(p, l);
         l.addMonstre(gnome);
 
         //Methode testee
@@ -163,7 +161,7 @@ public class TestLabyrinthe {
     public void testRechercheDEMonstreDansLabyrintheSansMonstre() {
         //Preparation des donnees
         Labyrinthe l = new Labyrinthe();
-        Place p = new Place(1, 1);
+        Place      p = new Place(1, 1);
 
         //Methode testee
         Monstre res = l.rechercherMonstre(p);
@@ -303,7 +301,9 @@ public class TestLabyrinthe {
     public void testCaseOccupeParPers() {
         // Preparation des donnees
         Labyrinthe l = new Labyrinthe();
-        Personnage p = new Personnage("AyyLmao", 10, new Place(0, 1), l);
+        Niveau     n = new Niveau();
+        n.addLaby(l);
+        Personnage p = new Personnage("AyyLmao", 10, new Place(0, 1), l, n);
 
         // Methode testee
         l.addPerso(p);
@@ -318,7 +318,9 @@ public class TestLabyrinthe {
     public void testEtreOccupe() {
         // Preparation des donnees
         Labyrinthe l = new Labyrinthe();
-        Personnage p = new Personnage("AyyLmao", 10, new Place(0, 1), l);
+        Niveau     n = new Niveau();
+        n.addLaby(l);
+        Personnage p = new Personnage("AyyLmao", 10, new Place(0, 1), l, n);
         l.getCases().get(0).setOccupe(true);
         l.addPerso(p);
 
@@ -354,8 +356,10 @@ public class TestLabyrinthe {
     public void testCaseOccupeParMosntre() {
         // Preparation des donnees
         Labyrinthe l = new Labyrinthe();
-        Gnome g = new Gnome(new Place(0, 1), l);
-        Personnage p = new Personnage("AyyLmao", 10, new Place(0, 0), l);
+        Gnome      g = new Gnome(new Place(0, 1), l);
+        Niveau     n = new Niveau();
+        n.addLaby(l);
+        Personnage p = new Personnage("AyyLmao", 10, new Place(0, 0), l, n);
         l.addPerso(p);
 
         // Methode testee
@@ -373,8 +377,10 @@ public class TestLabyrinthe {
     public void testCaseMurPasOccupeParMosntre() {
         // Preparation des donnees
         Labyrinthe l = new Labyrinthe();
-        Gnome g = new Gnome(new Place(0, 1), l);
-        Personnage p = new Personnage("AyyLmao", 10, new Place(0, 0), l);
+        Gnome      g = new Gnome(new Place(0, 1), l);
+        Niveau     n = new Niveau();
+        n.addLaby(l);
+        Personnage p = new Personnage("AyyLmao", 10, new Place(0, 0), l, n);
         l.addMur(new Place(0, 1));
 
         // Methode testee
@@ -393,8 +399,10 @@ public class TestLabyrinthe {
     public void testCaseMonstreEnDehors() {
         // Preparation des donnees
         Labyrinthe l = new Labyrinthe();
-        Gnome g = new Gnome(new Place(50, 50), l);
-        Personnage p = new Personnage("AyyLmao", 10, new Place(0, 0), l);
+        Gnome      g = new Gnome(new Place(50, 50), l);
+        Niveau     n = new Niveau();
+        n.addLaby(l);
+        Personnage p = new Personnage("AyyLmao", 10, new Place(0, 0), l, n);
         l.addMur(new Place(0, 1));
 
         // Methode testee
@@ -442,7 +450,7 @@ public class TestLabyrinthe {
     @Test
     public void testSupMonstre() {
         Labyrinthe l = new Labyrinthe();
-        Gnome g = new Gnome(new Place(0, 1), l);
+        Gnome      g = new Gnome(new Place(0, 1), l);
         l.addMonstre(g);
 
 
@@ -458,7 +466,7 @@ public class TestLabyrinthe {
     @Test
     public void testSupMonstreNonPresent() {
         Labyrinthe l = new Labyrinthe();
-        Gnome g = new Gnome(new Place(0, 1), l);
+        Gnome      g = new Gnome(new Place(0, 1), l);
 
         l.supMonstre(g);
 
