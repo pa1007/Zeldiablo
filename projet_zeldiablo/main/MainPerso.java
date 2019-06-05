@@ -19,7 +19,7 @@ public class MainPerso {
 
         Niveau     n = new Niveau();
         Labyrinthe l = new Labyrinthe(Sauvegarde.charger());
-        Personnage p = new Personnage("dzqd", 10, new Place(19, 1), l, n);
+        Personnage p = new Personnage("dzqd", 30, new Place(19, 1), l, n);
         l.addPerso(p);
         JeuPerso j = new JeuPerso(p, n);
         n.addLaby(l);
