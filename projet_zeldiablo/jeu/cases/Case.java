@@ -163,40 +163,21 @@ public class Case {
         return res;
     }
 
-    /**
-     * Méthode equals permettant de comparer les cases
-     *
-     * @param o objet
-     * @return booleen
-     */
     @Override
-    public final boolean equals(Object o) {
+    public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Case)) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
-
         Case aCase = (Case) o;
-
-        if (mur != aCase.mur) {
-            return false;
-        }
         return Objects.equals(place, aCase.place);
-
     }
 
-    /**
-     * hashCode
-     *
-     * @return
-     */
     @Override
     public int hashCode() {
-        int result = place != null ? place.hashCode() : 0;
-        result = 31 * result + (mur ? 1 : 0);
-        return result;
+        return Objects.hash(place);
     }
 
     /**

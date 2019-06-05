@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Place implements Comparable {
+public class Place {
 
     /**
      * La coordonnée en X
@@ -37,36 +37,6 @@ public class Place implements Comparable {
         this.y = p.y;
     }
 
-    /**
-     * This methode compare this place to an object in parameters
-     *
-     * @param o un object, caster durant la methode est lance une ClassCastException si il n'est pas du bon type
-     * @return <ul>
-     * <li>0 : si egual </li>
-     * <li>1 : si le Y du parametre est superieur a celui la  </li>
-     * <li>2 : si le Y de this  est superieur a celui du parametre  </li>
-     * <li>-1 : si le X du parametre est superieur a celui la  </li>
-     * <li>-2 : si le X de this  est superieur a celui du parametre  </li>
-     * </ul>
-     * @throws NullPointerException if the specified object is null
-     * @throws ClassCastException   if the specified object's type prevents it
-     *                              from being compared to this object.
-     */
-    @Override
-    public int compareTo(Object o) {
-        Place p = (Place) o;
-        int   res;
-        if (p.equals(this)) {
-            res = 0;
-        }
-        else if (p.getY() != getY()) {
-            res = p.getY() > getY() ? 1 : 2;
-        }
-        else {
-            res = p.getX() > getX() ? -1 : -2;
-        }
-        return res;
-    }
 
     /**
      * Getter de X
@@ -132,11 +102,11 @@ public class Place implements Comparable {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public final boolean equals(Object o) {
         if (this == o) {
             return true;
         }
-        if (o == null || getClass() != o.getClass()) {
+        if (!(o instanceof Place)) {
             return false;
         }
         Place place = (Place) o;
