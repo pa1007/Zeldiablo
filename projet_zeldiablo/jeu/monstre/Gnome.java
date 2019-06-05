@@ -9,7 +9,7 @@ public class Gnome extends Monstre {
     /**
      * Points de vie du Gnome
      */
-    private static final int POINT_DE_VIE_MONSTRE = 3;
+    private static final int POINT_DE_VIE_MONSTRE = 6;
 
     /**
      * Constructeur du monstre

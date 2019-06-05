@@ -110,6 +110,7 @@ public class TestPersonnage {
         paul.seDeplacer('S');
 
         paul.attaquer();
+        paul.attaquer();
 
         assertEquals("Le monstre devrait avoir 0 pdv", 0, g.getPv());
     }
@@ -131,7 +132,7 @@ public class TestPersonnage {
 
         paul.attaquer();
 
-        assertEquals("Le monstre devrait avoir 3 pdv", 3, g.getPv());
+        assertEquals("Le monstre devrait avoir 3 pdv", 6, g.getPv());
     }
 
     /**
@@ -166,6 +167,7 @@ public class TestPersonnage {
         Gnome g = new Gnome(new Place(0, 1), l);
         l.addMonstre(g);
         paul.attaquer();
+        paul.attaquer();
 
 
         assertTrue("Le gnome devrait etre mort", g.etreMort());
@@ -187,6 +189,6 @@ public class TestPersonnage {
         paul.attaquer();
 
         assertFalse("Le gnome ne devrait pas etre mort", g.etreMort());
-        assertEquals("Le gnome devrait avoir 2 pv", 2, g.getPv());
+        assertEquals("Le gnome devrait avoir 2 pv", 5, g.getPv());
     }
 }

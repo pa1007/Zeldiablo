@@ -79,7 +79,7 @@ public class TestCasePiege {
 
         int res = gnome.getPv();
 
-        assertEquals("Le monstre ne devrait pas perdre des pv", 3, res);
+        assertEquals("Le monstre ne devrait pas perdre des pv", 6, res);
     }
 
 
