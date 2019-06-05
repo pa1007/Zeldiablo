@@ -2,6 +2,7 @@ package utils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Place implements Comparable {
 
@@ -130,29 +131,23 @@ public class Place implements Comparable {
         return pl;
     }
 
-    /**
-     * equals
-     *
-     * @param o l'object a tester
-     * @return si les deux sont egaux
-     */
     @Override
     public boolean equals(Object o) {
         if (this == o) {
             return true;
         }
-        if (!(o instanceof Place)) {
+        if (o == null || getClass() != o.getClass()) {
             return false;
         }
-
         Place place = (Place) o;
-
-        if (x != place.x) {
-            return false;
-        }
-        return y == place.y;
+        return x == place.x &&
+               y == place.y;
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
+    }
 
     /**
      * To string
