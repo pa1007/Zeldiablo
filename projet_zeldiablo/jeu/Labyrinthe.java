@@ -189,20 +189,6 @@ public class Labyrinthe {
     }
 
     /**
-     * Methode permettant de savoir si la case situee a une place donnee est un mur ou non
-     *
-     * @param p Place
-     * @return Booleen
-     */
-    public boolean etreMur(Place p) {
-        Case res = rechercherCase(p);
-        if (res != null) {
-            return res.isMur();
-        }
-        return false;
-    }
-
-    /**
      * Methode permeettant de savoir si la case situee a une placee donne est un mur ou non
      *
      * @param p Place

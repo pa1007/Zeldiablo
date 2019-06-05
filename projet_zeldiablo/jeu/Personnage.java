@@ -3,7 +3,6 @@ package jeu;
 import jeu.cases.Case;
 import jeu.monstre.Monstre;
 import utils.Place;
-
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -12,17 +11,13 @@ public class Personnage extends Entite {
     /**
      * Taille du personnage (utilisé pour swing)
      */
-    private static final int TAILLE_PERSO = 25;
-
-
-    private final Niveau niveau;
-
+    private static final int    TAILLE_PERSO = 25;
+    private              int    ancienPV;
+    private final        Niveau niveau;
     /**
      * Attribut prive qui correspond au nom du personnage
      */
-    private final String nom;
-
-    protected int ancienPV;
+    private final        String nom;
 
     /**
      * Constructeur qui cree un personnage avec un nom est une position
@@ -33,17 +28,8 @@ public class Personnage extends Entite {
     public Personnage(String n, int pdv, Place position, Labyrinthe l, Niveau niv) {
         super(pdv, position, l, Type.PERSONNAGE);
         this.nom = n;
-        this.ancienPV=pdv;
+        this.ancienPV = pdv;
         niveau = niv;
-    }
-
-    /**
-     * Méthode override d'attaquer
-     *
-     * @param t
-     */
-    @Override
-    public void attaquer(Entite t) {
     }
 
     /**
@@ -57,8 +43,9 @@ public class Personnage extends Entite {
         Color temp;
         if (ancienPV != pv) {
             temp = Color.BLACK;
-            ancienPV=pv;
-        }else {
+            ancienPV = pv;
+        }
+        else {
             temp = Color.ORANGE;
         }
         g.setColor(temp);
@@ -74,16 +61,28 @@ public class Personnage extends Entite {
         super.afficher(g);
     }
 
+    @Override
+    public void attaquer(Entite t) {
+
+    }
+
+    @Override
+    public void subirDegats(int d) {
+        ancienPV = pv;
+        super.subirDegats(d);
+
+    }
+
     /**
      * Méthode permettant d'attaquer tous les
      * monstres autour du personnage
      */
     public void attaquer() {
-        Place pPerso = getPosition();
-        Monstre m1 = labyrinthe.rechercherMonstre(new Place(pPerso.getX() + 1, pPerso.getY()));
-        Monstre m2 = labyrinthe.rechercherMonstre(new Place(pPerso.getX() - 1, pPerso.getY()));
-        Monstre m3 = labyrinthe.rechercherMonstre(new Place(pPerso.getX(), pPerso.getY() + 1));
-        Monstre m4 = labyrinthe.rechercherMonstre(new Place(pPerso.getX(), pPerso.getY() - 1));
+        Place   pPerso = getPosition();
+        Monstre m1     = labyrinthe.rechercherMonstre(new Place(pPerso.getX() + 1, pPerso.getY()));
+        Monstre m2     = labyrinthe.rechercherMonstre(new Place(pPerso.getX() - 1, pPerso.getY()));
+        Monstre m3     = labyrinthe.rechercherMonstre(new Place(pPerso.getX(), pPerso.getY() + 1));
+        Monstre m4     = labyrinthe.rechercherMonstre(new Place(pPerso.getX(), pPerso.getY() - 1));
         attaquerMonstre(m1);
         attaquerMonstre(m2);
         attaquerMonstre(m3);
@@ -143,12 +142,5 @@ public class Personnage extends Entite {
                 labyrinthe.supMonstre(m);
             }
         }
-    }
-
-    @Override
-    public void subirDegats(int d) {
-        ancienPV=pv;
-        super.subirDegats(d);
-
     }
 }

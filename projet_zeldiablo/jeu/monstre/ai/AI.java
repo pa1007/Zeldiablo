@@ -4,6 +4,6 @@ import utils.Place;
 
 public interface AI {
 
-    public char faireChoix(Place start, Place destination);
+    char faireChoix(Place start, Place destination);
 
 }

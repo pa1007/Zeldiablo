@@ -36,16 +36,7 @@ public class JeuPerso implements moteur_jeu.Jeu {
     public void evoluer(Commande commandeUser) {
         Labyrinthe currentLaby = niveau.getCurentLaby();
         if (currentLaby != null) {
-            for (Iterator<Monstre> iterator = currentLaby.getMonstres().iterator(); iterator.hasNext(); ) {
-                Monstre m = iterator.next();
-                if (!m.etreMort()) {
-                    currentLaby.rechercherCase(m.getPosition()).setOccupe(false);
-                    m.seMouvoire(currentLaby.getAventurier().getPosition());
-                }
-                else {
-                    iterator.remove();
-                }
-            }
+            faireBougerMonstres(currentLaby);
             if (commandeUser.bas) {
                 personnage.seDeplacer('S');
             }
@@ -97,5 +88,18 @@ public class JeuPerso implements moteur_jeu.Jeu {
 
     public Labyrinthe getCurentLaby() {
         return niveau.getCurentLaby();
+    }
+
+    private void faireBougerMonstres(Labyrinthe currentLaby) {
+        for (Iterator<Monstre> iterator = currentLaby.getMonstres().iterator(); iterator.hasNext(); ) {
+            Monstre m = iterator.next();
+            if (!m.etreMort()) {
+                currentLaby.rechercherCase(m.getPosition()).setOccupe(false);
+                m.seMouvoire(currentLaby.getAventurier().getPosition());
+            }
+            else {
+                iterator.remove();
+            }
+        }
     }
 }

@@ -1,8 +1,8 @@
 package jeu.cases;
 
 import utils.Place;
-
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics;
 
 public class Entree extends Case {
 
@@ -19,7 +19,7 @@ public class Entree extends Case {
     /**
      * Méthode permettant de retourner la lettre
      * associé au type de case
-     *²²²²²²²²
+     *
      * @return E
      */
     @Override

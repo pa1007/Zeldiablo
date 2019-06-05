@@ -14,6 +14,10 @@ public class Sauvegarde {
 
     private static final String PATH = "SaveLaby.txt";
 
+    private Sauvegarde() {
+
+    }
+
     public static void save(Labyrinthe l) throws IOException {
         StringBuilder sb    = new StringBuilder();
         int           lastY = 0;
@@ -85,6 +89,8 @@ public class Sauvegarde {
                         break;
                     case "S":
                         c = new Sortie(new Place(ref.x, y));
+                        break;
+                    default:
                         break;
                 }
                 cases.add(c);

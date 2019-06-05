@@ -3,8 +3,8 @@ package jeu;
 import jeu.cases.Case;
 import jeu.cases.Piege;
 import utils.Place;
-
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics;
 
 public abstract class Entite {
 
@@ -17,11 +17,6 @@ public abstract class Entite {
      * Nombre de points de vie
      */
     protected int pv;
-
-    /**
-     * Nombre maximum de points de vie d'une entité
-     */
-    protected int maxPV;
 
     /**
      * Degats de l'entité
@@ -42,6 +37,11 @@ public abstract class Entite {
      * Type de l'entité
      */
     protected Type entiteType;
+
+    /**
+     * Nombre maximum de points de vie d'une entité
+     */
+    private int maxPV;
 
     /**
      * Constructeur de l'entité
@@ -148,6 +148,29 @@ public abstract class Entite {
     }
 
     /**
+     * Méthode permettant d'afficher un monstre
+     *
+     * @param g Graphics
+     */
+    public void afficher(Graphics g) {
+        double vert  = (TAILLE_ENTITE - 5) * (this.rendreCoeffPv() / 100);
+        double rouge = TAILLE_ENTITE - 5 - vert;
+        g.setColor(Color.GREEN);
+        g.fillRect(TAILLE_ENTITE * position.getX() + 2, TAILLE_ENTITE * position.getY() - 6, (int) vert, 3);
+        g.setColor(Color.red);
+        g.fillRect(
+                TAILLE_ENTITE * position.getX() + 2 + (int) vert,
+                TAILLE_ENTITE * position.getY() - 6,
+                (int) rouge,
+                3
+        );
+    }
+
+    public double rendreCoeffPv() {
+        return (((double) this.pv / (double) this.maxPV)) * 100;
+    }
+
+    /**
      * Méthode permettant de déplacer le personnage
      * et test s'il peut attaquer et si c'est une case piege alors
      * il inflige des degats au personnage
@@ -168,24 +191,6 @@ public abstract class Entite {
                 attaquer(labyrinthe.getAventurier());
             }
         }
-    }
-
-    /**
-     * Méthode permettant d'afficher un monstre
-     *
-     * @param g Graphics
-     */
-    public void afficher(Graphics g) {
-        double vert = (TAILLE_ENTITE-5)*(this.rendreCoeffPv()/100);
-        double rouge = TAILLE_ENTITE-5-vert;
-        g.setColor(Color.GREEN);
-        g.fillRect(TAILLE_ENTITE * position.getX() + 2, TAILLE_ENTITE * position.getY() - 6, (int)vert, 3);
-        g.setColor(Color.red);
-        g.fillRect(TAILLE_ENTITE * position.getX() + 2 + (int)vert, TAILLE_ENTITE * position.getY() - 6, (int)rouge, 3);
-    }
-
-    public double rendreCoeffPv() {
-        return (((double)this.pv/(double)this.maxPV))*100;
     }
 
     /**

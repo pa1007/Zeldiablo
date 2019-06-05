@@ -16,9 +16,9 @@ public class AIExperte implements AI {
     @Override
     public char faireChoix(Place start, Place destination) {
         boolean     algoLee = algorithm.leeAlgorithm(start, destination);
-        List<Place> test    = algorithm.backTracking();
-        if (algoLee && test.size() != 0) {
-            return calcMov(start, test.get(test.size() - 1), RandomUtils.randBetween(1, 3));
+        List<Place> places  = algorithm.backTracking();
+        if (algoLee && !places.isEmpty()) {
+            return calcMov(start, places.get(places.size() - 1), RandomUtils.randBetween(1, 3));
         }
         return 'v';
     }
@@ -37,7 +37,7 @@ public class AIExperte implements AI {
             canMove = 0;
         }
         else {
-            canMove+= 2;
+            canMove += 2;
         }
         return c;
 

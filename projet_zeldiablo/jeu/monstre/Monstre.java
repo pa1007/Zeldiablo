@@ -5,8 +5,6 @@ import jeu.Labyrinthe;
 import jeu.monstre.ai.AI;
 import jeu.monstre.ai.AIDebille;
 import utils.Place;
-import utils.RandomUtils;
-
 import java.awt.Color;
 import java.awt.Graphics;
 
@@ -60,16 +58,6 @@ public abstract class Monstre extends Entite {
     }
 
     /**
-     * Setter pour l'intelligence
-     *
-     * @param ai intelligence
-     */
-    public void setAi(AI ai) {
-        this.ai = ai;
-    }
-
-
-    /**
      * Méthode permettant d'afficher un monstre
      *
      * @param g Graphics
@@ -87,6 +75,15 @@ public abstract class Monstre extends Entite {
     }
 
     /**
+     * Setter pour l'intelligence
+     *
+     * @param ai intelligence
+     */
+    public void setAi(AI ai) {
+        this.ai = ai;
+    }
+
+    /**
      * Appel l'intelligence pour se déplacer
      *
      * @param destination destination
@@ -94,46 +91,6 @@ public abstract class Monstre extends Entite {
     public void seMouvoire(Place destination) {
         char res = ai.faireChoix(position, destination);
         super.seDeplacer(res);
-    }
-
-    /**
-     * Méthode permettant de savoir si un monstre
-     * a un personange a proximité de lui et retourne
-     * un booleen s'il peut attaquer
-     *
-     * @return booleen
-     */
-    private boolean peutAttaquer() {
-        boolean res = false;
-        if (labyrinthe.getAventurier() != null) {
-            Place pPerso = labyrinthe.getAventurier().getPosition();
-            if (position.getX() + 1 == pPerso.getX() && position.getY() == pPerso.getY()) {
-                res = true;
-            } else if (position.getX() == pPerso.getX() && position.getY() + 1 == pPerso.getY()) {
-                res = true;
-            } else if (position.getX() - 1 == pPerso.getX() && position.getY() == pPerso.getY()) {
-                res = true;
-            } else if (position.getX() == pPerso.getX() && position.getY() - 1 == pPerso.getY()) {
-                res = true;
-            }
-        }
-        return res;
-    }
-
-    /**
-     * To String du monstre
-     *
-     * @return string
-     */
-    @Override
-    public String toString() {
-        final StringBuilder sb = new StringBuilder("Monstre{");
-        sb.append("pv=").append(pv);
-        sb.append(",degats=").append(degats);
-        sb.append(", position=").append(position);
-        sb.append(", entiteType=").append(entiteType);
-        sb.append('}');
-        return sb.toString();
     }
 
     /**
@@ -152,5 +109,40 @@ public abstract class Monstre extends Entite {
      */
     public int getPv() {
         return this.pv;
+    }
+
+    /**
+     * Méthode permettant de savoir si un monstre
+     * a un personange a proximité de lui et retourne
+     * un booleen s'il peut attaquer
+     *
+     * @return booleen
+     */
+    private boolean peutAttaquer() {
+        boolean res = false;
+        if (labyrinthe.getAventurier() != null) {
+            Place pPerso = labyrinthe.getAventurier().getPosition();
+            if (position.getX() + 1 == pPerso.getX() && position.getY() == pPerso.getY()
+                || position.getX() == pPerso.getX() && position.getY() + 1 == pPerso.getY()
+                || position.getX() - 1 == pPerso.getX() && position.getY() == pPerso.getY()
+                || position.getX() == pPerso.getX() && position.getY() - 1 == pPerso.getY()) {
+                res = true;
+            }
+        }
+        return res;
+    }
+
+    /**
+     * To String du monstre
+     *
+     * @return string
+     */
+    @Override
+    public String toString() {
+        return "Monstre{" + "pv=" + pv
+               + ",degats=" + degats
+               + ", position=" + position
+               + ", entiteType=" + entiteType
+               + '}';
     }
 }

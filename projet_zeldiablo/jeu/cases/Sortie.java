@@ -1,8 +1,8 @@
 package jeu.cases;
 
 import utils.Place;
-
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics;
 
 public class Sortie extends Case {
 
@@ -37,6 +37,6 @@ public class Sortie extends Case {
     public void afficher(Graphics g) {
         super.afficher(g);
         g.setColor(Color.GREEN);
-        g.fillRect(TAILLE_CASE * place.getX(), TAILLE_CASE * place.getY() , TAILLE_CASE, TAILLE_CASE);
+        g.fillRect(TAILLE_CASE * place.getX(), TAILLE_CASE * place.getY(), TAILLE_CASE, TAILLE_CASE);
     }
 }

@@ -2,7 +2,6 @@ package test;
 
 import org.junit.Test;
 import utils.Place;
-
 import static org.junit.Assert.assertEquals;
 
 public class TestPlace {
@@ -11,10 +10,10 @@ public class TestPlace {
      * Test le constructeur
      */
     @Test
-    public void test_Constructeur_Place() {
+    public void testConstructeurPlace() {
         Place p = new Place(1, 2);
-        int i = 1;
-        int z = 2;
+        int   i = 1;
+        int   z = 2;
 
 
         assertEquals("Pas le bon x", i, p.getX());
@@ -25,7 +24,7 @@ public class TestPlace {
      * Test l'incrementation du X
      */
     @Test
-    public void test_Incrementer_X_Fonctionnel() {
+    public void testIncrementerXFonctionnel() {
         Place p = new Place(1, 1);
 
         p.incrementerX(1);
@@ -37,7 +36,7 @@ public class TestPlace {
      * Test l'incrementation du Y
      */
     @Test
-    public void test_Incrementer_Y_Fonctionnel() {
+    public void testIncrementerYFonctionnel() {
         Place p = new Place(1, 1);
 
         p.incrementerY(1);
@@ -49,7 +48,7 @@ public class TestPlace {
      * Test le fais de faire reculer la place
      */
     @Test
-    public void test_Incrementer_Negatif() {
+    public void testIncrementerNegatif() {
         Place p = new Place(2, 2);
 
         p.incrementerX(-1);
@@ -63,7 +62,7 @@ public class TestPlace {
      * Test non fonctionnel, qui regarde la taille
      */
     @Test
-    public void test_Incrementer_NombreNegatif() {
+    public void testIncrementerNombreNegatif() {
         Place p = new Place(1, 1);
 
         p.incrementerX(-40);

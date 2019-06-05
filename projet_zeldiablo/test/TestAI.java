@@ -9,6 +9,9 @@ import utils.Place;
 import java.util.List;
 import static org.junit.Assert.*;
 
+/**
+ * L'IA est tester en testant l'algorithme
+ */
 public class TestAI {
 
 
@@ -16,7 +19,7 @@ public class TestAI {
      * Test pour un algo avec aucun chemin
      */
     @Test
-    public void test_Algorithm_AucunChemin() {
+    public void testAlgorithmAucunChemin() {
         Labyrinthe l  = new Labyrinthe();
         Algorithm  al = new Algorithm(l);
 
@@ -29,7 +32,7 @@ public class TestAI {
      * Nous allons regarder pour une entrée toute simple
      */
     @Test
-    public void test_Algorithm_RechercheSimple() {
+    public void testAlgorithmRechercheSimple() {
         Labyrinthe l      = new Labyrinthe();
         Place      persoP = new Place(4, 4);
         Niveau     n      = new Niveau();
@@ -51,7 +54,7 @@ public class TestAI {
      * On ajout un mur pour voir ce qu'il se passe
      */
     @Test
-    public void test_Algorithm_RechercheAvecMur() {
+    public void testAlgorithmRechercheAvecMur() {
         Labyrinthe l      = new Labyrinthe();
         Place      persoP = new Place(5, 5);
         Niveau     n      = new Niveau();
@@ -69,4 +72,5 @@ public class TestAI {
         assertEquals("Il devais avoir 1 places traiter, car on ne veux pas la dernière position", 5, back.size());
         assertEquals("La place deteminer devrais etre 3,4", new Place(2, 3), back.get(back.size() - 1));
     }
+
 }

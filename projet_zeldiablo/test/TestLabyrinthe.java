@@ -380,7 +380,6 @@ public class TestLabyrinthe {
         Gnome      g = new Gnome(new Place(0, 1), l);
         Niveau     n = new Niveau();
         n.addLaby(l);
-        Personnage p = new Personnage("AyyLmao", 10, new Place(0, 0), l, n);
         l.addMur(new Place(0, 1));
 
         // Methode testee
@@ -402,7 +401,6 @@ public class TestLabyrinthe {
         Gnome      g = new Gnome(new Place(50, 50), l);
         Niveau     n = new Niveau();
         n.addLaby(l);
-        Personnage p = new Personnage("AyyLmao", 10, new Place(0, 0), l, n);
         l.addMur(new Place(0, 1));
 
         // Methode testee

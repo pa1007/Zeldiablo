@@ -2,8 +2,9 @@ package jeu.cases;
 
 import jeu.Personnage;
 import utils.Place;
-
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
 
 public class Piege extends Case {
 
@@ -39,19 +40,6 @@ public class Piege extends Case {
     }
 
     /**
-     * Méthode permettant d'infliger des dégats
-     * à un personnage
-     *
-     * @param p personnage
-     */
-    public void infligerDegats(Personnage p) {
-        p.subirDegats(DEGATS_PIEGE);
-        if (!this.visible) {
-            this.visible = true;
-        }
-    }
-
-    /**
      * Méthode permettant d'afficher graphiquement
      * le piège en fonction de sa visiblité
      *
@@ -68,20 +56,16 @@ public class Piege extends Case {
     }
 
     /**
-     * Getter pour visible
+     * Méthode permettant d'infliger des dégats
+     * à un personnage
      *
-     * @return visibilité
+     * @param p personnage
      */
-    public boolean isVisible() {
-        return visible;
+    public void infligerDegats(Personnage p) {
+        p.subirDegats(DEGATS_PIEGE);
+        if (!this.visible) {
+            this.visible = true;
+        }
     }
 
-    /**
-     * Setter pour visible
-     *
-     * @param b booleen
-     */
-    public void setVisible(boolean b) {
-        this.visible = b;
-    }
 }

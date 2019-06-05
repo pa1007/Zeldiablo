@@ -201,7 +201,7 @@ public class TestCase {
      * Tester si la case rend bien une letre de mur
      */
     @Test
-    public void test_getLetter_Mur() {
+    public void testGetLetterMur() {
         Case c = new Case(1, 1);
         c.setMur(true);
 
@@ -216,7 +216,7 @@ public class TestCase {
      * Tester si la case rend bien une letre vide
      */
     @Test
-    public void test_getLetter_Vide() {
+    public void testGetLetterVide() {
         Case c = new Case(1, 1);
 
         char l = c.getLetter();
@@ -229,26 +229,25 @@ public class TestCase {
      * Tester si la case rend bien une letre occupe
      */
     @Test
-    public void test_getLetter_Occupe() {
+    public void testGetLetterOccupe() {
         Case c = new Case(1, 1);
-        c.setMur(true);
+        c.setOccupe(true);
 
 
         char l = c.getLetter();
 
 
-        assertEquals("La lettre n'est pas bonne", 'M', l);
+        assertEquals("La lettre n'est pas bonne", 'O', l);
     }
 
     /**
      * Tester si la case rend bien une letre de piege
      */
     @Test
-    public void test_getLetter_Piege() {
+    public void testGetLetterPiege() {
         Case c = new Piege(new Place(1, 1));
 
         char l = c.getLetter();
-
 
         assertEquals("La lettre n'est pas bonne", Case.CaseType.PIEGE, c.getType());
         assertEquals("La lettre n'est pas bonne", 'P', l);

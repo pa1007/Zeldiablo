@@ -3,7 +3,6 @@ package test;
 import jeu.Labyrinthe;
 import jeu.cases.Case;
 import org.junit.Test;
-import utils.Place;
 import utils.Sauvegarde;
 import java.io.BufferedReader;
 import java.io.File;
@@ -22,8 +21,8 @@ public class TestSauvegarde {
      * @throws IOException Si il y a une erreur
      */
     @Test
-    public void test_Creation_Sauvegarde_Fichier() throws IOException {
-        Labyrinthe l = new Labyrinthe();
+    public void testCreationSauvegardeFichier() throws IOException {
+        Labyrinthe l = new Labyrinthe(Sauvegarde.charger("./projet_zeldiablo/test/testTemoins.txt"));
 
         Sauvegarde.save(l);
         File f = new File("SaveLaby.txt");
@@ -37,7 +36,7 @@ public class TestSauvegarde {
      * @throws IOException Si il y a une erreur
      */
     @Test
-    public void test_Creation_Sauvegarde_Contenu() throws IOException {
+    public void testCreationSauvegardeContenu() throws IOException {
         Labyrinthe l = new Labyrinthe(Sauvegarde.charger("./projet_zeldiablo/test/testTemoins.txt"));
         Sauvegarde.save(l);
 
@@ -57,7 +56,7 @@ public class TestSauvegarde {
      * permet de tester que le fichier sois bien la lors de la creation
      */
     @Test
-    public void test_Charge_Sauvegarde_Fichier_Inexistant() {
+    public void testChargeSauvegardeFichierInexistant() {
         File f = new File("SaveLabyTEST.txt");
         if (f.exists()) {
             f.delete();
@@ -76,9 +75,8 @@ public class TestSauvegarde {
      * @throws IOException Si il y a une erreur
      */
     @Test
-    public void test_Charge_Sauvegarde_Fichier() throws IOException {
-        Labyrinthe l = new Labyrinthe();
-        l.addMur(new Place(4, 4));
+    public void testChargeSauvegardeFichier() throws IOException {
+        Labyrinthe l = new Labyrinthe(Sauvegarde.charger("./projet_zeldiablo/test/testTemoins.txt"));
         Sauvegarde.save(l);
 
 
