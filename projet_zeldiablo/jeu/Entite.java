@@ -4,12 +4,24 @@ import jeu.cases.Case;
 import jeu.cases.Piege;
 import utils.Place;
 
+import java.awt.*;
+
 public abstract class Entite {
+
+    /**
+     * Taille d'une entite (utilisé dans le graphics pour la barre de vie)
+     */
+    private static final int TAILLE_ENTITE = 25;
 
     /**
      * Nombre de points de vie
      */
     protected int pv;
+
+    /**
+     * Nombre maximum de points de vie d'une entité
+     */
+    protected int maxPV;
 
     /**
      * Degats de l'entité
@@ -41,6 +53,7 @@ public abstract class Entite {
      */
     public Entite(int pointdevie, Place place, Labyrinthe l, Type type) {
         this.pv = pointdevie;
+        this.maxPV = pointdevie;
         this.position = place;
         this.labyrinthe = l;
         this.entiteType = type;
@@ -99,6 +112,7 @@ public abstract class Entite {
      */
     public void subirDegats(int d) {
         pv = pv - d <= 0 ? 0 : pv - d;
+
     }
 
     /**
@@ -150,6 +164,24 @@ public abstract class Entite {
                 attaquer(labyrinthe.getAventurier());
             }
         }
+    }
+
+    /**
+     * Méthode permettant d'afficher un monstre
+     *
+     * @param g Graphics
+     */
+    public void afficher(Graphics g) {
+        double vert = (TAILLE_ENTITE-5)*(this.rendreCoeffPv()/100);
+        double rouge = TAILLE_ENTITE-5-vert;
+        g.setColor(Color.GREEN);
+        g.fillRect(TAILLE_ENTITE * position.getX() + 2, TAILLE_ENTITE * position.getY() - 6, (int)vert, 3);
+        g.setColor(Color.red);
+        g.fillRect(TAILLE_ENTITE * position.getX() + 2 + (int)vert, TAILLE_ENTITE * position.getY() - 6, (int)rouge, 3);
+    }
+
+    public double rendreCoeffPv() {
+        return (((double)this.pv/(double)this.maxPV))*100;
     }
 
     /**

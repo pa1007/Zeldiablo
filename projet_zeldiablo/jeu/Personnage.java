@@ -22,6 +22,8 @@ public class Personnage extends Entite {
      */
     private final Place position;
 
+    protected int ancienPV;
+
     /**
      * Constructeur qui cree un personnage avec un nom est une position
      *
@@ -32,6 +34,7 @@ public class Personnage extends Entite {
         super(pdv, position, l, Type.PERSONNAGE);
         this.nom = n;
         this.position = position;
+        this.ancienPV=pdv;
     }
 
     /**
@@ -40,8 +43,16 @@ public class Personnage extends Entite {
      *
      * @param g Graphics
      */
+    @Override
     public void afficher(Graphics g) {
-        g.setColor(Color.BLUE);
+        Color temp;
+        if (ancienPV != pv) {
+            temp = Color.BLACK;
+            ancienPV=pv;
+        }else {
+            temp = Color.ORANGE;
+        }
+        g.setColor(temp);
         if (this.etreMort()) {
             g.setColor(Color.GRAY);
         }
@@ -51,6 +62,7 @@ public class Personnage extends Entite {
                 TAILLE_PERSO,
                 TAILLE_PERSO
         );
+        super.afficher(g);
     }
 
     /**
@@ -130,4 +142,10 @@ public class Personnage extends Entite {
         return position;
     }
 
+    @Override
+    public void subirDegats(int d) {
+        ancienPV=pv;
+        super.subirDegats(d);
+
+    }
 }

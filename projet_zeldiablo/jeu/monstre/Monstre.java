@@ -73,6 +73,7 @@ public abstract class Monstre extends Entite {
      *
      * @param g Graphics
      */
+    @Override
     public void afficher(Graphics g) {
         g.setColor(Color.red);
         g.fillOval(
@@ -81,6 +82,7 @@ public abstract class Monstre extends Entite {
                 TAILLE_MONSTRE,
                 TAILLE_MONSTRE
         );
+        super.afficher(g);
     }
 
     /**
