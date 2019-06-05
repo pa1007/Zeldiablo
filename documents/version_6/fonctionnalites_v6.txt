@@ -1,0 +1,18 @@
+﻿- fonctionnalité 1 : Gestion des niveaux
+- descriptif texte : Permet d'avoir 3 niveaux de difficulté différente
+- critères de validation :
+	- critère 1  Un niveau décrit la difficulté de gagner
+
+
+- fonctionnalité 2 : Gestion d'un labyrinthe multi-étages
+- descriptif texte : Le labyrinthe est constitué de 3 étages. Chaque étage a un niveau de difficulté différente
+- critères de validation :
+	- critère 1  Les 3 étages s'enchainent
+	- critère 2  Le personnage ne peut pas revenir au niveau précédent
+    - critère 3  Le personnage, en allant sur la sortie passe au niveau suivant
+
+
+- fonctionnalité 3 : Barre de vie
+- descriptif texte : Permet d'avoir une barre de vie pour le personnage
+- critères de validation :
+	- critère 1  La couleur change au fur et a mesur que ses pv diminuent
