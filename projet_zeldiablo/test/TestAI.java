@@ -70,7 +70,7 @@ public class TestAI {
 
         assertTrue("L'ago  devais  pouvoir se faire", res);
         assertEquals("Il devais avoir 1 places traiter, car on ne veux pas la dernière position", 5, back.size());
-        assertEquals("La place deteminer devrais etre 3,4", new Place(2, 3), back.get(back.size() - 1));
+        assertEquals("La place deteminer devrais etre 3,4", new Place(2, 3), back.get(0));
     }
 
 }

@@ -18,7 +18,7 @@ public class AIExperte implements AI {
         boolean     algoLee = algorithm.leeAlgorithm(start, destination);
         List<Place> places  = algorithm.backTracking();
         if (algoLee && !places.isEmpty()) {
-            return calcMov(start, places.get(places.size() - 1), RandomUtils.randBetween(1, 3));
+            return calcMov(start, places.get(0), RandomUtils.randBetween(1, 3));
         }
         return 'v';
     }

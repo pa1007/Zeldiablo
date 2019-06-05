@@ -3,32 +3,60 @@ package jeu.monstre.ai;
 import jeu.Labyrinthe;
 import jeu.cases.Case;
 import utils.Place;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Algorithm {
 
 
+    /**
+     * Permet de stoquer une place avec une numeration donnée par l'algorithme
+     */
     private Map<Place, Integer> temp;
 
+    /**
+     * L'index ou se trouve le joueur rechercher
+     */
     private int outIndex;
 
+    /**
+     * Listes de toutes les places
+     */
     private List<Place> workingList;
 
+    /**
+     * Le labyrinthe qui correspond a l'algo/monstre
+     */
     private Labyrinthe labyrinthe;
 
+    /**
+     * Permet de cree un alogrithm
+     *
+     * @param l le labyrinthe de l'algo
+     */
     public Algorithm(Labyrinthe l) {
         this.labyrinthe = l;
         temp = new HashMap<>();
         workingList = new ArrayList<>();
-        l.getCases().forEach((a) -> workingList.add(a.getPlace()));
+        l.getCases().forEach(a -> workingList.add(a.getPlace()));
     }
 
-    public boolean leeAlgorithm(Place c, Place destination) {
+    /**
+     * l'algorithme de Lee <a href="https://en.wikipedia.org/wiki/Lee_algorithm">https://en.wikipedia.org/wiki/Lee_algorithm </a> qui se fais  par expension<br>
+     * On commence par une place déterminier on lui attribut la valeur de 0, on regarde les voisins, on leur attribut une valeur 1 si ils ne sont pas des murs
+     * ou occuper par un monstre puis on continue ce cheminement en augementant la valeur par le nombre d'itération fais <br>
+     *
+     * @param start       la place de départ
+     * @param destination la place d'arriver
+     * @return <ul>
+     * <li>true : l'algorithme a trouvé un chemin </li>
+     * <li>false : l'algorithme a trouvé un chemin</li>
+     * </ul>
+     * <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Lee_waveprop.png" alt="Image tirée du wikipédia">
+     * @see <a href="https://en.wikipedia.org/wiki/Lee_algorithm">https://en.wikipedia.org/wiki/Lee_algorithm </a>
+     */
+    public boolean leeAlgorithm(Place start, Place destination) {
         int         nb             = 1;
-        List<Place> directNeibourg = c.getNext();
+        List<Place> directNeibourg = start.getNext();
         List<Place> passedNeibourg = new ArrayList<>();
         boolean     found          = false;
         while (!found) {
@@ -75,6 +103,9 @@ public class Algorithm {
         return found;
     }
 
+    /**
+     * @return la liste des action a faire en partant de la plus proche
+     */
     public List<Place> backTracking() {
         List<Place> res            = new ArrayList<>();
         List<Place> directNeibourg = workingList.get(outIndex).getNext();
@@ -120,9 +151,16 @@ public class Algorithm {
         }
         temp.clear();
         outIndex = 0;
+        Collections.reverse(res);
         return res;
     }
 
+    /**
+     * Permet d'avoir l'index de début dans la list
+     *
+     * @param destination la place rechercher
+     * @return la position de l'index de début, -1 si pas trouvé
+     */
     public int getStartIndex(Place destination) {
         int i = 0;
         for (Place p : workingList) {
@@ -135,6 +173,12 @@ public class Algorithm {
         return -1;
     }
 
+    /**
+     * permet d'avoir le resultat d'une place depuis la sauvegarde
+     *
+     * @param m la place rechercher
+     * @return la valeur attribuer a la place, -1 si pas trouve
+     */
     private int getFromTemp(Place m) {
         for (Place p : temp.keySet()) {
             if (p.equals(m)) {
@@ -144,6 +188,12 @@ public class Algorithm {
         return -1;
     }
 
+    /**
+     * Permet de savoir si la place est dans la Map
+     *
+     * @param m la place rechercher
+     * @return true si elle est presente, false sinon
+     */
     private boolean contains(Place m) {
         for (Place p : temp.keySet()) {
             if (p.equals(m)) {
